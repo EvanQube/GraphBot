@@ -2,7 +2,7 @@ module.exports = {
   name: 'help',
   description: "This is a help command!",
   execute(msg, Discord, prefix) {
-    const helpEmbed = new Discord.MessageEmbed();
+    const helpEmbed = new Discord.MessageEmbed()
     .setColor('ORANGE')
       .setTitle('**Команды**')
       .setUrl('https://discord.gg/683xBMK')
