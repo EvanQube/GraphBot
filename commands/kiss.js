@@ -10,9 +10,9 @@ module.exports = {
       kisses = 16;
       kissesNumber = Math.floor(Math.random() * (kisses - 1)) + 1;
       msg.channel.send('<@' + author + '>' + '\xa0' + 'целует' + '\xa0' + '<@' + user.id + '>', {
-        files: ['./src/hugs/' + kissesNumber + '.gif']
+        files: ['./src/kisses/' + kissesNumber + '.gif']
       })
-      msg.delete().catch();
     }
+    msg.delete().catch();
   }
 }
