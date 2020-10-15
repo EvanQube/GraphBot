@@ -8,6 +8,6 @@ module.exports = {
     msg.channel.send('<@' + author + '>' + '\xa0' + 'плачет', {
       files: ['./src/crys/' + cryNumber + '.gif']
     })
+    msg.delete().catch();
   }
-  msg.delete().catch();
 }
