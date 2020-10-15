@@ -1,18 +1,16 @@
 module.exports = {
-  name: 'rating',
-  description: 'Включение режима игр на рейтинг',
+  name: 'cry',
+  description: 'Плач',
   execute(msg, args, ) {
-    const channel = msg.guild.channels.cache.get('760540460346638386');
-    if (!msg.member.roles.cache.get('759399027661209610')) return msg.reply('**у вас нет прав на использование этой команды!**');
-    if (!args[0]) return msg.reply('необходимо указать on или off')
-    if(args[0] === 'on') {
-      channel.setRateLimitPerUser(15,'lockdown lvl1')
-      msg.channel.send('**Медленный режим поставлен**')
+    if (!msg.mentions.users.size) return msg.reply('нужно отметить пользователся, которого вы хотите поцеловать.')
+    else {
+      author = msg.author.id;
+      cry = 11;
+      cryNumber = Math.floor(Math.random() * (cry - 1)) + 1;
+      msg.channel.send('<@' + author + '>' + '\xa0' + 'плачет', {
+        files: ['./src/crys/' + cryNumber + '.gif']
+      })
     }
-    if(args[0] === 'off') {
-      channel.setRateLimitPerUser(0,'lockdown off')
-      msg.channel.send('**Медленный режим убран**')
-    }
-      msg.delete().catch();
-    }
+    msg.delete().catch();
+  }
 }
