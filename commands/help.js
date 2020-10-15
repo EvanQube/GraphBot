@@ -3,7 +3,7 @@ module.exports = {
   description: "This is a help command!",
   execute(msg, Discord, prefix) {
     const helpEmbed = new Discord.MessageEmbed()
-    .setColor('ORANGE')
+      .setColor('ORANGE')
       .setTitle('**Команды**')
       .setUrl('https://discord.gg/683xBMK')
       .setAuthor('GraphBot', 'https://i.imgur.com/SY6e3l3.jpg', 'https://discord.gg/683xBMK')
@@ -26,5 +26,4 @@ module.exports = {
       msg.channel.send(helpEmbed)
       msg.delete().catch();
   }
-}
 }
