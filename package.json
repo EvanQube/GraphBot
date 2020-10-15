@@ -1,6 +1,6 @@
 {
   "name": "GraphBot",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Discord bot project",
   "main": "index.js",
   "author": "Evan",
