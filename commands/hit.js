@@ -12,7 +12,7 @@ module.exports = {
       msg.channel.send('<@' + author + '>' + '\xa0' + 'ударяет' + '\xa0' + '<@' + user.id + '>', {
         files: ['./src/hits/' + hitsNumber + '.gif']
       })
+      msg.delete().catch();
     }
-    msg.delete().catch();
   }
 }
