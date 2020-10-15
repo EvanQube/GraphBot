@@ -10,13 +10,15 @@ module.exports = {
       name: '\u200B',
       value:
       prefix + 'help - выводит это сообщение' + '\n' +
-      prefix + 'hug - обнять собеседника',
+      prefix + 'hug - обнять собеседника' + '\n' +
+      prefix + 'ping - проверка бота',
       inline: true
     }, {
       name: '\u200B',
       value:
       prefix + 'kiss - поцеловать собеседника' + '\n' +
-      prefix + 'hit - ударить собеседника',
+      prefix + 'hit - ударить собеседника'+ '\n' +
+      prefix + 'cry - поплакать',
       inline: true
     })
       .setImage('https://i.imgur.com/OYN4T0p.jpg')
