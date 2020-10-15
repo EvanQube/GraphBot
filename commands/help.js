@@ -5,7 +5,6 @@ module.exports = {
     const helpEmbed = new Discord.MessageEmbed()
     .setColor('ORANGE')
     .setTitle('**Команды**')
-    .setUrl('https://discord.gg/683xBMK')
     .setAuthor('GraphBot', 'https://i.imgur.com/SY6e3l3.jpg', 'https://discord.gg/683xBMK')
     .addFields({
       name: '\u200B',
