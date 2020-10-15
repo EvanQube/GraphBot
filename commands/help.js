@@ -13,7 +13,7 @@ module.exports = {
         prefix + 'help - выводит это сообщение' + '\n' +
         prefix + 'hug - обнять собеседника',
         inline: true
-      } {
+      }, {
         name: '\u200B',
         value:
         prefix + 'kiss - поцеловать собеседника' + '\n' +
