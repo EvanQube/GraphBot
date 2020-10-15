@@ -5,7 +5,7 @@ module.exports = {
     const helpEmbed = new Discord.MessageEmbed()
     .setColor('ORANGE')
     .setTitle('**Команды**')
-    .setAuthor('GraphBot', 'https://i.imgur.com/OYN4T0p.jpg', 'https://discord.gg/683xBMK')
+    .setAuthor('GraphBot', 'https://i.imgur.com/SY6e3l3.jpg', 'https://discord.gg/683xBMK')
     .addFields({
       name: '\u200B',
       value:
@@ -19,7 +19,7 @@ module.exports = {
       prefix + 'hit - ударить собеседника',
       inline: true
     })
-      .setImage('https://i.imgur.com/BLn6BfO.jpg')
+      .setImage('https://i.imgur.com/OYN4T0p.jpg')
       .setTimestamp()
 	    .setFooter('Ламповый бот для рп!', 'https://i.imgur.com/SY6e3l3.jpg');
       msg.channel.send(helpEmbed)
