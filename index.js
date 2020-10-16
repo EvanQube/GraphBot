@@ -17,8 +17,7 @@ client.on('ready', async () => {
   client.user.setPresence({
     status: 'online',
     activity: {
-      name: prefix + 'help | Автор - Evan🎃#6456' + '\n' +
-      `На ${client.guilds.cache.size} серверах`,
+      name: prefix + `help | На ${client.guilds.cache.size} серверах`,
       type: 'WATCHING'
     }
   })
