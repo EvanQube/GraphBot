@@ -13,7 +13,8 @@ module.exports = {
       prefix + 'hug - обнять собеседника' + '\n' +
       prefix + 'ping - проверка бота' + '\n' +
       prefix + 'pat - погладить собеседника' + '\n' +
-      prefix + 'kill - убить собеседника',
+      prefix + 'kill - убить собеседника' + '\n' +
+      prefix + 'invite - пригласить бота к себе',
       inline: true
     }, {
       name: '\u200B',
