@@ -2,7 +2,7 @@ module.exports = {
   name: 'update',
   description: "This is an update command!",
   execute(msg, Discord, prefix) {
-    const helpEmbed = new Discord.MessageEmbed()
+    const updateEmbed = new Discord.MessageEmbed()
       .setColor('GREEN')
       .setTitle('**Версия 1.1.1**')
       .setAuthor('GraphBot', 'https://i.imgur.com/SY6e3l3.jpg', 'https://discord.gg/683xBMK')
@@ -15,7 +15,7 @@ module.exports = {
       .setImage('https://i.imgur.com/QQTSOfy.jpg')
       .setTimestamp()
       .setFooter('Ламповый бот для рп!', 'https://i.imgur.com/SY6e3l3.jpg');
-    msg.channel.send(helpEmbed)
+    msg.channel.send(updateEmbed)
     msg.delete().catch();
   }
 }
