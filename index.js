@@ -36,4 +36,7 @@ client.on('message', msg => {
   else if (command === 'kiss') {client.commands.get('kiss').execute(msg, args);}
   else if (command === 'cry') {client.commands.get('cry').execute(msg, args);}
   else if (command === 'sleep') {client.commands.get('sleep').execute(msg, args);}
+  else if (command === 'pat') {client.commands.get('pat').execute(msg, args);}
+  else if (command === 'laugh') {client.commands.get('laugh').execute(msg, args);}
+  else if (command === 'invite') {client.commands.get('invite').execute(msg);}
 });

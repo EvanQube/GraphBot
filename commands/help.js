@@ -11,14 +11,17 @@ module.exports = {
       value:
       prefix + 'help - выводит это сообщение' + '\n' +
       prefix + 'hug - обнять собеседника' + '\n' +
-      prefix + 'ping - проверка бота',
+      prefix + 'ping - проверка бота' + '\n' +
+      prefix + '**pat - погладить собеседника**',
       inline: true
     }, {
       name: '\u200B',
       value:
       prefix + 'kiss - поцеловать собеседника' + '\n' +
       prefix + 'hit - ударить собеседника'+ '\n' +
-      prefix + 'cry - поплакать',
+      prefix + 'cry - поплакать'+ '\n' +
+      prefix + '**sleep - готовность ко сну**' + '\n' +
+      prefix + '**laugh - посмеятся**',
       inline: true
     })
       .setImage('https://i.imgur.com/OYN4T0p.jpg')
