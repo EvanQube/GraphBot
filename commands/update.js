@@ -1,6 +1,6 @@
 module.exports = {
-  name: 'help',
-  description: "This is a help command!",
+  name: 'update',
+  description: "This is an update command!",
   execute(msg, Discord, prefix) {
     const helpEmbed = new Discord.MessageEmbed()
       .setColor('GREEN')
