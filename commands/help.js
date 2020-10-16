@@ -12,7 +12,8 @@ module.exports = {
       prefix + 'help - выводит это сообщение' + '\n' +
       prefix + 'hug - обнять собеседника' + '\n' +
       prefix + 'ping - проверка бота' + '\n' +
-      prefix + '**pat - погладить собеседника**',
+      prefix + 'pat - погладить собеседника' + '\n' +
+      prefix + 'kill - убить собеседника',
       inline: true
     }, {
       name: '\u200B',
@@ -20,8 +21,9 @@ module.exports = {
       prefix + 'kiss - поцеловать собеседника' + '\n' +
       prefix + 'hit - ударить собеседника'+ '\n' +
       prefix + 'cry - поплакать'+ '\n' +
-      prefix + '**sleep - готовность ко сну**' + '\n' +
-      prefix + '**laugh - посмеятся**',
+      prefix + 'sleep - готовность ко сну' + '\n' +
+      prefix + 'laugh - посмеятся' + '\n' +
+      prefix + 'update - узнать, что добавили',
       inline: true
     })
       .setImage('https://i.imgur.com/OYN4T0p.jpg')

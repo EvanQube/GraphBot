@@ -39,4 +39,6 @@ client.on('message', msg => {
   else if (command === 'pat') {client.commands.get('pat').execute(msg, args);}
   else if (command === 'laugh') {client.commands.get('laugh').execute(msg, args);}
   else if (command === 'invite') {client.commands.get('invite').execute(msg);}
+  else if (command === 'kill') {client.commands.get('kill').execute(msg);}
+  else if (command === 'update') {client.commands.get('update').execute(msg);}
 });
