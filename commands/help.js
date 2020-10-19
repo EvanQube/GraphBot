@@ -30,7 +30,7 @@ module.exports = {
     })
       .setImage('https://i.imgur.com/OYN4T0p.jpg')
       .setTimestamp()
-	    .setFooter('Версия' + version, 'https://i.imgur.com/SY6e3l3.jpg');
+	    .setFooter(`На ${client.guilds.cache.size} серверах`, 'https://i.imgur.com/SY6e3l3.jpg');
       msg.channel.send(helpEmbed)
       msg.delete().catch();
   }
