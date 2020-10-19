@@ -24,7 +24,7 @@ module.exports = {
       prefix + 'cry - поплакать'+ '\n' +
       prefix + 'sleep - готовность ко сну' + '\n' +
       prefix + 'laugh - посмеятся' + '\n' +
-      prefix + 'info - актуальная информация о боте \n'
+      prefix + 'info - актуальная информация о боте \n' +
       prefix + 'update - узнать, что добавили',
       inline: true
     })
