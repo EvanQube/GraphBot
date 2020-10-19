@@ -31,7 +31,7 @@ client.on('message', msg => {
   const command = args.shift().toLowerCase();
 
   if (command === 'ping') {client.commands.get('ping').execute(msg, args);}
-  else if (command === 'help') {client.commands.get('help').execute(msg, Discord, prefix, version);}
+  else if (command === 'help') {client.commands.get('help').execute(msg, Discord, prefix, client);}
   else if (command === 'hug') {client.commands.get('hug').execute(msg, args);}
   else if (command === 'hit') {client.commands.get('hit').execute(msg, args);}
   else if (command === 'kiss') {client.commands.get('kiss').execute(msg, args);}
