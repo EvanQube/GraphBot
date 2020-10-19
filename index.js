@@ -9,6 +9,7 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command);
 }
 
+version = '1.1.2';
 prefix = "/";
 client.login(process.env.token);
 
@@ -30,7 +31,7 @@ client.on('message', msg => {
   const command = args.shift().toLowerCase();
 
   if (command === 'ping') {client.commands.get('ping').execute(msg, args);}
-  else if (command === 'help') {client.commands.get('help').execute(msg, Discord, prefix);}
+  else if (command === 'help') {client.commands.get('help').execute(msg, Discord, prefix, version);}
   else if (command === 'hug') {client.commands.get('hug').execute(msg, args);}
   else if (command === 'hit') {client.commands.get('hit').execute(msg, args);}
   else if (command === 'kiss') {client.commands.get('kiss').execute(msg, args);}
@@ -41,4 +42,5 @@ client.on('message', msg => {
   else if (command === 'invite') {client.commands.get('invite').execute(msg);}
   else if (command === 'kill') {client.commands.get('kill').execute(msg);}
   else if (command === 'update') {client.commands.get('update').execute(msg, Discord, prefix);}
+  else if (command === 'info') {client.commands.get('info').execute(msg, Discord, prefix);}
 });

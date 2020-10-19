@@ -1,7 +1,7 @@
 module.exports = {
   name: 'help',
   description: "This is a help command!",
-  execute(msg, Discord, prefix) {
+  execute(msg, Discord, prefix, version) {
     const helpEmbed = new Discord.MessageEmbed()
     .setColor('ORANGE')
     .setTitle('**Команды**')
@@ -24,12 +24,13 @@ module.exports = {
       prefix + 'cry - поплакать'+ '\n' +
       prefix + 'sleep - готовность ко сну' + '\n' +
       prefix + 'laugh - посмеятся' + '\n' +
+      prefix + 'info - актуальная информация о боте \n'
       prefix + 'update - узнать, что добавили',
       inline: true
     })
       .setImage('https://i.imgur.com/OYN4T0p.jpg')
       .setTimestamp()
-	    .setFooter('Ламповый бот для рп!', 'https://i.imgur.com/SY6e3l3.jpg');
+	    .setFooter('Версия' + version, 'https://i.imgur.com/SY6e3l3.jpg');
       msg.channel.send(helpEmbed)
       msg.delete().catch();
   }

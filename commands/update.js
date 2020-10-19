@@ -4,13 +4,12 @@ module.exports = {
   execute(msg, Discord, prefix) {
     const updateEmbed = new Discord.MessageEmbed()
       .setColor('GREEN')
-      .setTitle('**Версия 1.1.1**')
+      .setTitle('**Версия 1.1.2**')
       .setAuthor('GraphBot', 'https://i.imgur.com/SY6e3l3.jpg', 'https://discord.gg/683xBMK')
       .addFields({
         name: 'Добавлено',
         value:
-        prefix + 'kill' + '\n' +
-        prefix + 'update - узнать, что добавили',
+        prefix + 'info - актуальная информация о боте',
       }, )
       .setImage('https://i.imgur.com/QQTSOfy.jpg')
       .setTimestamp()
