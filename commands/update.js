@@ -9,9 +9,7 @@ module.exports = {
       .addFields({
         name: 'Добавлено',
         value:
-        prefix + 'shy - стеснение \n' +
-        prefix + 'sad - грусть \n' +
-        'Новые гифки для плача',
+        prefix + 'mute - мут (для админов и модеров)',
       }, )
       .setImage('https://i.imgur.com/QQTSOfy.jpg')
       .setTimestamp()
