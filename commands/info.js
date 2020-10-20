@@ -1,7 +1,7 @@
 module.exports = {
   name: 'info',
   description: "This is an info command!",
-  execute(msg, Discord, prefix) {
+  execute(msg, Discord, prefix, client) {
     const infoEmbed = new Discord.MessageEmbed()
       .setColor('#ADD8E6')
       .setTitle(`**Я уже на ${client.guilds.cache.size} серверах**`)
