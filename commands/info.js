@@ -1,10 +1,10 @@
 module.exports = {
   name: 'info',
   description: "This is an info command!",
-  execute(msg, Discord, prefix) {
+  execute(msg, Discord, prefix, version) {
     const infoEmbed = new Discord.MessageEmbed()
       .setColor('#ADD8E6')
-      .setTitle('**Версия 1.1.2**')
+      .setTitle(`**${version}**`)
       .setAuthor('GraphBot', 'https://i.imgur.com/SY6e3l3.jpg', 'https://discord.gg/683xBMK')
       .addFields({
         name: 'Информация',

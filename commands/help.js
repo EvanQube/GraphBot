@@ -9,21 +9,23 @@ module.exports = {
     .addFields({
       name: '\u200B',
       value:
-      prefix + 'help - выводит это сообщение' + '\n' +
-      prefix + 'hug - обнять собеседника' + '\n' +
-      prefix + 'ping - проверка бота' + '\n' +
-      prefix + 'pat - погладить собеседника' + '\n' +
-      prefix + 'kill - убить собеседника' + '\n' +
+      prefix + 'help - выводит это сообщение \n' +
+      prefix + 'hug - обнять собеседника \n' +
+      prefix + 'ping - проверка бота \n' +
+      prefix + 'pat - погладить собеседника \n' +
+      prefix + 'kill - убить собеседника \n' +
+      prefix + 'shy - постесняться \n' +
+      prefix + 'sad - погрустить \n' +
       prefix + 'invite - пригласить бота к себе',
       inline: true
     }, {
       name: '\u200B',
       value:
-      prefix + 'kiss - поцеловать собеседника' + '\n' +
-      prefix + 'hit - ударить собеседника'+ '\n' +
-      prefix + 'cry - поплакать'+ '\n' +
-      prefix + 'sleep - готовность ко сну' + '\n' +
-      prefix + 'laugh - посмеятся' + '\n' +
+      prefix + 'kiss - поцеловать собеседника \n' +
+      prefix + 'hit - ударить собеседника \n' +
+      prefix + 'cry - поплакать \n' +
+      prefix + 'sleep - готовность ко сну \n' +
+      prefix + 'laugh - посмеятся \n' +
       prefix + 'info - актуальная информация о боте \n' +
       prefix + 'update - узнать, что добавили',
       inline: true
