@@ -33,6 +33,6 @@ module.exports = {
             }, ms(time));
 
         } else return msg.channel.send('У вас нет прав!');
+        msg.delete().catch();
     }
-    msg.delete().catch();
 }
