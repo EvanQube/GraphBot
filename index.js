@@ -44,7 +44,7 @@ client.on('message', msg => {
   else if (command === 'kill') {client.commands.get('kill').execute(msg);}
   else if (command === 'shy') {client.commands.get('shy').execute(msg);}
   else if (command === 'sad') {client.commands.get('sad').execute(msg);}
-  else if (command === 'mute') {client.commands.get('mute').execute(msg, ms);}
+  else if (command === 'mute') {client.commands.get('mute').execute(msg, ms, args);}
   else if (command === 'update') {client.commands.get('update').execute(msg, Discord, prefix, version);}
   else if (command === 'info') {client.commands.get('info').execute(msg, Discord, prefix, client);}
 });
