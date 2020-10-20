@@ -6,17 +6,13 @@ module.exports = {
             var member = msg.guild.member(msg.mentions.users.first() || msg.guild.members.cache.get(args[0]));
             if(!member) return msg.reply('Please Provide a Member to TempMute.')
 
-            let role = msg.guild.roles.cache.find(role => role.name === "Muted");
-
-            if (!role) {
-            role = msg.guild.roles.create({
+            let role = msg.guild.roles.create({
   data: {
     name: 'MUTED',
     color: '#808080',
   },
   reason: 'Needed muted role',
 })
-            }
 
             let time = args[1];
             if (!time) {
