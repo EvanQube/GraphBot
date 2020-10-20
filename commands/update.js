@@ -9,7 +9,7 @@ module.exports = {
       .addFields({
         name: 'Добавлено',
         value:
-        prefix + prefix + 'shy - стеснение \n' +
+        prefix + 'shy - стеснение \n' +
         prefix + 'sad - грусть \n' +
         'Новые гифки для плача',
       }, )
