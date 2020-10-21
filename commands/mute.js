@@ -11,12 +11,10 @@ module.exports = {
 
         // This defines the main role and the muted role (this works from a config file, so you need to replace
         // botconfig.memberrole and botconfig.mutedrole with the names of the roles.)
-        let mainrole = msg.guild.roles.cache.find(role => role.name === botconfig.memberrole);
-        let muterole = msg.guild.roles.cache.find(role => role.name === botconfig.mutedrole);
+        let muterole = msg.guild.roles.cache.find(role => role.name === 'mute');
 
         // If either role is missing it will send a reply to the user trying to mute someone.
         if(!muterole) return msg.reply("Couldn't find the mute role.")
-        if(!mainrole) return msg.reply("Couldn't find the default / member role.")
 
         // This makes it so that the second argument is the time.
         let time = args[2];
@@ -32,7 +30,6 @@ module.exports = {
         }
 
         // Remove the main role and adds the muted role.
-        member.roles.remove(mainrole.id);
         member.roles.add(muterole.id);
 
         // Sends a message mentioning the person who got muted and how long they are muted for.
@@ -42,7 +39,6 @@ module.exports = {
         setTimeout(function() {
 
             // Add the main role back and remove the muted role.
-            member.roles.add(mainrole.id);
             member.roles.remove(muterole.id);
 
             // Sends a message mentioning the person saying that they have been unmuted.
