@@ -1,18 +1,17 @@
 module.exports = {
   name: 'mute',
   description: "This is a mute command!",
-  execute(msg, ms, args) {
+  execute(msg, ms, args, client) {
+    let role = msg.guild.roles.create({
+data: {
+name: 'MUTED',
+color: '#808080',
+},
+reason: 'Needed muted role',
+})
         if(msg.member.hasPermission('MANAGE_MESSAGES')) {
             var member = msg.guild.member(msg.mentions.users.first() || msg.guild.members.cache.get(args[0]));
             if(!member) return msg.reply('Please Provide a Member to TempMute.')
-
-            let role = msg.guild.roles.create({
-  data: {
-    name: 'MUTED',
-    color: '#808080',
-  },
-  reason: 'Needed muted role',
-})
 
             let time = args[1];
             if (!time) {
