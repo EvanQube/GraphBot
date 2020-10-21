@@ -2,32 +2,34 @@ module.exports = {
   name: 'mute',
   description: "This is a mute command!",
   execute(msg, ms, args, client) {
-    let role = msg.guild.roles.create({
-data: {
-name: 'MUTED',
-color: '#808080',
-},
-reason: 'Needed muted role',
-}).catch(console.error)
-        if(msg.member.hasPermission('MANAGE_MESSAGES')) {
-            var member = msg.guild.member(msg.mentions.users.first() || msg.guild.members.cache.get(args[0]));
-            if(!member) return msg.reply('Please Provide a Member to TempMute.')
+var person  = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
+    if(!person) return  message.reply("I CANT FIND THE USER " + person)
 
-            let time = args[1];
-            if (!time) {
-                return msg.reply("Вы не указали время.");
-            }
+    let mainrole = message.guild.roles.find(role => role.name === "Newbie");
+    let role = message.guild.roles.find(role => role.name === "mute");
 
-            member.roles.add(role);
 
-            msg.channel.send(`@${member.user.tag} замучен на ${ms(ms(time))}`)
+    if(!role) return message.reply("Couldn't find the mute role.")
 
-            setTimeout( function () {
-                member.roles.remove(role.id);
-                msg.channel.send(`@${member.user.tag} был размучен.`)
-            }, ms(time));
 
-        } else return msg.channel.send('У вас нет прав!');
+    let time = args[2];
+    if(!time){
+        return message.reply("You didnt specify a time!");
+    }
+
+    person.addRole(role.id);
+
+
+    message.channel.send(`@${person.user.tag} has now been muted for ${ms(ms(time))}`)
+
+    setTimeout(function(){
+
+        person.addRole(mainrole.id)
+        person.removeRole(role.id);
+        console.log(role.id)
+        message.channel.send(`@${person.user.tag} has been unmuted.`)
+    }, ms(time));
+
         msg.delete().catch();
     }
 }
