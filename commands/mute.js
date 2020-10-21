@@ -19,9 +19,8 @@ module.exports = {
             data: {
     name: 'Muted',
     color: '#808080',
-    premissions: [SEND_MESSAGES: false, SPEAK: false]
+    premissions: [{deny:['SEND_MESSAGES', 'SPEAK']}]
   },
-  reason: 'we needed a role for Super Cool People',
           })
         }
 
