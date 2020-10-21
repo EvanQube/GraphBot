@@ -2,11 +2,10 @@ module.exports = {
   name: 'mute',
   description: "This is a mute command!",
   execute(msg, ms, args, client) {
-var person  = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[1]));
+var person  = msg.guild.member(msg.mentions.users.first() || msg.guild.members.cache.get(args[1]));
     if(!person) return  msg.reply("I CANT FIND THE USER " + person)
 
-    let mainrole = msg.guild.roles.find(role => role.name === "Newbie");
-    let role = msg.guild.roles.find(role => role.name === "mute");
+    let role = msg.guild.roles.cache.find(role => role.name === "mute");
 
 
     if(!role) return msg.reply("Couldn't find the mute role.")
