@@ -15,7 +15,7 @@ module.exports = {
 
         // If either role is missing it will send a reply to the user trying to mute someone.
         if(!muterole) {
-          msg.guild.role.create({
+          msg.guild.roles.create({
             data: {
     name: 'Muted',
     color: '#808080',
