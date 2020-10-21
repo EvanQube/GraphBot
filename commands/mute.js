@@ -8,7 +8,7 @@ name: 'MUTED',
 color: '#808080',
 },
 reason: 'Needed muted role',
-})
+}).catch(console.error)
         if(msg.member.hasPermission('MANAGE_MESSAGES')) {
             var member = msg.guild.member(msg.mentions.users.first() || msg.guild.members.cache.get(args[0]));
             if(!member) return msg.reply('Please Provide a Member to TempMute.')
