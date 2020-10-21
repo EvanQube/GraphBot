@@ -11,13 +11,22 @@ module.exports = {
 
         // This defines the main role and the muted role (this works from a config file, so you need to replace
         // botconfig.memberrole and botconfig.mutedrole with the names of the roles.)
-        let muterole = msg.guild.roles.cache.find(role => role.name === 'mute');
+        let muterole = msg.guild.roles.cache.find(role => role.name === 'Muted');
 
         // If either role is missing it will send a reply to the user trying to mute someone.
-        if(!muterole) return msg.reply("Couldn't find the mute role.")
+        if(!muterole) {
+          msg.guild.role.create({
+            data: {
+    name: 'Muted',
+    color: '#808080',
+    premissions: [SEND_MESSAGES: false, SPEAK: false]
+  },
+  reason: 'we needed a role for Super Cool People',
+          })
+        }
 
         // This makes it so that the second argument is the time.
-        let time = args[2];
+        let time = args[1];
 
         // If you didn't specify a time in the second argument:
         if(!time) {
