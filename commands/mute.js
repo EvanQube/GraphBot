@@ -23,7 +23,7 @@ module.exports = {
   },
           })
         }
-        let muterole = msg.guild.roles.cache.find(role => role.name === 'Muted');
+
         // This makes it so that the second argument is the time.
         let time = args[1];
 
