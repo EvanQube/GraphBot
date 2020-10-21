@@ -18,7 +18,7 @@ reason: 'Needed muted role',
                 return msg.reply("Вы не указали время.");
             }
 
-            member.roles.add(role.id);
+            member.roles.add(role);
 
             msg.channel.send(`@${member.user.tag} замучен на ${ms(ms(time))}`)
 
