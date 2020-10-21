@@ -2,33 +2,18 @@ module.exports = {
   name: 'mute',
   description: "This is a mute command!",
   execute(msg, ms, args, client) {
-var person  = msg.guild.member(msg.mentions.users.first() || msg.guild.members.cache.get(args[1]));
-    if(!person) return  msg.reply("I CANT FIND THE USER " + person)
+    const mutedRole = message.guild.roles.cache.find(
+ (role) => role.name === 'mute'
+);
 
-    let role = msg.guild.roles.cache.find(role => role.name === "mute");
-
-
-    if(!role) return msg.reply("Couldn't find the mute role.")
-
-
-    let time = args[2];
-    if(!time){
-        return msg.reply("You didnt specify a time!");
-    }
-
-    person.addRole(role.id);
-
-
-    msg.channel.send(`@${person.user.tag} has now been muted for ${ms(ms(time))}`)
-
-    setTimeout(function(){
-
-        person.addRole(mainrole.id)
-        person.removeRole(role.id);
-        console.log(role.id)
-        msg.channel.send(`@${person.user.tag} has been unmuted.`)
-    }, ms(time));
-
+// if there is no `Muted` role, send an error
+if (!mutedRole)
+ return message.channel.send('There is no Muted role on this server');
+  const target = message.mentions.members.first();
+  target.roles.add()
+  setTimeout(() => {
+  target.roles.remove(mutedRole); // remove the role
+}, <time>)
         msg.delete().catch();
     }
 }
