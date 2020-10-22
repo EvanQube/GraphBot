@@ -2,7 +2,6 @@ module.exports = {
     name: "mute",
     description: "Mutes a player for an amount of time.",
     execute(msg, args, ms){
-
         // This defines member as the first person that get's mentioned in the message.
         let member = msg.guild.member(msg.mentions.users.first());
 
@@ -23,7 +22,7 @@ module.exports = {
   },
           })
         }
-
+        let mutedrole = msg.guild.roles.cache.find(role => role.name === 'Muted');
         // This makes it so that the second argument is the time.
         let time = args[1];
 
@@ -38,7 +37,7 @@ module.exports = {
         }
 
         // Remove the main role and adds the muted role.
-        member.roles.add(muterole.id);
+        member.roles.add(muterole.id || mutedrole.id);
 
         // Sends a message mentioning the person who got muted and how long they are muted for.
         msg.channel.send(`<@${member.user.id}> has now been muted for ${ms(ms(time))}`);
@@ -47,7 +46,7 @@ module.exports = {
         setTimeout(function() {
 
             // Add the main role back and remove the muted role.
-            member.roles.remove(muterole.id);
+            member.roles.remove(muterole.id || mutedrole.id);
 
             // Sends a message mentioning the person saying that they have been unmuted.
             msg.channel.send(`<@${member.user.id}> has been unmuted.`)
