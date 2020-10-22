@@ -37,8 +37,8 @@ module.exports = {
         }
 
         // Remove the main role and adds the muted role.
-        if (!muterole) {member.roles.add(mutedrole.id)}
-        else {member.roles.add(muterole.id)}
+        if (!muterole) {member.roles.add(mutedrole)}
+        else {member.roles.add(muterole)}
 
         // Sends a message mentioning the person who got muted and how long they are muted for.
         msg.channel.send(`<@${member.user.id}> has now been muted for ${ms(ms(time))}`);
@@ -47,8 +47,8 @@ module.exports = {
         setTimeout(function() {
 
             // Add the main role back and remove the muted role.
-            if (!muterole) {member.roles.remove(mutedrole.id);}
-            else {member.roles.remove(muterole.id)}
+            if (!muterole) {member.roles.remove(mutedrole);}
+            else {member.roles.remove(muterole)}
 
             // Sends a message mentioning the person saying that they have been unmuted.
             msg.channel.send(`<@${member.user.id}> has been unmuted.`)
