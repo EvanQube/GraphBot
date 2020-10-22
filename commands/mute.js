@@ -37,8 +37,8 @@ module.exports = {
         }
 
         // Remove the main role and adds the muted role.
-        if (!muterole) {member.role.add(mutedrole.id)}
-        else {member.role.add(muterole.id)}
+        if (!muterole) {member.roles.add(mutedrole.id)}
+        else {member.roles.add(muterole.id)}
 
         // Sends a message mentioning the person who got muted and how long they are muted for.
         msg.channel.send(`<@${member.user.id}> has now been muted for ${ms(ms(time))}`);
