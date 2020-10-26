@@ -20,7 +20,7 @@ module.exports = {
       prefix + 'kill - убить собеседника \n' +
       prefix + 'shy - постесняться \n' +
       prefix + 'sad - погрустить \n' +
-      prefix + 'invite - пригласить бота к себе',
+      prefix + '**invite - пригласить бота к себе**',
       inline: true
     }, {
       name: '\u200B',

@@ -7,9 +7,9 @@ module.exports = {
       .setTitle(`**${version}**`)
       .setAuthor('GraphBot', 'https://i.imgur.com/SY6e3l3.jpg', 'https://discord.gg/683xBMK')
       .addFields({
-        name: 'Добавлено',
+        name: 'Изменено',
         value:
-        prefix + 'mute - мут (для админов и модеров)',
+        'Убрана команда mute',
       }, )
       .setImage('https://i.imgur.com/QQTSOfy.jpg')
       .setTimestamp()
