@@ -33,11 +33,6 @@ module.exports = {
       prefix + 'info - актуальная информация о боте \n' +
       prefix + 'update - узнать, что добавили',
       inline: true
-    }, {
-      name: 'Модераторские',
-      value:
-      prefix + 'mute - замутить человека',
-      inline: true
     })
       .setImage('https://i.imgur.com/OYN4T0p.jpg')
       .setTimestamp()
