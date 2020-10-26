@@ -10,7 +10,6 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command);
 }
 
-version = '1.1.4';
 prefix = "/";
 client.login(process.env.token);
 
@@ -44,6 +43,5 @@ client.on('message', msg => {
   else if (command === 'kill') {client.commands.get('kill').execute(msg);}
   else if (command === 'shy') {client.commands.get('shy').execute(msg);}
   else if (command === 'sad') {client.commands.get('sad').execute(msg);}
-  else if (command === 'update') {client.commands.get('update').execute(msg, Discord, prefix, version);}
   else if (command === 'info') {client.commands.get('info').execute(msg, Discord, prefix, client);}
 });
