@@ -7,7 +7,7 @@ module.exports = {
       let errorEmbed = {
       color: 'RED',
       description: 'Ошибка',}
-      msg.channel.send({embed:})
+      msg.channel.send({embed: errorEmbed})
     } else {
       user = msg.mentions.users.first();
       author = msg.author.id;
