@@ -3,8 +3,8 @@ const superagent = require('superagent')
 module.exports = {
   name: 'cat',
   description: "Random cat image",
-  async execute(msg) {
-    let body = await superagent.get('http://aws.random.cat/meow/')
+  execute(msg) {
+    let body = superagent.get('http://aws.random.cat/meow/')
     const catEmbed = {
     color: '#03CAFC',
     image: body,
