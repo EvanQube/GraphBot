@@ -4,7 +4,10 @@ module.exports = {
   description: "This is a hit command!",
   execute(msg, args) {
     if (!msg.mentions.users.size) {
-      msg.reply('нужно отметить пользователся, которого вы хотите ударить.')
+      let errorEmbed = {
+      color: 'RED',
+      description: 'Ошибка',}
+      msg.channel.send({embed: errorEmbed})
     } else {
       user = msg.mentions.users.first();
       author = msg.author.id;
