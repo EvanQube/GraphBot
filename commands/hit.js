@@ -6,7 +6,7 @@ module.exports = {
     if (!msg.mentions.users.size) {
       let errorEmbed = {
       color: 'RED',
-      description: 'Ошибка',}
+      description: '⛔ Ошибка\n' + 'Вы должны упомянуть пользователя, которого хотите ударить.',}
       msg.channel.send({embed: errorEmbed})
     } else {
       user = msg.mentions.users.first();

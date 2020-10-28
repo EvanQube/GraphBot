@@ -3,7 +3,12 @@ module.exports = {
   description: "Убить",
   aliases: ['убить'],
   execute(msg, args) {
-    if (!msg.mentions.users.size) return msg.reply('нужно отметить пользователся, которого вы хотите убить.')
+    if (!msg.mentions.users.size) {
+      let errorEmbed = {
+      color: 'RED',
+      description: '⛔ Ошибка\n' + 'Вы должны упомянуть пользователя, которого хотите убить.',}
+      msg.channel.send({embed: errorEmbed})
+    }
     else {
       user = msg.mentions.users.first();
       author = msg.author.id;

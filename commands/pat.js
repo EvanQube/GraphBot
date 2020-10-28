@@ -2,7 +2,12 @@ module.exports = {
   name: 'pat',
   description: "Погладить",
   execute(msg, args) {
-    if (!msg.mentions.users.size) return msg.reply('нужно отметить пользователся, которого вы хотите погладить.')
+    if (!msg.mentions.users.size) {
+      let errorEmbed = {
+      color: 'RED',
+      description: '⛔ Ошибка\n' + 'Вы должны упомянуть пользователя, которого хотите погладить.',}
+      msg.channel.send({embed: errorEmbed})
+    }
     else {
       user = msg.mentions.users.first();
       author = msg.author.id;

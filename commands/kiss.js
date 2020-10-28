@@ -3,7 +3,12 @@ module.exports = {
   description: "This is a kiss command!",
   aliases: ['поцеловать'],
   execute(msg, args) {
-    if (!msg.mentions.users.size) return msg.reply('нужно отметить пользователся, которого вы хотите поцеловать.')
+    if (!msg.mentions.users.size) {
+      let errorEmbed = {
+      color: 'RED',
+      description: '⛔ Ошибка\n' + 'Вы должны упомянуть пользователя, которого хотите поцеловать.',}
+      msg.channel.send({embed: errorEmbed})
+    }
     else {
       user = msg.mentions.users.first();
       author = msg.author.id;
