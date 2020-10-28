@@ -11,5 +11,5 @@ module.exports = {
     footer:{text:'Кошечка для ' + msg.author.username},
     timestamp: new Date(),}
     msg.channel.send({embed: catEmbed})
-  })
-}}
+  }
+}
