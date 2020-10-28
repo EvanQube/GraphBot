@@ -4,7 +4,7 @@ module.exports = {
   aliases: ['обнять'],
   execute(msg, args, embed) {
     if (!msg.mentions.users.size) {
-      let errorEmbed = new embed()
+      let errorEmbed = embed()
       .setColor('ORANGE')
       .setDescription('Ошибка')
       msg.reply('нужно отметить пользователся, которого вы хотите обнять.')
