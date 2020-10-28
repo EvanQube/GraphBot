@@ -4,7 +4,7 @@ module.exports = {
   aliases: ['обнять'],
   execute(msg, args, embed) {
     if (!msg.mentions.users.size) {
-      let errorEmbed {
+      let errorEmbed = {
       color: 'RED',
       description: 'Ошибка',}
       msg.channel.send({embed:})
