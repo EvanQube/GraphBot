@@ -4,10 +4,10 @@ module.exports = {
   aliases: ['обнять'],
   execute(msg, args, embed) {
     if (!msg.mentions.users.size) {
-      let errorEmbed = embed()
-      .setColor('ORANGE')
-      .setDescription('Ошибка')
-      msg.reply('нужно отметить пользователся, которого вы хотите обнять.')
+      let errorEmbed {
+      color: 'RED',
+      description: 'Ошибка',}
+      msg.channel.send({embed:})
     } else {
       user = msg.mentions.users.first();
       author = msg.author.id;
