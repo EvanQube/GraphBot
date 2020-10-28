@@ -2,8 +2,11 @@ module.exports = {
   name: 'hug',
   description: "This is a hug command!",
   aliases: ['обнять'],
-  execute(msg, args) {
+  execute(msg, args, embed) {
     if (!msg.mentions.users.size) {
+      let errorEmbed = new embed()
+      .setColor('ORANGE')
+      .setDescription('Ошибка')
       msg.reply('нужно отметить пользователся, которого вы хотите обнять.')
     } else {
       user = msg.mentions.users.first();

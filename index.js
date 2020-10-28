@@ -9,6 +9,7 @@ for (const file of commandFiles) {
 
   client.commands.set(command.name, command);
 }
+const embed = Discord.MessageEmbed();
 
 prefix = "/";
 client.login(process.env.token);
@@ -32,7 +33,7 @@ client.on('message', msg => {
 
   if (command === 'ping') {client.commands.get('ping').execute(msg, args);}
   else if (command === 'help') {client.commands.get('help').execute(msg, Discord, prefix, client);}
-  else if (command === 'hug') {client.commands.get('hug').execute(msg, args);}
+  else if (command === 'hug') {client.commands.get('hug').execute(msg, args, embed);}
   else if (command === 'hit') {client.commands.get('hit').execute(msg, args);}
   else if (command === 'kiss') {client.commands.get('kiss').execute(msg, args);}
   else if (command === 'cry') {client.commands.get('cry').execute(msg, args);}
