@@ -1,9 +1,15 @@
+const superagent = require('superagent')
+
 module.exports = {
   name: 'cat',
   description: "Random cat image",
-  execute(msg, client) {
-    get('https://aws.random.cat/meow').then(res => {
-				return message.channel.send(
-          {files: [{attachment: res.body.file, name: `cat.${res.body.file.split('.')[2]}`}]});
+  execute(msg) {
+    let body = await superagent.get('http://aws.random.cat/meow')
+    const catEmbed = {
+    color: '#03CAFC',
+    image: body.file,
+    footer:{text:'Кошечка для ' + msg.author.username},
+    timestamp: new Date(),}
+    msg.channel.send({embed: catEmbed})
   })
 }}
