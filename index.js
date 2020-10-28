@@ -44,5 +44,5 @@ client.on('message', msg => {
   else if (command === 'shy') {client.commands.get('shy').execute(msg);}
   else if (command === 'sad') {client.commands.get('sad').execute(msg);}
   else if (command === 'info') {client.commands.get('info').execute(msg, Discord, prefix, client);}
-  else if (message.isMemberMentioned(client.user) {client.commands.get('reply').execute(msg, args);}
+  // else if (message.isMemberMentioned(client.user) {client.commands.get('reply').execute(msg, args);}
 });
