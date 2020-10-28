@@ -4,10 +4,10 @@ module.exports = {
   name: 'cat',
   description: "Random cat image",
   execute(msg) {
-    let body = superagent.get('http://aws.random.cat/meow')
+    let body = superagent.get('http://aws.random.cat/meow/')
     const catEmbed = {
     color: '#03CAFC',
-    image: body.file,
+    image: body,
     footer:{text:'Кошечка для ' + msg.author.username},
     timestamp: new Date(),}
     msg.channel.send({embed: catEmbed})
