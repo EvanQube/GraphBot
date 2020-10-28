@@ -6,7 +6,7 @@ module.exports = {
     author = msg.author.id;
     sad = 4;
     var sadNames = ['грустит', 'опечален'];
-    var sads = Math.floor(Math.random() * sadNames.length);
+    var sads = Math.floor(Math.random() * 2);
     sadNumber = Math.floor(Math.random() * (sad - 1)) + 1;
     msg.channel.send('<@' + author + '> ' + sadNames[sads], {
       files: ['./src/sads/' + sadNumber + '.gif']
