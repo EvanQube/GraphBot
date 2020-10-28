@@ -1,6 +1,6 @@
 module.exports = {
-  name: 'ping',
-  description: "This is a ping command!",
+  name: 'cat',
+  description: "Random cat image",
   execute(msg, client) {
     get('https://aws.random.cat/meow').then(res => {
 				return message.channel.send(
