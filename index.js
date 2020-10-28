@@ -11,7 +11,7 @@ for (const file of commandFiles) {
 }
 
 prefix = "/";
-client.login('process.env.token');
+client.login(process.env.token);
 
 client.on('ready', async () => {
   console.log('Bot is ready !')
