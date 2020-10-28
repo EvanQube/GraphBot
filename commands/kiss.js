@@ -1,6 +1,7 @@
 module.exports = {
   name: 'kiss',
   description: "This is a kiss command!",
+  aliases: ['поцеловать'],
   execute(msg, args) {
     if (!msg.mentions.users.size) return msg.reply('нужно отметить пользователся, которого вы хотите поцеловать.')
     else {

@@ -1,6 +1,7 @@
 module.exports = {
   name: 'cry',
   description: 'Плач',
+  aliases: ['поплакать'],
   execute(msg, args, ) {
     author = msg.author.id;
     cry = 12;

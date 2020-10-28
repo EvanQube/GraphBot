@@ -1,6 +1,7 @@
 module.exports = {
   name: 'hug',
   description: "This is a hug command!",
+  aliases: ['обнять'],
   execute(msg, args) {
     if (!msg.mentions.users.size) {
       msg.reply('нужно отметить пользователся, которого вы хотите обнять.')

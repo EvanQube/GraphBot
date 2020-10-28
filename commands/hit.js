@@ -1,5 +1,6 @@
 module.exports = {
   name: 'hit',
+  aliases: ['ударить'],
   description: "This is a hit command!",
   execute(msg, args) {
     if (!msg.mentions.users.size) {

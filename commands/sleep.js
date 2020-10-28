@@ -1,12 +1,13 @@
 module.exports = {
   name: 'sleep',
-  description: 'Готовность ко сну',
+  description: 'Сон',
+  aliases: ['поспать'],
   execute(msg, args, ) {
     user = msg.mentions.users.first();
     author = msg.author.id;
     sleep = 9;
     sleepNumber = Math.floor(Math.random() * (sleep - 1)) + 1;
-    msg.channel.send('<@' + author + '>' + '\xa0' + 'готовится ко сну', {
+    msg.channel.send('<@' + author + '>' + '\xa0' + 'спит', {
       files: ['./src/sleeps/' + sleepNumber + '.gif']
     })
     msg.delete().catch();

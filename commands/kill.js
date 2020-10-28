@@ -1,6 +1,7 @@
 module.exports = {
   name: 'kill',
   description: "Убить",
+  aliases: ['убить'],
   execute(msg, args) {
     if (!msg.mentions.users.size) return msg.reply('нужно отметить пользователся, которого вы хотите убить.')
     else {
