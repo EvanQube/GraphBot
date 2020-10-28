@@ -9,7 +9,6 @@ for (const file of commandFiles) {
 
   client.commands.set(command.name, command);
 }
-const embed = new Discord.MessageEmbed();
 
 prefix = "/";
 client.login(process.env.token);
