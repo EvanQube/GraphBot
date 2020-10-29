@@ -9,7 +9,7 @@ module.exports = {
     .addFields({
       name: `\u200B`,
       value:
-      `Префикс бота - `/``
+      'Префикс бота - `/`'
     }, {
       name: `\u200B`,
       value:
