@@ -2,6 +2,7 @@ module.exports = {
   name: 'bite',
   description: 'Укусить',
   execute(msg, args) {
+  if (!msg.mentions.users.size) {
     let errorEmbed = {
     color: 'RED',
     description: '⛔ Ошибка\n' + 'Вы должны упомянуть пользователя, которого хотите укусить.',}
