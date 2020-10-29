@@ -15,3 +15,4 @@ smodule.exports = {
     msg.delete().catch();
   }
 }
+}
