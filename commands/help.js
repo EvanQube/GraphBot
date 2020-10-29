@@ -42,7 +42,7 @@ module.exports = {
       `${prefix}shock - быть в шоке \n` + //11
       `${prefix}sorry - извиниться (просто или перед кем-то) \n` + //12
       `${prefix}wink - подмигнуть (просто или кому-то) \n` + //13
-      `${prefix}hug - обнять собеседника \n` +, //14
+      `${prefix}hug - обнять собеседника \n`, //14
       inline: true
     })
       .setImage(`https://i.imgur.com/OYN4T0p.jpg`)
