@@ -5,8 +5,8 @@ module.exports = {
     author = msg.author.id;
     user = msg.mentions.users.first();
     wink = 5;
+    winkNumber = Math.floor(Math.random() * (wink - 1)) + 1;
     if (!msg.mentions.users.size) {
-      winkNumber = Math.floor(Math.random() * (wink - 1)) + 1;
       msg.channel.send('<@' + author + '>' + '\xa0' + 'подмигивает', {
         files: ['./src/winks/' + winkNumber + '.gif']
       })
