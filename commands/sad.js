@@ -16,7 +16,7 @@ module.exports = {
       } else {
         msg.channel.send(`<@${author}>грустит вместе с <@${user.id}>`, {
             files: ['./src/sads/' + sadNumber + '.gif']
-          }
+          })
           msg.delete().catch();
         }
       }
