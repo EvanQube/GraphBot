@@ -1,4 +1,4 @@
-smodule.exports = {
+module.exports = {
   name: 'sorry',
   description: 'Извиниться',
   execute(msg, args) {
