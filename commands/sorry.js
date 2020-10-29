@@ -11,8 +11,7 @@ module.exports = {
         files: ['./src/sorrys/' + sorryNumber + '.gif']
       })}
     else {msg.channel.send('<@' + author + '>' + '\xa0' + 'извиняется перед ' + '<@' + user.id + '>', {
-      files: ['./src/sorrys/' + sorryNumber + '.gif']})
+      files: ['./src/sorrys/' + sorryNumber + '.gif']})}
     msg.delete().catch();
-  }
 }
 }

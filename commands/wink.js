@@ -11,7 +11,7 @@ module.exports = {
       files: ['./src/winks/' + winkNumber + '.gif']
     })}
     else {msg.channel.send('<@' + author + '>' + '\xa0' + 'подмигивает ' + '<@' + user.id + '>', {
-      files: ['./src/winks/' + winkNumber + '.gif']}
+      files: ['./src/winks/' + winkNumber + '.gif']})}
     msg.delete().catch();
   }
 }
