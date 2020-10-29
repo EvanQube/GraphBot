@@ -22,7 +22,7 @@ module.exports = {
       } else {
         msg.channel.send('<@' + author + '>' + '\xa0' + 'обнимает' + '\xa0' + '<@' + user.id + '>', {
             files: ['./src/hugs/' + hugsNumber + '.gif']
-          }
+          })
           msg.delete().catch();
         }
       }
