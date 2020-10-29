@@ -21,7 +21,7 @@ module.exports = {
           embed: errorEmbed
         })
       } else {
-        msg.channel.send('<@' + author + '>' + '\xa0' + 'обнимает' + '\xa0' + '<@' + user.id + '>', {
+        msg.channel.send(`<@${author}> обнимает <@${user.id}>`, {
             files: ['./src/hugs/' + hugsNumber + '.gif']
           })
           msg.delete().catch();
