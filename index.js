@@ -43,6 +43,17 @@ client.on('message', msg => {
   else if (command === 'kill') {client.commands.get('kill').execute(msg);}
   else if (command === 'shy') {client.commands.get('shy').execute(msg);}
   else if (command === 'sad') {client.commands.get('sad').execute(msg);}
-  else if (command === 'cat') {client.commands.get('cat').execute(msg);}
+  else if (command === 'sorry') {client.commands.get('sorry').execute(msg, args);}
+  else if (command === 'anger') {client.commands.get('anger').execute(msg, args);}
+  else if (command === 'bite') {client.commands.get('bite').execute(msg, args);}
+  else if (command === 'coffee') {client.commands.get('coffee').execute(msg, args);}
+  else if (command === 'five') {client.commands.get('five').execute(msg, args);}
+  else if (command === 'hand') {client.commands.get('hand').execute(msg, args);}
+  else if (command === 'pinch') {client.commands.get('pinch').execute(msg, args);}
+  else if (command === 'praise') {client.commands.get('praise').execute(msg, args);}
+  else if (command === 'shock') {client.commands.get('shock').execute(msg, args);}
+  else if (command === 'smile') {client.commands.get('smile').execute(msg, args);}
+  else if (command === 'tea') {client.commands.get('tea').execute(msg, args);}
+  else if (command === 'wink') {client.commands.get('wink').execute(msg, args);}
   else if (command === 'info') {client.commands.get('info').execute(msg, Discord, prefix, client);}
 });
