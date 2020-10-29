@@ -1,4 +1,4 @@
-module.exports = {
+  module.exports = {
   name: 'hand',
   description: 'Пожать руку',
   execute(msg, args) {
