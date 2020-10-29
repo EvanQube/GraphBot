@@ -9,9 +9,12 @@ module.exports = {
     if (!msg.mentions.users.size) {
       msg.channel.send('<@' + author + '>' + '\xa0' + 'извиняется', {
         files: ['./src/sorrys/' + sorryNumber + '.gif']
-      })}
-    else {msg.channel.send('<@' + author + '>' + '\xa0' + 'извиняется перед ' + '<@' + user.id + '>', {
-      files: ['./src/sorrys/' + sorryNumber + '.gif']})}
+      })
+    } else {
+      msg.channel.send('<@' + author + '>' + '\xa0' + 'извиняется перед ' + '<@' + user.id + '>', {
+        files: ['./src/sorrys/' + sorryNumber + '.gif']
+      })
+    }
     msg.delete().catch();
-}
+  }
 }
