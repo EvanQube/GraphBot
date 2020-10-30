@@ -1,10 +1,9 @@
 module.exports = {
     name: 'kick',
     description: 'Кик участника',
-    execute(msg, args, ) {
-      let user = msg.mentions.users.first()
+    execute(msg, args, reason) {
       if (msg.member.hasPermission("KICK_MEMBERS")) {
-           user.kick();
+           msg.mentions.members.first().kick();
         }
       }
     }
