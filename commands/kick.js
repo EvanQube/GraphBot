@@ -4,7 +4,7 @@ module.exports = {
     execute(msg, args, reason) {
       const member = msg.mentions.members.first();
       if (msg.member.hasPermission("KICK_MEMBERS")) {
-           msg.members.mentions.first().kick(reason);
+           msg.mentions.members.first().kick(reason);
         }
       }
     }
