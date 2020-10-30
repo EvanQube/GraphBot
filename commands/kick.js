@@ -3,8 +3,7 @@ module.exports = {
     description: 'Кик участника',
     execute(msg, args) {
       user = msg.mentions.first() || args[0];
-
-      if (msg.member.hasPermission("KICK_MEMBERS") {
+      if (msg.member.hasPermission("KICK_MEMBERS")) {
           user.kick;
         }
       }
