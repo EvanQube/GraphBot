@@ -27,6 +27,7 @@ client.on('message', msg => {
   if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
   const args = msg.content.slice(prefix.length).split(/ +/);
+  const reason = msg.content.slice(1).split(/ +/);
   const command = args.shift().toLowerCase();
 
   if (command === 'ping') {client.commands.get('ping').execute(msg, client);}
@@ -42,7 +43,7 @@ client.on('message', msg => {
   else if (command === 'kill') {client.commands.get('kill').execute(msg);}
   else if (command === 'shy') {client.commands.get('shy').execute(msg);}
   else if (command === 'sad') {client.commands.get('sad').execute(msg);}
-  else if (command === 'kick') {client.commands.get('kick').execute(msg, args);}
+  else if (command === 'kick') {client.commands.get('kick').execute(msg, args, reason);}
   else if (command === 'sorry') {client.commands.get('sorry').execute(msg, args);}
   else if (command === 'anger') {client.commands.get('anger').execute(msg, args);}
   else if (command === 'bite') {client.commands.get('bite').execute(msg, args);}
