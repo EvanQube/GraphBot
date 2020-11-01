@@ -29,9 +29,10 @@ module.exports = {
       } else if (!time) {
         target.roles.add(mutedRole);
       } else {
+        target.roles.add(mutedRole);
         setTimeout(() => {
           target.roles.remove(mutedRole); // remove the role
-        }, < time > )
+        }, args[1] )
       }
       msg.delete().catch();
     }
