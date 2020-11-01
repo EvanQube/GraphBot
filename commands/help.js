@@ -45,8 +45,8 @@ module.exports = {
       `${prefix}hug - обнять собеседника \n`, //14
       inline: true
     }, {
-      name: `\u200B`
-      value: `**Присоединяйся к сообществу программистов - https://discord.gg/JguHbeEUMP**`
+      name: `\u200B`,
+      value: `**Присоединяйся к сообществу программистов - https://discord.gg/JguHbeEUMP**`,
     })
       .setImage(`https://i.imgur.com/OYN4T0p.jpg`)
       .setTimestamp()
