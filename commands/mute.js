@@ -13,11 +13,11 @@ module.exports = {
     } else {
       const time = args[1];
       const target = msg.mentions.users.first();
-      // or, if you can't get the id:
-
-      // if there is no `Muted` role, send an error
+      const mutedRole = message.guild.roles.cache.find(
+        (role) => role.name === 'Muted'
+      );
       if (!mutedRole) {
-        const mutedRole = message.guild.roles.create({
+        mutedRole = message.guild.roles.create({
           data: {
             name: 'Muted',
             color: '#808080',
@@ -32,7 +32,7 @@ module.exports = {
         target.roles.add(mutedRole);
         setTimeout(() => {
           target.roles.remove(mutedRole); // remove the role
-        }, args[1] )
+        }, args[1])
       }
       msg.delete().catch();
     }
