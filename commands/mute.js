@@ -1,7 +1,7 @@
 module.exports = {
   name: 'mute',
   description: 'Мут',
-  execute(msg) {
+  execute(msg, args) {
     if (!msg.mentions.users.size) {
       let errorEmbed = {
         color: 'RED',
@@ -14,13 +14,27 @@ module.exports = {
       const time = args[1];
       const target = msg.mentions.users.first();
       // or, if you can't get the id:
-      const mutedRole = message.guild.roles.cache.find(
-        (role) => role.name === 'Muted'
-      );
 
       // if there is no `Muted` role, send an error
-      if (!mutedRole)
-        return message.channel.send('There is no Muted role on this server');
+      if (!mutedRole) {
+        const mutedRole = message.guild.roles.create({
+          data: {
+            name: 'Muted',
+            color: '#808080',
+            permissions: {
+              deny: {
+                'SEND_MESSAGES'
+              }
+            },
+          }
+        });
+      } else if (!time) {
+        target.roles.add(mutedRole);
+      } else {
+        setTimeout(() => {
+          target.roles.remove(mutedRole); // remove the role
+        }, < time > )
+      }
       msg.delete().catch();
     }
   }

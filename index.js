@@ -1,4 +1,5 @@
 const fs = require('fs');
+const ms = require('ms');
 const Discord = require("discord.js");
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
