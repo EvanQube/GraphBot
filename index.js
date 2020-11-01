@@ -56,6 +56,6 @@ client.on('message', msg => {
   else if (command === 'smile') {client.commands.get('smile').execute(msg, args);}
   else if (command === 'tea') {client.commands.get('tea').execute(msg, args);}
   else if (command === 'wink') {client.commands.get('wink').execute(msg, args);}
-  else if (command === 'send') {client.commands.get('send').execute(msg, args);}
+  else if (command === 'send') {client.commands.get('send').execute(msg, args, client);}
   else if (command === 'info') {client.commands.get('info').execute(msg, Discord, prefix, client);}
 });
