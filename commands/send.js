@@ -5,7 +5,7 @@ module.exports = {
       if (msg.member.hasPermission("MANAGE_MESSAGES")) {
            let chan = args[0];
            let channel = client.channels.cache.get(chan)
-           let message = args.slice(1).shift().toLowerCase();
+           let message = args.slice(1);
            channel.send(message);
         }
       }
