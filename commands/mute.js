@@ -1,7 +1,7 @@
 module.exports = {
   name: 'mute',
   description: 'Мут',
-  execute(msg, args) {
+  execute(msg, args, ms) {
     if (!msg.mentions.users.size) {
       let errorEmbed = {
         color: 'RED',
