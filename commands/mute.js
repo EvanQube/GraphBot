@@ -22,9 +22,7 @@ module.exports = {
             name: 'Muted',
             color: '#808080',
             permissions: {
-              deny: {
-                'SEND_MESSAGES'
-              }
+              deny: 'SEND_MESSAGES'
             },
           }
         });
