@@ -13,11 +13,11 @@ module.exports = {
     } else {
       const time = args[1];
       const target = msg.mentions.users.first();
-      const mutedRole = message.guild.roles.cache.find(
+      const mutedRole =  msg.guild.roles.cache.find(
         (role) => role.name === 'Muted'
       );
       if (!mutedRole) {
-        mutedRole = message.guild.roles.create({
+        mutedRole = msg.guild.roles.create({
           data: {
             name: 'Muted',
             color: '#808080',
