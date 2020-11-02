@@ -27,14 +27,14 @@ module.exports = {
           }
         });
       } else if (!time) {
-        target.roles.add(mutedRole);
+        target.role.add(mutedRole);
       } else {
-        target.roles.add(mutedRole);
+        target.role.add(mutedRole);
         setTimeout(() => {
-          target.roles.remove(mutedRole); // remove the role
+          target.roles.remove(mutedRole);
         }, args[1])
       }
-      msg.delete().catch();
     }
+    msg.delete().catch();
   }
 }
