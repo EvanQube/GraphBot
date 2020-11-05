@@ -27,6 +27,7 @@ module.exports = {
       .setTimestamp()
 	    .setFooter(`На ${client.guilds.cache.size} серверах`, `https://i.imgur.com/SY6e3l3.jpg`);
       msg.author.send(helpEmbed)
+      msg.reply.send('Я отправил тебе команды в личные сообщения')
       msg.delete().catch();
   }
 }
