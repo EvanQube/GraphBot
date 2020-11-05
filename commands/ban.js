@@ -6,7 +6,7 @@ module.exports = {
            let reason = args.slice(1).join(' ');
            let user = msg.mentions.users.first();
            if(!user) {user = args[0]};
-           user.ban(reason);
+           msg.members.mentions.first().ban();
            msg.channel.send(`<@${user.id}> был забанен!`)
         }
       }
