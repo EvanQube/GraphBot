@@ -26,7 +26,7 @@ module.exports = {
       .setImage(`https://i.imgur.com/OYN4T0p.jpg`)
       .setTimestamp()
 	    .setFooter(`На ${client.guilds.cache.size} серверах`, `https://i.imgur.com/SY6e3l3.jpg`);
-      msg.channel.send(helpEmbed)
+      msg.author.send(helpEmbed)
       msg.delete().catch();
   }
 }
