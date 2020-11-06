@@ -1,6 +1,4 @@
-module.exports = {
-  name: 'ping',
-  description: "This is a ping command!",
+exports.run = async(client, msg, args) => {
   execute(msg, client) {
     let pingEmbed = {
       color: '#7CB9E8',
