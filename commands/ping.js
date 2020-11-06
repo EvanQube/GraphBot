@@ -1,4 +1,7 @@
-exports.run = async(client, msg, args) => {
+module.exports = {
+  name: 'ping',
+  description: 'Ping',
+  execute(msg, args) {
     let pingEmbed = {
       color: '#7CB9E8',
       description: '🏓 pong! \n' + `Пинг: ${Math.round(client.ws.ping)}`,
@@ -7,4 +10,5 @@ exports.run = async(client, msg, args) => {
     msg.channel.send({
       embed: pingEmbed
     })
+}
 }

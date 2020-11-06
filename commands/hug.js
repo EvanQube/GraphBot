@@ -1,8 +1,4 @@
-module.exports = {
-    name: 'hug',
-    description: "This is a hug command!",
-    aliases: ['обнять'],
-    execute(msg, args, embed) {
+exports.run = async(client, msg, args, Discord, ms) => {
       user = msg.mentions.users.first();
       author = msg.author.id;
       hugs = 14;
@@ -26,5 +22,4 @@ module.exports = {
           })
           msg.delete().catch();
         }
-      }
     }

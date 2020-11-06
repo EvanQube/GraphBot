@@ -1,8 +1,4 @@
-module.exports = {
-  name: 'sleep',
-  description: 'Сон',
-  aliases: ['поспать'],
-  execute(msg, args, ) {
+exports.run = async(client, msg, args, Discord, ms) => {
     user = msg.mentions.users.first();
     author = msg.author.id;
     sleep = 9;
@@ -11,5 +7,4 @@ module.exports = {
       files: ['./src/sleeps/' + sleepNumber + '.gif']
     })
     msg.delete().catch();
-  }
 }
