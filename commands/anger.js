@@ -1,7 +1,4 @@
-module.exports = {
-  name: 'anger',
-  description: 'Злится',
-  execute(msg, args) {
+exports.run = async(client, msg, args, Discord, ms) => {
     author = msg.author.id;
     anger = 6;
     angerNumber = Math.floor(Math.random() * (anger - 1)) + 1;
@@ -9,5 +6,4 @@ module.exports = {
       files: ['./src/angers/' + angerNumber + '.gif']
     })
     msg.delete().catch();
-  }
 }
