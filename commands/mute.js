@@ -1,7 +1,4 @@
-module.exports = {
-  name: 'mute',
-  description: 'Мут',
-  execute(msg, args, ms) {
+exports.run = async(client, msg, args, Discord, ms) => {
     if (!msg.mentions.users.size) {
       let errorEmbed = {
         color: 'RED',
@@ -36,5 +33,4 @@ module.exports = {
       }
     }
     msg.delete().catch();
-  }
 }

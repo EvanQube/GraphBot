@@ -1,7 +1,4 @@
-module.exports = {
-  name: 'coffee',
-  description: 'Угостиь кофе',
-  execute(msg, args) {
+exports.run = async(client, msg, args, Discord, ms) => {
     author = msg.author.id;
     user = msg.mentions.users.first();
     coffee = 4;
@@ -16,5 +13,4 @@ module.exports = {
       })
     }
     msg.delete().catch();
-  }
 }

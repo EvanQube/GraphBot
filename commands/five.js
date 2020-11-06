@@ -1,7 +1,4 @@
-module.exports = {
-  name: 'five',
-  description: 'Дать пять',
-  execute(msg, args) {
+exports.run = async(client, msg, args, Discord, ms) => {
     if (!msg.mentions.users.size) {
       let errorEmbed = {
         color: 'RED',
@@ -20,5 +17,4 @@ module.exports = {
       })
       msg.delete().catch();
     }
-  }
 }

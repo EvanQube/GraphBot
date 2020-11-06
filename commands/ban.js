@@ -1,7 +1,4 @@
-module.exports = {
-    name: 'ban',
-    description: 'BAN',
-    execute(msg, args) {
+exports.run = async(client, msg, args) => {
       if (msg.member.hasPermission("BAN_MEMBERS")) {
            let reason = args.slice(1).join(' ');
            let user = msg.mentions.users.first();
@@ -9,5 +6,4 @@ module.exports = {
            msg.members.mentions.first().ban();
            msg.channel.send(`<@${user.id}> был забанен!`)
         }
-      }
     }

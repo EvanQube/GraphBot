@@ -1,6 +1,4 @@
-module.exports = {
-  name: `help`,
-  description: "This is a help command!",
+exports.run = async(client, msg, args, Discord, ms) => {
   execute(msg, Discord, prefix, client) {
     const helpEmbed = new Discord.MessageEmbed()
     .setColor(`ORANGE`)
@@ -29,5 +27,4 @@ module.exports = {
       msg.author.send(helpEmbed)
       msg.reply.send('Я отправил тебе команды в личные сообщения')
       msg.delete().catch();
-  }
 }

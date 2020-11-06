@@ -1,8 +1,4 @@
-module.exports = {
-    name: 'sad',
-    description: 'Sad',
-    aliases: ['погрустить'],
-    execute(msg) {
+exports.run = async(client, msg, args, Discord, ms) => {
       author = msg.author.id;
       user = msg.mentions.users.first();
       sad = 4;
@@ -19,5 +15,5 @@ module.exports = {
           })
         }
         msg.delete().catch();
-      }
+
     }

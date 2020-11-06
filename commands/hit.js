@@ -1,8 +1,4 @@
-module.exports = {
-  name: 'hit',
-  aliases: ['ударить'],
-  description: "This is a hit command!",
-  execute(msg, args) {
+exports.run = async(client, msg, args, Discord, ms) => {
     if (!msg.mentions.users.size) {
       let errorEmbed = {
         color: 'RED',
@@ -21,5 +17,4 @@ module.exports = {
       })
     }
     msg.delete().catch();
-  }
 }
