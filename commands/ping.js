@@ -1,5 +1,5 @@
 module.exports = {
-  description: 'Ping';
+  description: 'Ping'
   callback: (msg, args) => {
     let pingEmbed = {
       color: '#7CB9E8',
