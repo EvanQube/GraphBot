@@ -11,3 +11,4 @@ module.exports = {
       embed: pingEmbed
     })
 }
+}
