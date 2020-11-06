@@ -1,4 +1,7 @@
-exports.run = async(client, msg, args, Discord, ms) => {
+module.exports = {
+  name: 'sleep',
+  description: 'Sleep',
+  execute(msg, args) {
     user = msg.mentions.users.first();
     author = msg.author.id;
     sleep = 9;
@@ -7,4 +10,5 @@ exports.run = async(client, msg, args, Discord, ms) => {
       files: ['./src/sleeps/' + sleepNumber + '.gif']
     })
     msg.delete().catch();
+}
 }

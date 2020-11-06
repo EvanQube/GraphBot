@@ -1,4 +1,7 @@
-exports.run = async(client, msg, args, Discord, ms) => {
+module.exports = {
+  name: 'shock',
+  description: 'Shock',
+  execute(msg, args) {
     author = msg.author.id;
     shock = 5;
     shockNumber = Math.floor(Math.random() * (shock - 1)) + 1;
@@ -6,4 +9,5 @@ exports.run = async(client, msg, args, Discord, ms) => {
       files: ['./src/shocks/' + shockNumber + '.gif']
     })
     msg.delete().catch();
+}
 }

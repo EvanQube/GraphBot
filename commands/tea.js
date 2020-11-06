@@ -1,4 +1,7 @@
-exports.run = async(client, msg, args, Discord, ms) => {
+module.exports = {
+  name: 'tea',
+  description: 'Tea',
+  execute(msg, args) {
     author = msg.author.id;
     user = msg.mentions.users.first();
     tea = 7;
@@ -13,4 +16,5 @@ exports.run = async(client, msg, args, Discord, ms) => {
       })
     }
     msg.delete().catch();
+}
 }
