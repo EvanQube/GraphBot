@@ -1,6 +1,6 @@
 module.exports = {
-  name: 'hand',
-  description: 'Пожать руку',
+  name: 'ping',
+  description: 'ping',
   execute(msg, args) {
     let pingEmbed = {
       color: '#7CB9E8',
