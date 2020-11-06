@@ -1,5 +1,7 @@
 const fs = require('fs');
 const ms = require('ms');
+const WOKCommands = require('wokcommands');
+require('dotenv').config();
 const Discord = require("discord.js");
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -22,18 +24,5 @@ client.on('ready', async () => {
       type: 'WATCHING'
     }
   })
-});
-
-client.on('message', msg => {
-  if (!msg.content.startsWith(prefix) || msg.author.bot) return;
-
-  let args = msg.content.slice(prefix.length).split(/ +/);
-  let cmd = args.shift().toLowerCase();
-
-  try {
-        let file = require(`./commands/${cmd}.js`);
-        file.run(client, msg, args, ms, Discord);
-    } catch(err) {
-        console.warn(err);
-    }
+  new WOKCommands(client, 'commands')
 });
