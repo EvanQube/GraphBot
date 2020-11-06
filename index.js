@@ -44,6 +44,7 @@ client.on('message', msg => {
   else if (command === 'shy') {client.commands.get('shy').execute(msg);}
   else if (command === 'sad') {client.commands.get('sad').execute(msg);}
   else if (command === 'kick') {client.commands.get('kick').execute(msg, args);}
+  else if (command === 'ban') {client.commands.get('ban').execute(msg, args);}
   else if (command === 'sorry') {client.commands.get('sorry').execute(msg, args);}
   else if (command === 'mute') {client.commands.get('mute').execute(msg, args, ms);} //.mute
   else if (command === 'anger') {client.commands.get('anger').execute(msg, args);}
