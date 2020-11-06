@@ -1,4 +1,7 @@
-exports.run = async(client, msg, args, Discord, ms) => {
+module.exports = {
+  name: 'hand',
+  description: 'Hand',
+  execute(msg, args) {
       if (!msg.mentions.users.size) {
         let errorEmbed = {
           color: 'RED',
@@ -18,3 +21,4 @@ exports.run = async(client, msg, args, Discord, ms) => {
       }
       msg.delete().catch();
   }
+}
