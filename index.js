@@ -32,7 +32,7 @@ client.on('message', msg => {
 
   try {
         let file = require(`./commands/${cmd}.js`);
-        file.run(client, msg, args, ms, Discord);
+        file.execute(client, msg, args, ms, Discord);
     } catch(err) {
         console.warn(err);
     }
