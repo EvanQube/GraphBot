@@ -1,7 +1,5 @@
 module.exports = {
-  name: 'ping',
-  description: 'Ping',
-  execute(msg, args) {
+  callback: (msg, args) => {
     let pingEmbed = {
       color: '#7CB9E8',
       description: '🏓 pong! \n' + `Пинг: ${Math.round(client.ws.ping)}`,

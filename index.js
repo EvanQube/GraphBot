@@ -25,4 +25,5 @@ client.on('ready', async () => {
     }
   })
   new WOKCommands(client, 'commands')
+   .setMongoPath(process.env.MONGO_URI)
 });
