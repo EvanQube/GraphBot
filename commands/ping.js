@@ -1,13 +1,13 @@
 module.exports = {
-  description: 'Ping'
-  callback: (message) => {
+  name: 'hand',
+  description: 'Пожать руку',
+  execute(msg, args) {
     let pingEmbed = {
       color: '#7CB9E8',
       description: '🏓 pong! \n' + `Пинг: ${Math.round(client.ws.ping)}`,
       timestamp: new Date(),
     }
-    message.channel.send({
+    msg.channel.send({
       embed: pingEmbed
     })
-  }
 }
