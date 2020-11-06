@@ -1,5 +1,4 @@
 exports.run = async(client, msg, args, Discord, ms) => {
-  execute(msg, Discord, prefix, client) {
     const helpEmbed = new Discord.MessageEmbed()
     .setColor(`ORANGE`)
     .setTitle(`**Команды**`)
