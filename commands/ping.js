@@ -1,5 +1,4 @@
 exports.run = async(client, msg, args) => {
-  execute(msg, client) {
     let pingEmbed = {
       color: '#7CB9E8',
       description: '🏓 pong! \n' + `Пинг: ${Math.round(client.ws.ping)}`,
@@ -8,5 +7,4 @@ exports.run = async(client, msg, args) => {
     msg.channel.send({
       embed: pingEmbed
     })
-  }
 }
