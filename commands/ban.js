@@ -34,6 +34,7 @@ module.exports = {
                   name: 'Забанен:',
                   value: target
                 })
+                msg.channel.send(banEmbed)
             })
             .catch(err => {
               let errEmbed = new Discord.MessageEmbed()
@@ -41,7 +42,7 @@ module.exports = {
                 .setDescription('⛔ **Ошибка** \n Я не могу забанить этого пользователя')
               msg.channel.send(errEmbed)
             });
-          msg.channel.send(banEmbed)
+
         }
       } else {
         let permsEmbed = new Discord.MessageEmbed()
