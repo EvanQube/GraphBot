@@ -44,9 +44,7 @@ client.on('message', msg => {
   else if (command === 'shy') {client.commands.get('shy').execute(msg);}
   else if (command === 'sad') {client.commands.get('sad').execute(msg);}
   else if (command === 'kick') {client.commands.get('kick').execute(msg, args);}
-  else if (command === 'ban') {client.commands.get('ban').execute(msg, args);}
   else if (command === 'sorry') {client.commands.get('sorry').execute(msg, args);}
-  else if (command === 'mute') {client.commands.get('mute').execute(msg, args, ms);} //.mute
   else if (command === 'anger') {client.commands.get('anger').execute(msg, args);}
   else if (command === 'bite') {client.commands.get('bite').execute(msg, args);}
   else if (command === 'coffee') {client.commands.get('coffee').execute(msg, args);}
@@ -59,4 +57,7 @@ client.on('message', msg => {
   else if (command === 'tea') {client.commands.get('tea').execute(msg, args);}
   else if (command === 'wink') {client.commands.get('wink').execute(msg, args);}
   else if (command === 'info') {client.commands.get('info').execute(msg, Discord, prefix, client);}
+  //Mod
+  else if (command === 'ban') {client.commands.get('ban').execute(msg, args, Discord);}
+  else if (command === 'mute') {client.commands.get('mute').execute(msg, args, ms, Discord);}
 });
