@@ -21,7 +21,7 @@ module.exports = {
         } else {
           targetMember
             .ban({
-              reason: `${author.tag}:` + reason
+              reason: `${author}:` + reason
             })
             .then(() => {
               let banEmbed = new Discord.MessageEmbed()
