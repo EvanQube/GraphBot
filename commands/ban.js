@@ -11,7 +11,7 @@ module.exports = {
         .setDescription('⛔ Ошибка \n Вы не указали пользователя, которого хотите забанить')
         msg.channel.send(targetEmbed)
       }
-      target.ban({
+      else {target.ban({
         reason: `<@${author}>:` + reason
       }).catch(err => {
         let errEmbed = new Discord.MessageEmbed()
@@ -37,7 +37,7 @@ module.exports = {
     else {
       let permsEmbed = new Discord.MessageEmbed()
       .setDescription('⛔ Ошибка \n У вас недостаточно прав для использования этой команды')
-      msg.channel.send(permsEmbed)
+      msg.channel.send(permsEmbed)}
     }
   }
 }
