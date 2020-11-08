@@ -11,13 +11,12 @@ module.exports = {
         .setDescription('⛔ Ошибка \n Вы не указали пользователя, которого хотите забанить')
         msg.channel.send(targetEmbed)
       }
-      if(!target.bannable) {
+      target.ban({
+        reason: `<@${author}>:` + reason
+      }).catch(err => {
         let errEmbed = new Discord.MessageEmbed()
         .setDescription('⛔ Ошибка \n Я не могу забанить этого пользователя')
         msg.channel.send(errEmbed)
-      }
-      target.ban({
-        reason: `<@${author}>:` + reason
       });
       if(target.id === author) {
         let authEmbed = new Discord.MessageEmbed()
