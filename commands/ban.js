@@ -18,7 +18,7 @@ module.exports = {
         .setDescription('⛔ **Ошибка** \n Вы не можете забанить сами себя')
         msg.channel.send(authEmbed)
       }
-      target.ban({
+      else {target.ban({
         reason: `<@${author}>:` + reason
       }).catch(err => {
         let errEmbed = new Discord.MessageEmbed()
@@ -35,7 +35,7 @@ module.exports = {
           value: target
         })
       msg.channel.send(banEmbed)
-    }
+    }}
     else {
       let permsEmbed = new Discord.MessageEmbed()
       .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды')
