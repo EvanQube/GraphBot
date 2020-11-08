@@ -9,11 +9,13 @@ module.exports = {
       let targetMember = msg.guild.member(target);
       if (!target) {
         let targetEmbed = new Discord.MessageEmbed()
+        .setColor('RED')
           .setDescription('⛔ Ошибка \n Вы не указали пользователя, которого хотите забанить')
         msg.channel.send(targetEmbed)
       } else if (target) {
         if (target.id === author) {
           let authEmbed = new Discord.MessageEmbed()
+          .setColor('RED')
             .setDescription('⛔ **Ошибка** \n Вы не можете забанить сами себя')
           msg.channel.send(authEmbed)
         } else {
@@ -24,6 +26,7 @@ module.exports = {
             .then(() => {
               let banEmbed = new Discord.MessageEmbed()
                 .setDescription('✅ Бан выдан')
+                .setColor('GREEN')
                 .addFields({
                   name: 'Модератор:',
                   value: `<@${author}>`
@@ -34,6 +37,7 @@ module.exports = {
             })
             .catch(err => {
               let errEmbed = new Discord.MessageEmbed()
+              .setColor('RED')
                 .setDescription('⛔ **Ошибка** \n Я не могу забанить этого пользователя')
               msg.channel.send(errEmbed)
             });
@@ -41,6 +45,7 @@ module.exports = {
         }
       } else {
         let permsEmbed = new Discord.MessageEmbed()
+        .setColor('RED')
           .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды')
         msg.channel.send(permsEmbed)
       }
