@@ -3,33 +3,34 @@ module.exports = {
   description: 'Ban',
   execute(msg, args, Discord) {
     if (msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) {
-      author = msg.author.id;
+      let author = msg.author.id;
       let reason = args.slice(1).join(' ');
-      let target = msg.mentions.users.first();
-      let targetMember = msg.guild.members.cache.get(target);
-      if (!target) {
-        target = args[0]
-        targetMember = msg.guild.members.cache.get(target);
-      }
-      if(!targetMember) {
+      let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
+      if(!target) {
         let targetEmbed = new Discord.MessageEmbed()
         .setDescription('⛔ Ошибка \n Вы не указали пользователя, которого хотите забанить')
         msg.channel.send(targetEmbed)
       }
-      targetMember.ban({
-        reason: `<@${author}>:` + reason
-      }).catch(err => {
+      if(!target.bannable) {
         let errEmbed = new Discord.MessageEmbed()
         .setDescription('⛔ Ошибка \n Я не могу забанить этого пользователя')
         msg.channel.send(errEmbed)
+      }
+      target.ban({
+        reason: `<@${author}>:` + reason
       });
+      if(target.id === author) {
+        let authEmbed = new Discord.MessageEmbed()
+        .setDescription('⛔ Ошибка \n Вы не можете забаниьт сами себя')
+        msg.channel.send(authEmbed)
+      }
       let banEmbed = new Discord.MessageEmbed()
         .setDescription('✅ Бан выдан')
         .addFields({
           name: 'Модератор:',
           value: `<@${author}>`
         }, {
-          name: 'Забанили:',
+          name: 'Забанен:',
           value: target
         })
       msg.channel.send(banEmbed)
