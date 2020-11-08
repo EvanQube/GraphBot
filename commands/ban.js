@@ -44,12 +44,13 @@ module.exports = {
             });
 
         }
-      } else {
-        let permsEmbed = new Discord.MessageEmbed()
-        .setColor('RED')
-          .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды')
-        msg.channel.send(permsEmbed)
       }
+    }
+    else {
+      let permsEmbed = new Discord.MessageEmbed()
+      .setColor('RED')
+        .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды')
+      msg.channel.send(permsEmbed)
     }
     msg.delete().catch();
   }
