@@ -15,14 +15,14 @@ module.exports = {
       else if(target) {
       if(target.id === author) {
         let authEmbed = new Discord.MessageEmbed()
-        .setDescription('⛔ Ошибка \n Вы не можете забанить сами себя')
+        .setDescription('⛔ **Ошибка** \n Вы не можете забанить сами себя')
         msg.channel.send(authEmbed)
       }
       target.ban({
         reason: `<@${author}>:` + reason
       }).catch(err => {
         let errEmbed = new Discord.MessageEmbed()
-        .setDescription('⛔ Ошибка \n Я не могу забанить этого пользователя')
+        .setDescription('⛔ **Ошибка** \n Я не могу забанить этого пользователя')
         msg.channel.send(errEmbed)
       });
       let banEmbed = new Discord.MessageEmbed()
@@ -38,8 +38,9 @@ module.exports = {
     }
     else {
       let permsEmbed = new Discord.MessageEmbed()
-      .setDescription('⛔ Ошибка \n У вас недостаточно прав для использования этой команды')
+      .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды')
       msg.channel.send(permsEmbed)}
     }
+    msg.delete().catch();
   }
 }
