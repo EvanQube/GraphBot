@@ -10,7 +10,7 @@ module.exports = {
       if (!target) {
         let targetEmbed = new Discord.MessageEmbed()
         .setColor('RED')
-          .setDescription('⛔ **Ошибка** \n Вы не указали пользователя, которого хотите забанить')
+          .setDescription('⛔ **Ошибка** \n Вы не указали пользователя, которого хотите забанить \n Или этого пользователся нет на сервере')
         msg.channel.send(targetEmbed)
       } else if (target) {
         if (target.id === author) {
