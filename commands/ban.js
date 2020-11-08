@@ -11,11 +11,11 @@ module.exports = {
         target = args[0]
         targetMember = msg.guild.members.cache.get(target);
       }
-      else {
+      if(!target) {
         let targetEmbed = new Discord.MessageEmbed()
         .setDescription('⛔ Ошибка \n Вы не указали пользователя, которого хотите забанить')
         msg.channel.send(targetEmbed)
-      };
+      }
       targetMember.ban({
         reason: `<@${author}>:` + reason
       }).catch(err => {
