@@ -6,7 +6,7 @@ module.exports = {
       author = msg.author.id;
       let reason = args.slice(1).join(' ');
       let target = msg.mentions.users.first();
-      let targetMember = msg.guild.members.cache.get(target.id);
+      let targetMember = msg.guild.members.cache.get(target);
       if (!target) {
         target = args[0]
         targetMember = msg.guild.members.cache.get(target);
