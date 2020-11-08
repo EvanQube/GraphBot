@@ -11,18 +11,19 @@ module.exports = {
         .setDescription('⛔ Ошибка \n Вы не указали пользователя, которого хотите забанить')
         msg.channel.send(targetEmbed)
       }
-      else {target.ban({
+
+      else if(target) if(target.id === author) {
+        let authEmbed = new Discord.MessageEmbed()
+        .setDescription('⛔ Ошибка \n Вы не можете забанить сами себя')
+        msg.channel.send(authEmbed)
+      }
+      {target.ban({
         reason: `<@${author}>:` + reason
       }).catch(err => {
         let errEmbed = new Discord.MessageEmbed()
         .setDescription('⛔ Ошибка \n Я не могу забанить этого пользователя')
         msg.channel.send(errEmbed)
       });
-      if(target.id === author) {
-        let authEmbed = new Discord.MessageEmbed()
-        .setDescription('⛔ Ошибка \n Вы не можете забаниьт сами себя')
-        msg.channel.send(authEmbed)
-      }
       let banEmbed = new Discord.MessageEmbed()
         .setDescription('✅ Бан выдан')
         .addFields({
