@@ -7,12 +7,7 @@ module.exports = {
       let reason = args.slice(1).join(' ');
       let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
       let targetMember = msg.guild.member(target);
-      if (!targetMember) {
-        let targetEmbed = new Discord.MessageEmbed()
-        .setColor('RED')
-          .setDescription('⛔ **Ошибка** \n Вы не указали пользователя, которого хотите забанить \n Или этого пользователся нет на сервере')
-        msg.channel.send(targetEmbed)
-      } else if (targetMember) {
+      if (targetMember) {
         if (target.id === author) {
           let authEmbed = new Discord.MessageEmbed()
           .setColor('RED')
@@ -39,11 +34,18 @@ module.exports = {
                 msg.channel.send(banEmbed)
             })
             .catch(err => {
-              let errEmbed = new Discord.MessageEmbed()
+              if (!targetMember) {
+                let targetEmbed = new Discord.MessageEmbed()
+                .setColor('RED')
+                  .setDescription('⛔ **Ошибка** \n Вы не указали пользователя, которого хотите забанить \n Или этого пользователся нет на сервере')
+                msg.channel.send(targetEmbed)
+              }
+
+              else {let errEmbed = new Discord.MessageEmbed()
               .setColor('RED')
                 .setDescription('⛔ **Ошибка** \n Я не могу забанить этого пользователя')
               msg.channel.send(errEmbed)
-            });
+            }});
 
         }
       }
