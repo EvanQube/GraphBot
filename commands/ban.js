@@ -7,19 +7,19 @@ module.exports = {
       let reason = args.slice(1).join(' ');
       let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
       let targetMember = msg.guild.member(target);
-      if (!target) {
+      if (!targetMember) {
         let targetEmbed = new Discord.MessageEmbed()
         .setColor('RED')
           .setDescription('⛔ **Ошибка** \n Вы не указали пользователя, которого хотите забанить \n Или этого пользователся нет на сервере')
         msg.channel.send(targetEmbed)
-      } else if (target) {
+      } else if (targetMember) {
         if (target.id === author) {
           let authEmbed = new Discord.MessageEmbed()
           .setColor('RED')
             .setDescription('⛔ **Ошибка** \n Вы не можете забанить сами себя')
           msg.channel.send(authEmbed)
         } else {
-          target
+          targetMember
             .ban({
               reason: `${author.tag}:` + reason
             })
