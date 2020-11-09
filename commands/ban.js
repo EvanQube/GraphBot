@@ -19,7 +19,7 @@ module.exports = {
             .setDescription('⛔ **Ошибка** \n Вы не можете забанить сами себя')
           msg.channel.send(authEmbed)
         } else {
-          targetMember
+          target
             .ban({
               reason: `${author.tag}:` + reason
             })
