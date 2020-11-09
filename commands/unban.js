@@ -34,14 +34,13 @@ module.exports = {
               .setColor('RED')
                 .setDescription('⛔ **Ошибка** \n Я не могу разбанить этого пользователя \n Возможно он не забанен')
               msg.channel.send(errEmbed)
-            });
+            });}
             else {
               let permsEmbed = new Discord.MessageEmbed()
               .setColor('RED')
                 .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды')
               msg.channel.send(permsEmbed)
             }
-        }
       }
       msg.delete().catch();
     }
