@@ -13,9 +13,7 @@ module.exports = {
           .setDescription('⛔ **Ошибка** \n Вы не указали пользователя, которого хотите разбанить \n Или этого пользователся нет на сервере')
         msg.channel.send(targetEmbed)
       } else if (target) {
-          targetMember
-            .unban({
-            })
+            msg.guild.members.unban(targetMember, reason)
             .then(() => {
               let unbanEmbed = new Discord.MessageEmbed()
                 .setDescription('✅ Разбан успешен')
