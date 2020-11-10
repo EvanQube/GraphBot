@@ -48,7 +48,7 @@ module.exports = {
     if(!targetMember.bannable) return msg.channel.send(errEmbed).catch();
 
     targetMember
-    .ban({reason: reason})
+    .ban({reason: msg.author + reason})
     .then(msg.channel.send(banEmbed))
     .catch()
 
