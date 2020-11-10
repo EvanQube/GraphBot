@@ -45,7 +45,7 @@ module.exports = {
     if(!args[0]) return msg.channel.send(argsEmbed).catch();
     if(!targetMember) return msg.channel.send(targEmbed).catch();
     if(targetMember.id === author) return msg.channel.send(authEmbed).catch();
-    if(!targetMember.bannable) return msg.channel.send(errembed).catch();
+    if(!targetMember.bannable) return msg.channel.send(errEmbed).catch();
 
     targetMember
     .ban({reason: reason})
