@@ -36,7 +36,7 @@ module.exports = {
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n Укажите пользователя, которого хотите забанить')
 
-      let targEmbed new Discord.MessageEmbed()
+      let targEmbed = new Discord.MessageEmbed()
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n Я не могу найти этого пользователя')
 
