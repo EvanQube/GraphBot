@@ -42,17 +42,15 @@ module.exports = {
 
     //check perms and bannable
     if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
-    if(!args) return msg.channel.send(argsEmbed);
-    if(!targetMember.bannable) return msg.channel.send(errembed);
-    if(target.id === author) return msg.channel.send(authEmbed);
-    if(!targetMember) return msg.channel.send(targEmbed)
+    if(!args[0]) return msg.channel.send(argsEmbed).catch();
+    if(!targetMember.bannable) return msg.channel.send(errembed).catch();
+    if(target.id === author) return msg.channel.send(authEmbed).catch();
+    if(!targetMember) return msg.channel.send(targEmbed).catch();
 
     targetMember
     .ban({reason: reason})
     .then(msg.channel.send(banEmbed))
-    .catch(err => {
-      console.log()
-    })
+    .catch()
 
 
 
