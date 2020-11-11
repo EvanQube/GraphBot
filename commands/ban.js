@@ -31,6 +31,14 @@ module.exports = {
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Я не могу найти этого пользователя')
 
+    //check perms and bannable
+    if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
+    if(!args[0]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
+    if(!targetMember) return msg.channel.send(targEmbed).then (msg.delete().catch());
+    if(targetMember.id === author) return msg.channel.send(authEmbed).then (msg.delete().catch());
+    if(!targetMember.bannable) return msg.channel.send(errEmbed).then (msg.delete().catch());
+
+    //ban and banEmbed
     let banEmbed = new Discord.MessageEmbed()
     .setDescription(`✅ <@${target} забанен на сервере`)
     .setColor('GREEN')
@@ -48,15 +56,6 @@ module.exports = {
       inline: true
     })
 
-    //check perms and bannable
-    if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
-    if(!args[0]) {
-      msg.channel.send(argsEmbed).then (msg.delete().catch())
-      reason = 'None'};
-    if(!targetMember) return msg.channel.send(targEmbed).then (msg.delete().catch());
-    if(targetMember.id === author) return msg.channel.send(authEmbed).then (msg.delete().catch());
-    if(!targetMember.bannable) return msg.channel.send(errEmbed).then (msg.delete().catch());
-    //ban
     targetMember
     .ban({reason: `${msg.author.tag}: ${reason}`})
     .then(msg.channel.send(banEmbed))
