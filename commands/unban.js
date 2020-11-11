@@ -3,7 +3,6 @@ module.exports = {
   description: 'Unban',
   execute(msg, args, Discord) {
     let author = msg.author.id;
-    let reason = args.slice(1).join(' ');
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
     //embeds
@@ -21,7 +20,7 @@ module.exports = {
 
     let targEmbed = new Discord.MessageEmbed()
     .setColor('RED')
-    .setDescription('⛔ **Ошибка** \n Я не могу найти этого пользователя')
+    .setDescription('⛔ **Ошибка** \n Я не могу найти этого пользователя \n Возможно он не забанен')
 
     let unbanEmbed = new Discord.MessageEmbed()
       .setDescription('✅ Разбан успешен')
@@ -39,13 +38,11 @@ module.exports = {
     //check perms and bannable
     if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
     if(!args[0]) return msg.channel.send(argsEmbed).catch();
-    if(!targetMember) return msg.channel.send(targEmbed).catch();
     if(targetMember.id === author) return msg.channel.send(authEmbed).catch();
 
-    targetMember
-    .unban({reason: `${msg.author.tag} reason`})
+    msg.guld.members.unban(targetMember)
     .then(msg.channel.send(unbanEmbed))
-    .catch()
+    .catch(err => {msg.channel.send(targEmbed)})
 
     msg.delete().catch();
     }
