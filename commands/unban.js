@@ -24,20 +24,16 @@ module.exports = {
       .addFields({
         name: 'Модератор:',
         value: `<@${author}>`,
-        inline: true
-      }, {
-        name: 'Разбанен:',
-        value: target,
-        inline: true
-      })
+      }
 
     //check perms
     if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
-    if(!args[0]) return msg.channel.send(argsEmbed).catch();
+    if(!args[0]) return msg.channel.send(argsEmbed)
+    if(!targetMember) return msg.channel.send(targEmbed);
     //unban
     msg.guild.members.unban(targetMember)
     .then(msg.channel.send(unbanEmbed))
-    .catch(err => {msg.channel.send(targEmbed)})
+    .catch()
 
     msg.delete().catch();
     }
