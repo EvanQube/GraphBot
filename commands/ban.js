@@ -19,26 +19,26 @@ module.exports = {
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n Вы не можете забанить сами себя')
 
+    let argsEmbed = new Discord.MessageEmbed()
+    .setColor('RED')
+    .setDescription('⛔ **Ошибка** \n Укажите пользователя, которого хотите забанить')
+
+    let targEmbed = new Discord.MessageEmbed()
+    .setColor('RED')
+    .setDescription('⛔ **Ошибка** \n Я не могу найти этого пользователя')
+
     let banEmbed = new Discord.MessageEmbed()
-      .setDescription('✅ Бан выдан')
-      .setColor('GREEN')
-      .addFields({
-        name: 'Модератор:',
-        value: `<@${author}>`,
-        inline: true
-      }, {
-        name: 'Забанен:',
-        value: target,
-        inline: true
-      })
-
-      let argsEmbed = new Discord.MessageEmbed()
-      .setColor('RED')
-      .setDescription('⛔ **Ошибка** \n Укажите пользователя, которого хотите забанить')
-
-      let targEmbed = new Discord.MessageEmbed()
-      .setColor('RED')
-      .setDescription('⛔ **Ошибка** \n Я не могу найти этого пользователя')
+    .setDescription('✅ Бан выдан')
+    .setColor('GREEN')
+    .addFields({
+      name: 'Модератор:',
+      value: `<@${author}>`,
+      inline: true
+    }, {
+      name: 'Забанен:',
+      value: target,
+      inline: true
+    })
 
     //check perms and bannable
     if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
@@ -48,48 +48,10 @@ module.exports = {
     if(!targetMember.bannable) return msg.channel.send(errEmbed).catch();
 
     targetMember
-    .ban({reason: msg.author + reason})
+    .ban({reason: `${msg.author.tag} reason`})
     .then(msg.channel.send(banEmbed))
     .catch()
 
-
-
-      /*if(!targetMember.bannable) return msg.channel.send(errEmbed);
-      if (targetMember) {
-        if (target.id === author) {
-          let authEmbed = new Discord.MessageEmbed()
-            .setColor('RED')
-            .setDescription('⛔ **Ошибка** \n Вы не можете забанить сами себя')
-          msg.channel.send(authEmbed)
-        } else {
-          targetMember
-            .ban({
-              reason: `${author}:` + reason
-            })
-            .then(() => {
-              let banEmbed = new Discord.MessageEmbed()
-                .setDescription('✅ Бан выдан')
-                .setColor('GREEN')
-                .addFields({
-                  name: 'Модератор:',
-                  value: `<@${author}>`,
-                  inline: true
-                }, {
-                  name: 'Забанен:',
-                  value: target,
-                  inline: true
-                })
-              msg.channel.send(banEmbed)
-            })
-            .catch(err => {
-                let targetEmbed = new Discord.MessageEmbed()
-                  .setColor('RED')
-                  .setDescription('⛔ **Ошибка** \n Вы не указали пользователя, которого хотите забанить \n Или этого пользователся нет на сервере')
-                msg.channel.send(targetEmbed)
-              });
-
-        }
-      } */
-      msg.delete().catch();
+    msg.delete().catch();
     }
 }
