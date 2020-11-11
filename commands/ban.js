@@ -28,7 +28,7 @@ module.exports = {
     .setDescription('⛔ **Ошибка** \n Я не могу найти этого пользователя')
 
     let banEmbed = new Discord.MessageEmbed()
-    .setDescription('✅ Бан выдан')
+    .setDescription(`✅ <@${target} забанен на сервере`)
     .setColor('GREEN')
     .addFields({
       name: 'Модератор:',
@@ -39,8 +39,8 @@ module.exports = {
       value: '\u200B',
       inline: true
     }, {
-      name: 'Забанен:',
-      value: target,
+      name: 'Причина:',
+      value: reason,
       inline: true
     })
 
