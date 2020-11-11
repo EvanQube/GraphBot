@@ -6,6 +6,10 @@ module.exports = {
     let reason = args.slice(1).join(' ');
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
+
+    //check reason
+    if(!reason) {reason = '\u200B'};
+    
     //embeds
     let permsEmbed = new Discord.MessageEmbed()
       .setColor('RED')
