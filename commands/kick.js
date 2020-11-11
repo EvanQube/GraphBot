@@ -7,7 +7,7 @@ module.exports = {
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
     //embeds
-    let permsEmbed = new Discord.MessageEmbed()
+    let kickPermsEmbed = new Discord.MessageEmbed()
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды')
 
@@ -37,7 +37,7 @@ module.exports = {
     })
 
     //check perms and kickable
-    if (!msg.member.hasPermission("KICK_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
+    if (!msg.member.hasPermission("KICK_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(kickPermsEmbed);
     if(!args[0]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
     if(!targetMember) return msg.channel.send(targEmbed).then (msg.delete().catch());
     if(targetMember.id === author) return msg.channel.send(authEmbed).then (msg.delete().catch());
