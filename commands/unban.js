@@ -3,8 +3,7 @@ module.exports = {
   description: 'Unban',
   execute(msg, args, Discord) {
     let author = msg.author.id;
-    let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
-    let targetMember = msg.guild.member(target);
+    let target = msg.mentions.users.first() || args[0];
     //embeds
     let permsEmbed = new Discord.MessageEmbed()
     .setColor('RED')
@@ -29,9 +28,9 @@ module.exports = {
     //check perms
     if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
     if(!args[0]) return msg.channel.send(argsEmbed)
-    if(!targetMember) return msg.channel.send(targEmbed);
+    if(!target) return msg.channel.send(targEmbed);
     //unban
-    msg.guild.members.unban(targetMember)
+    msg.guild.members.unban(target)
     .then(msg.channel.send(unbanEmbed))
     .catch()
 
