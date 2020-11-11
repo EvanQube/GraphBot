@@ -1,6 +1,6 @@
 module.exports = {
-  name: 'ban',
-  description: 'Ban',
+  name: 'kick',
+  description: 'Kick',
   execute(msg, args, Discord) {
     let author = msg.author.id;
     let reason = args.slice(1).join(' ');
