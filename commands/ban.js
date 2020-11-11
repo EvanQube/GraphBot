@@ -7,9 +7,6 @@ module.exports = {
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
 
-    //check reason
-    if(!reason) {reason = '\u200B'};
-    
     //embeds
     let permsEmbed = new Discord.MessageEmbed()
       .setColor('RED')
@@ -44,7 +41,7 @@ module.exports = {
       inline: true
     }, {
       name: 'Причина:',
-      value: reason,
+      value: `${reason}`,
       inline: true
     })
 

@@ -40,19 +40,19 @@ module.exports = {
       inline: true
     }, {
       name: 'Причина:',
-      value: reason,
+      value: `${reason}`,
       inline: true
     })
 
-    //check perms and bannable
+    //check perms and kickable
     if (!msg.member.hasPermission("KICK_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
     if(!args[0]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
     if(!targetMember) return msg.channel.send(targEmbed).then (msg.delete().catch());
     if(targetMember.id === author) return msg.channel.send(authEmbed).then (msg.delete().catch());
     if(!targetMember.kickable) return msg.channel.send(errEmbed).then (msg.delete().catch());
-    //ban
-    targetMember
-    .ban({reason: `${msg.author.tag}: ${reason}`})
+    //kick
+    target
+    .kick({reason: `${msg.author.tag}: ${reason}`})
     .then(msg.channel.send(kickEmbed))
     .catch()
 
