@@ -35,6 +35,10 @@ module.exports = {
       value: `<@${author}>`,
       inline: true
     }, {
+      name: '\u200B',
+      value: '\u200B',
+      inline: true
+    }, {
       name: 'Забанен:',
       value: target,
       inline: true

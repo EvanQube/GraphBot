@@ -23,12 +23,6 @@ module.exports = {
       .addFields({
         name: 'Модератор:',
         value: `<@${author}>`,
-      }, {
-        name: '\u200B',
-        value: '\u200B'
-      }, {
-        name: 'Разбанили:',
-        value: target,
       })
 
     //check perms
