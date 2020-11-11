@@ -7,6 +7,9 @@ module.exports = {
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
 
+    //check reason
+    if(!reason) {reason = 'None'};
+
     //embeds
     let permsEmbed = new Discord.MessageEmbed()
       .setColor('RED')
