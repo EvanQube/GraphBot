@@ -18,7 +18,7 @@ module.exports = {
     .setDescription('⛔ **Ошибка** \n Я не могу найти этого пользователя \n Возможно он не забанен')
 
     let unbanEmbed = new Discord.MessageEmbed()
-      .setDescription(`✅ <@${target} разбанен`)
+      .setDescription(`✅ ${target} разбанен`)
       .setColor('GREEN')
       .addFields({
         name: 'Модератор:',

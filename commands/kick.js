@@ -28,7 +28,7 @@ module.exports = {
     .setDescription('⛔ **Ошибка** \n Я не могу найти этого пользователя')
 
     let kickEmbed = new Discord.MessageEmbed()
-    .setDescription(`✅ <@${target}> кикнут с сервера`)
+    .setDescription(`✅ ${target} кикнут с сервера`)
     .setColor('GREEN')
     .addFields({
       name: 'Модератор:',
