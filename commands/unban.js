@@ -35,7 +35,7 @@ module.exports = {
     if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
     if(!args[0]) return msg.channel.send(argsEmbed).catch();
     //unban
-    msg.guld.members.unban(targetMember)
+    msg.guild.members.unban(targetMember)
     .then(msg.channel.send(unbanEmbed))
     .catch(err => {msg.channel.send(targEmbed)})
 
