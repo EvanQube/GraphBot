@@ -24,7 +24,7 @@ module.exports = {
       .addFields({
         name: 'Модератор:',
         value: `<@${author}>`,
-      }
+      })
 
     //check perms
     if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
