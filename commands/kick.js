@@ -34,14 +34,6 @@ module.exports = {
       name: 'Модератор:',
       value: `<@${author}>`,
       inline: true
-    }, {
-      name: '\u200B',
-      value: '\u200B',
-      inline: true
-    }, {
-      name: 'Причина:',
-      value: `${reason}`,
-      inline: true
     })
 
     //check perms and kickable
