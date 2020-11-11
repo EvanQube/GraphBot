@@ -10,10 +10,6 @@ module.exports = {
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды')
 
-    let authEmbed = new Discord.MessageEmbed()
-    .setColor('RED')
-    .setDescription('⛔ **Ошибка** \n Вы не можете разбанить сами себя')
-
     let argsEmbed = new Discord.MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Укажите пользователя, которого хотите разбанить')
@@ -35,11 +31,10 @@ module.exports = {
         inline: true
       })
 
-    //check perms and bannable
+    //check perms
     if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
     if(!args[0]) return msg.channel.send(argsEmbed).catch();
-    if(targetMember.id === author) return msg.channel.send(authEmbed).catch();
-
+    //unban
     msg.guld.members.unban(targetMember)
     .then(msg.channel.send(unbanEmbed))
     .catch(err => {msg.channel.send(targEmbed)})
