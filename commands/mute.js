@@ -2,20 +2,20 @@ module.exports = {
   name: 'mute',
   description: 'Mute',
   execute(msg, args, Discord, ms) {
-    if (!msg.mentions.users.size) {
-      let errorEmbed = {
-        color: 'RED',
-        description: '⛔ Ошибка\n' + 'Вы должны упомянуть пользователя, которого хотите замутить.',
-      }
-      msg.channel.send({
-        embed: errorEmbed
-      })
-    } else {
-      const time = args[1];
-      const target = msg.mentions.users.first();
-      const mutedRole = msg.guild.roles.cache.find(
-        (role) => role.name === 'Muted'
-      );
+
+    const time = args[1];
+    const target = msg.mentions.users.first();
+    const mutedRole = msg.guild.roles.cache.find(
+      (role) => role.name === 'Muted'
+    );
+
+    let errorEmbed = {
+      color: 'RED',
+      description: '⛔ Ошибка\n' + 'Вы должны упомянуть пользователя, которого хотите замутить.',
+    }
+
+    if (!msg.mentions.users.size) return msg.channel.send({embed: errorEmbed})
+
       if (!mutedRole) {
         mutedRole = msg.guild.roles.create({
           data: {
@@ -32,7 +32,7 @@ module.exports = {
         target.roles.add(mutedRole);
         setTimeout(() => {
           target.roles.remove(mutedRole);
-        }, args[1])
+        }, time)
       }
     }
     msg.delete().catch();
