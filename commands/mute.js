@@ -9,7 +9,7 @@ module.exports = {
       (role) => role.name === 'Muted'
     );
     if (!mutedRole) {
-      mutedRole = msg.guild.roles.create({
+      msg.guild.roles.create({
         data: {
           name: 'Muted',
           color: '#808080',
@@ -19,7 +19,10 @@ module.exports = {
         }
       });
     }
-
+    
+    mutedRole = msg.guild.roles.cache.find(
+      (role) => role.name === 'Muted'
+    )
     let errorEmbed = {
       color: 'RED',
       description: '⛔ Ошибка\n' + 'Вы должны упомянуть пользователя, которого хотите замутить.',
