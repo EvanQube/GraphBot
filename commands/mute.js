@@ -14,7 +14,7 @@ module.exports = {
       description: '⛔ Ошибка\n' + 'Вы должны упомянуть пользователя, которого хотите замутить.',
     }
 
-    if (!msg.mentions.users.size) return msg.channel.send({embed: errorEmbed})
+    if (!msg.mentions.users.size) return msg.channel.send({embed: errorEmbed});
 
       if (!mutedRole) {
         mutedRole = msg.guild.roles.create({
@@ -34,7 +34,7 @@ module.exports = {
           target.roles.remove(mutedRole);
         }, time)
       }
+          msg.delete().catch();
     }
-    msg.delete().catch();
   }
 }
