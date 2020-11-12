@@ -49,6 +49,7 @@ module.exports = {
     .then(msg.channel.send(banEmbed))
     .catch()
 
+    target.send('Вам БаН')
     msg.delete().catch();
     }
 }
