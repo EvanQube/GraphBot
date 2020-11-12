@@ -39,7 +39,7 @@ client.on('message', msg => {
   else if (command === 'sleep') {client.commands.get('sleep').execute(msg, args);}
   else if (command === 'pat') {client.commands.get('pat').execute(msg, args);}
   else if (command === 'laugh') {client.commands.get('laugh').execute(msg, args);}
-  else if (command === 'invite') {client.commands.get('invite').execute(msg);}
+  else if (command === 'invite') {client.commands.get('invite').execute(msg, client);}
   else if (command === 'kill') {client.commands.get('kill').execute(msg);}
   else if (command === 'shy') {client.commands.get('shy').execute(msg);}
   else if (command === 'sad') {client.commands.get('sad').execute(msg);}
