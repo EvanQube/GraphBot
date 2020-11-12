@@ -37,6 +37,8 @@ module.exports = {
       inline: true
     })
 
+    let dmBanEmbed = new Discord.MessageEmbed()
+
     //check perms and bannable
     if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
     if(!args[0]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
@@ -49,7 +51,7 @@ module.exports = {
     .then(msg.channel.send(banEmbed))
     .catch()
 
-    target.send('Вам БаН')
+    target.send(dmBanEmbed)
     msg.delete().catch();
     }
 }
