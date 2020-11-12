@@ -1,4 +1,7 @@
-exports.run = async(client, msg, args, Discord, ms) => {
+module.exports = {
+  name: 'mute',
+  description: 'Mute',
+  execute(msg, args, Discord, ms) {
     if (!msg.mentions.users.size) {
       let errorEmbed = {
         color: 'RED',
@@ -10,7 +13,7 @@ exports.run = async(client, msg, args, Discord, ms) => {
     } else {
       const time = args[1];
       const target = msg.mentions.users.first();
-      const mutedRole =  msg.guild.roles.cache.find(
+      const mutedRole = msg.guild.roles.cache.find(
         (role) => role.name === 'Muted'
       );
       if (!mutedRole) {
@@ -33,4 +36,5 @@ exports.run = async(client, msg, args, Discord, ms) => {
       }
     }
     msg.delete().catch();
+  }
 }
