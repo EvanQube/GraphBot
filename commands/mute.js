@@ -8,6 +8,17 @@ module.exports = {
     const mutedRole = msg.guild.roles.cache.find(
       (role) => role.name === 'Muted'
     );
+    if (!mutedRole) {
+      mutedRole = msg.guild.roles.create({
+        data: {
+          name: 'Muted',
+          color: '#808080',
+          permissions: {
+            deny: 'SEND_MESSAGES'
+          },
+        }
+      });
+    }
 
     let errorEmbed = {
       color: 'RED',
@@ -15,18 +26,7 @@ module.exports = {
     }
 
     if (!msg.mentions.users.size) return msg.channel.send({embed: errorEmbed});
-
-      if (!mutedRole) {
-        mutedRole = msg.guild.roles.create({
-          data: {
-            name: 'Muted',
-            color: '#808080',
-            permissions: {
-              deny: 'SEND_MESSAGES'
-            },
-          }
-        });
-      } else if (!time) {
+    if (!time) {
         target.roles.add(mutedRole);
       } else {
         target.roles.add(mutedRole);
