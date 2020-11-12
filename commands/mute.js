@@ -27,9 +27,9 @@ module.exports = {
           }
         });
       } else if (!time) {
-        target.role.add(mutedRole);
+        target.roles.add(mutedRole);
       } else {
-        target.role.add(mutedRole);
+        target.roles.add(mutedRole);
         setTimeout(() => {
           target.roles.remove(mutedRole);
         }, args[1])
