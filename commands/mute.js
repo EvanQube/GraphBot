@@ -16,7 +16,7 @@ module.exports = {
           color: '#000000',
         }
       })
-      mutedRole = msg.guild.roles.cache.find(role => role.name === 'G-Muted')
+      let mutedRole = msg.guild.roles.cache.find(role => role.name === 'G-Muted');
     }
 
     const channels = msg.guild.channels.cache.filter(ch => ch.type !== 'category');
