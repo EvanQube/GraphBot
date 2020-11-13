@@ -5,7 +5,7 @@ module.exports = {
     let reason = args.slice(1).join(' ');
     if(!reason) {reason = 'None'}
     let banEmbed = new Discord.MessageEmbed()
-    .setDescription(`✅ ${target} забанен на сервере`)
+    .setDescription(`✅`)
     .setColor('GREEN')
     .addFields({
       name: 'Модератор:',
