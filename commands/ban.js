@@ -5,6 +5,7 @@ module.exports = {
     let author = msg.author.id;
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
+    let guild = msg.guild.name;
 
     //check reason
     let reason = args.slice(1).join(' ');
@@ -41,7 +42,7 @@ module.exports = {
     })
 
     let targetBanEmbed = new Discord.MessageEmbed()
-    .setDescription(`Вы были забанены на сервере`)
+    .setDescription(`Вы были забанены на сервере ${guild}`)
     .setColor('RED')
     .addFields({
       name:'Модератор:',
@@ -52,6 +53,7 @@ module.exports = {
       value: reason,
       inline: true
     })
+    .setTimestamp()
 
     //check perms and bannable
     if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
