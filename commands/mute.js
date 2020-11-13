@@ -24,7 +24,7 @@ module.exports = {
                 channel.updateOverwrite(message.guild.roles(mutedRole), {
                     SEND_MESSAGES: false,
                     SPEAK: false
-                })
+                })};
     //check reason
     let reason = args.slice(1).join(' ');
     if(!reason) {reason = 'None'}
