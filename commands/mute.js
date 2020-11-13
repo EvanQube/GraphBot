@@ -16,7 +16,7 @@ module.exports = {
           color: '#000000'
         }
       })
-      mutedRole = msg.guild.role.cache.find(role => role.name === 'G-Muted')
+      mutedRole = msg.guild.roles.cache.find(role => role.name === 'G-Muted')
     }
 
     //check reason
