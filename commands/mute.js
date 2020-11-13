@@ -77,11 +77,11 @@ module.exports = {
     if(targetMember.id === author) return msg.channel.send(authEmbed).then (msg.delete().catch());
 
     if(!time) {
-      targetMember.roles.add(mutedRole)
+      targetMember.roles.add(mutedRole.id)
     } else {
-      targetMember.roles.add(mutedRole)
+      targetMember.roles.add(mutedRole.id)
       setTimeout(() => {
-        targetMember.roles.remove(mutedRole);
+        targetMember.roles.remove(mutedRole.id);
       }, ms(args[1]))
     }
 
