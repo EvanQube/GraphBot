@@ -39,6 +39,10 @@ module.exports = {
       name: 'Модератор:',
       value: `<@${author}>`,
       inline: true
+    }, {
+      name: 'Причина:',
+      value: reason,
+      inline: true
     })
 
     let targetBanEmbed = new Discord.MessageEmbed()
