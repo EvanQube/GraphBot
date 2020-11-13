@@ -42,7 +42,7 @@ module.exports = {
     })
 
     let targetBanEmbed = new Discord.MessageEmbed()
-    .setDescription(`Вы были забанены на сервере ${guild}`)
+    .setDescription(`Вы были забанены на сервере **${guild}**`)
     .setColor('RED')
     .addFields({
       name:'Модератор:',

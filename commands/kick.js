@@ -6,6 +6,8 @@ module.exports = {
     let reason = args.slice(1).join(' ');
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
+    let guild = msg.guild.name;
+
     //embeds
     let kickPermsEmbed = new Discord.MessageEmbed()
       .setColor('RED')
@@ -36,6 +38,20 @@ module.exports = {
       inline: true
     })
 
+    let targetKickEmbed = new Discord.MessageEmbed()
+    .setDescription(`Вы были кикнуты с сервера **${guild}**`)
+    .setColor('RED')
+    .addFields({
+      name:'Модератор:',
+      value:`<@${author}>`,
+      inline: true
+    }, {
+      name: 'Причина:',
+      value: reason,
+      inline: true
+    })
+    .setTimestamp()
+
     //check perms and kickable
     if (!msg.member.hasPermission("KICK_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(kickPermsEmbed);
     if(!args[0]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
@@ -48,6 +64,7 @@ module.exports = {
     .then(msg.channel.send(kickEmbed))
     .catch()
 
+    target.send(targetKickEmbed)
     msg.delete().catch();
     }
 }

@@ -4,6 +4,8 @@ module.exports = {
   execute(msg, args, Discord) {
     let author = msg.author.id;
     let target = msg.mentions.users.first() || args[0];
+    let guild = msg.guild.name;
+
     //embeds
     let permsEmbed = new Discord.MessageEmbed()
     .setColor('RED')
@@ -25,6 +27,16 @@ module.exports = {
         value: `<@${author}>`,
       })
 
+      let targetUnbanEmbed = new Discord.MessageEmbed()
+      .setDescription(`Вы были разбанены на сервере **${guild}**`)
+      .setColor('RED')
+      .addFields({
+        name:'Модератор:',
+        value:`<@${author}>`,
+        inline: true
+      })
+      .setTimestamp()
+
     //check perms
     if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
     if(!args[0]) return msg.channel.send(argsEmbed)
@@ -34,6 +46,7 @@ module.exports = {
     .then(msg.channel.send(unbanEmbed))
     .catch()
 
+    target.send(targetUnbanEmbed)
     msg.delete().catch();
     }
   }
