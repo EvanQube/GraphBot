@@ -14,12 +14,11 @@ module.exports = {
         data: {
           name: 'G-Muted',
           color: '#000000',
-          permissions: {deny:{['SPEAK'; 'SEND_MESSAGES']}}
+          permissions: {[SEND_MESSAGES: false, SPEAK: false]}
         }
       })
       mutedRole = msg.guild.roles.cache.find(role => role.name === 'G-Muted')
     }
-
     //check reason
     let reason = args.slice(1).join(' ');
     if(!reason) {reason = 'None'}
