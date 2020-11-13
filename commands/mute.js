@@ -8,7 +8,7 @@ module.exports = {
     let targetMember = msg.guild.member(target);
     let guild = msg.guild.name;
 
-    let mutedRole = msg.guild.role.cache.find(role => role.name === 'Muted');
+    let mutedRole = msg.guild.roles.cache.find(role => role.name === 'Muted');
     if(!mutedRole) {
       msg.guild.roles.create({
         data: {
