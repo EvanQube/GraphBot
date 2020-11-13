@@ -3,10 +3,13 @@ module.exports = {
   description: 'Kick',
   execute(msg, args, Discord) {
     let author = msg.author.id;
-    let reason = args.slice(1).join(' ');
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
     let guild = msg.guild.name;
+
+    //check reason
+    let reason = args.slice(1).join(' ');
+    if(!reason) {reason = 'None'}
 
     //embeds
     let kickPermsEmbed = new Discord.MessageEmbed()
