@@ -9,7 +9,7 @@ module.exports = {
       (role) => role.name === 'Muted'
     );
     if (!mutedRole) {
-      msg.guild.roles.create({
+      mutedRole = msg.guild.roles.create({
         data: {
           name: 'Muted',
           color: '#808080',
@@ -19,14 +19,11 @@ module.exports = {
         }
       });
     }
-    
-    mutedRole = msg.guild.roles.cache.find(
-      (role) => role.name === 'Muted'
-    )
-    let errorEmbed = {
-      color: 'RED',
-      description: '⛔ Ошибка\n' + 'Вы должны упомянуть пользователя, которого хотите замутить.',
-    }
+
+    let errorEmbed = new Discord.MessageEmbed()
+      .setColor('RED')
+      .setDescription('⛔ Ошибка\n' + 'Вы должны упомянуть пользователя, которого хотите замутить.')
+
 
     if (!msg.mentions.users.size) return msg.channel.send({embed: errorEmbed});
     if (!time) {
