@@ -37,21 +37,20 @@ module.exports = {
       inline: true
     })
 
-    let dmBanEmbed = new Discord.MessageEmbed()
-
     //check perms and bannable
     if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
     if(!args[0]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
-    if(!targetMember) return msg.channel.send(targEmbed).then (msg.delete().catch());
+    if(!targetMember) {msg.channel.send(targEmbed)
+      (msg.delete().catch())
+      reason = 'None'};
     if(targetMember.id === author) return msg.channel.send(authEmbed).then (msg.delete().catch());
     if(!targetMember.bannable) return msg.channel.send(errEmbed).then (msg.delete().catch());
+
     //ban
     targetMember
     .ban({reason: `${msg.author.tag}: ${reason}`})
     .then(msg.channel.send(banEmbed))
     .catch()
-
-    target.send(dmBanEmbed)
     msg.delete().catch();
     }
 }

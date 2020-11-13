@@ -61,4 +61,6 @@ client.on('message', msg => {
   else if (command === 'unban') {client.commands.get('unban').execute(msg, args, Discord);}
   else if (command === 'kick') {client.commands.get('kick').execute(msg, args, Discord);}
   else if (command === 'mute') {client.commands.get('mute').execute(msg, args, ms, Discord);}
+
+  else if (command === 'test') {client.commands.get('test').execute(msg, args);}
 });
