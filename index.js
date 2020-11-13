@@ -62,5 +62,5 @@ client.on('message', msg => {
   else if (command === 'kick') {client.commands.get('kick').execute(msg, args, Discord);}
   else if (command === 'mute') {client.commands.get('mute').execute(msg, args, ms, Discord);}
 
-  else if (command === 'test') {client.commands.get('test').execute(msg, args);}
+  else if (command === 'test') {client.commands.get('test').execute(msg, args, Discord);}
 });

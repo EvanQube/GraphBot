@@ -3,9 +3,12 @@ module.exports = {
   description: 'Ban',
   execute(msg, args, Discord) {
     let author = msg.author.id;
-    let reason = args.slice(1).join(' ');
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
+    
+    //check reason
+    let reason = args.slice(1).join(' ');
+    if(!reason) {reason = 'None'}
 
     //embeds
     let permsEmbed = new Discord.MessageEmbed()
@@ -42,7 +45,7 @@ module.exports = {
     if(!args[0]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
     if(!targetMember) {msg.channel.send(targEmbed)
       (msg.delete().catch())
-      reason = 'None'};
+    };
     if(targetMember.id === author) return msg.channel.send(authEmbed).then (msg.delete().catch());
     if(!targetMember.bannable) return msg.channel.send(errEmbed).then (msg.delete().catch());
 
