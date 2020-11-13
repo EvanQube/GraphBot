@@ -9,7 +9,7 @@ module.exports = {
     .setDescription(`✅`)
     .setColor('GREEN')
     .addFields({
-      name: '`Вы были забанены на сервере ${guild}`',
+      name: `Вы были забанены на сервере ${guild}`,
       value: reason,
       inline: true
     })
