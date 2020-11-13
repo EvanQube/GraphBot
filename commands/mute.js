@@ -13,7 +13,8 @@ module.exports = {
       msg.guild.roles.create({
         data: {
           name: 'G-Muted',
-          color: '#000000'
+          color: '#000000',
+          permissions: {deny{['SPEAK', 'SEND_MESSAGES']}}
         }
       })
       mutedRole = msg.guild.roles.cache.find(role => role.name === 'G-Muted')
