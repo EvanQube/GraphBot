@@ -30,7 +30,7 @@ module.exports = {
 
       let targetUnbanEmbed = new Discord.MessageEmbed()
       .setDescription(`Вы были разбанены на сервере **${guild}**`)
-      .setColor('RED')
+      .setColor('GREEN')
       .addFields({
         name:'Модератор:',
         value:`<@${author}>`,
