@@ -1,9 +1,10 @@
 module.exports = {
   name: 'unban',
   description: 'Unban',
-  execute(msg, args, Discord) {
+  execute(msg, args, Discord, client) {
     let author = msg.author.id;
-    let target = msg.mentions.users.first() || args[0];
+    let target = args[0];
+    let targetMember = client.users.cache.get(args[0]);
     let guild = msg.guild.name;
 
     //embeds
@@ -46,7 +47,7 @@ module.exports = {
     .then(msg.channel.send(unbanEmbed))
     .catch()
 
-    target.send(targetUnbanEmbed)
+    targetMember.send(targetUnbanEmbed)
     msg.delete().catch();
     }
   }
