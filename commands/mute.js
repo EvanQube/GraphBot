@@ -21,7 +21,7 @@ module.exports = {
 
     const channels = msg.guild.channels.cache.filter(ch => ch.type !== 'category');
     channels.forEach(channel => {
-                channel.updateOverwrite(message.guild.roles(mutedRole), {
+                channel.updateOverwrite(msg.guild.roles(mutedRole), {
                     SEND_MESSAGES: false,
                     SPEAK: false
                 })});
