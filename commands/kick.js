@@ -7,7 +7,7 @@ module.exports = {
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
     let guild = msg.guild.name;
-    
+
     //embeds
     let kickPermsEmbed = new Discord.MessageEmbed()
       .setColor('RED')
@@ -30,7 +30,7 @@ module.exports = {
     .setDescription('⛔ **Ошибка** \n Я не могу найти этого пользователя')
 
     let kickEmbed = new Discord.MessageEmbed()
-    .setDescription(`✅ ${target} кикнут с сервера`)
+    .setDescription(`✅ ${target} кикнут с сервера `)
     .setColor('GREEN')
     .addFields({
       name: 'Модератор:',
