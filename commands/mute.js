@@ -20,7 +20,7 @@ module.exports = {
     }
 
     const channels = msg.guild.channels.cache.filter(ch => ch.type !== 'category');
-    msg.channels..createOverwrite(mutedRole, {
+    msg.channels.createOverwrite(mutedRole, {
   SEND_MESSAGES: false
     })
     //check reason
