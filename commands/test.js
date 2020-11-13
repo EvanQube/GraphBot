@@ -12,7 +12,7 @@ module.exports = {
       value: reason,
       inline: true
     })
-    msg.channel.send(banEmbed)
+    msg.author.send(banEmbed)
 
   }
 }

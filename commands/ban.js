@@ -5,7 +5,7 @@ module.exports = {
     let author = msg.author.id;
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
-    
+
     //check reason
     let reason = args.slice(1).join(' ');
     if(!reason) {reason = 'None'}
@@ -40,12 +40,23 @@ module.exports = {
       inline: true
     })
 
+    let targetBanEmbed = new Discord.MessageEmbed()
+    .setDescription(`Вы были забанены на сервере`)
+    .setColor('RED')
+    .addFields({
+      name:'Модератор:',
+      value:`<@${author}>`,
+      inline: true
+    }, {
+      name: 'Причина:',
+      value: reason,
+      inline: true
+    })
+
     //check perms and bannable
     if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
     if(!args[0]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
-    if(!targetMember) {msg.channel.send(targEmbed)
-      (msg.delete().catch())
-    };
+    if(!targetMember) return msg.channel.send(targEmbed).then(msg.delete().catch());
     if(targetMember.id === author) return msg.channel.send(authEmbed).then (msg.delete().catch());
     if(!targetMember.bannable) return msg.channel.send(errEmbed).then (msg.delete().catch());
 
@@ -55,5 +66,9 @@ module.exports = {
     .then(msg.channel.send(banEmbed))
     .catch()
     msg.delete().catch();
+
+
+    //dm message
+    target.send(targetBanEmbed)
     }
 }
