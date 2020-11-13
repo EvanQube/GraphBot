@@ -20,11 +20,12 @@ module.exports = {
     }
 
     const channels = msg.guild.channels.cache.filter(ch => ch.type !== 'category');
-    channels.forEach(channel => {
-                channel.updateOverwrite(msg.guild.roles(mutedRole), {
-                    SEND_MESSAGES: false,
-                    SPEAK: false
-                })});
+    channels.overwritePermissions([
+      {
+      id: mutedRole.id,
+      deny: [SEND_MESSAGES, SPEAK]
+    }
+    ])
     //check reason
     let reason = args.slice(1).join(' ');
     if(!reason) {reason = 'None'}
