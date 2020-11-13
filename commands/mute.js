@@ -25,7 +25,7 @@ module.exports = {
       .setDescription('⛔ Ошибка\n' + 'Вы должны упомянуть пользователя, которого хотите замутить.')
 
 
-    if (!msg.mentions.users.size) return msg.channel.send({embed: errorEmbed});
+    if (!msg.mentions.users.size) return msg.channel.send(errorEmbed);
     if (!time) {
         target.roles.add(mutedRole);
       } else {
