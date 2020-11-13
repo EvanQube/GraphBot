@@ -14,11 +14,17 @@ module.exports = {
         data: {
           name: 'G-Muted',
           color: '#000000',
-          permissions: {deny:{['SEND_MESSAGES', 'SPEAK']}}
         }
       })
       mutedRole = msg.guild.roles.cache.find(role => role.name === 'G-Muted')
     }
+
+    const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
+    channels.forEach(channel => {
+                channel.updateOverwrite(message.guild.roles(mutedRole), {
+                    SEND_MESSAGES: false,
+                    SPEAK: false
+                })
     //check reason
     let reason = args.slice(1).join(' ');
     if(!reason) {reason = 'None'}
