@@ -60,10 +60,10 @@ module.exports = {
     if(!args[0]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
     if(!targetMember) return msg.channel.send(targEmbed).then(msg.delete().catch());
     if(targetMember.id === author) return msg.channel.send(authEmbed).then (msg.delete().catch());
-    if(!targetMember.bannable) return msg.channel.send(errEmbed).then (msg.delete().catch());
+    if(!target.bannable) return msg.channel.send(errEmbed).then (msg.delete().catch());
 
     //ban
-    targetMember
+    target
     .ban({reason: `${msg.author.tag}: ${reason}`})
     .then(msg.channel.send(banEmbed))
     .catch()
