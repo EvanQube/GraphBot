@@ -6,6 +6,7 @@ module.exports = {
     let target = args[0];
     let targetMember = client.users.cache.get(args[0]);
     let guild = msg.guild.name;
+    let channel = msg.channel;
 
     //embeds
     let permsEmbed = new Discord.MessageEmbed()

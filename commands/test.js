@@ -5,15 +5,10 @@ module.exports = {
     let reason = args.slice(1).join(' ');
     let guild = msg.guild.name;
     if(!reason) {reason = 'None'}
-    let banEmbed = new Discord.MessageEmbed()
-    .setDescription(`✅`)
-    .setColor('GREEN')
-    .addFields({
-      name: `<@771706516377960469>`,
-      value: reason,
-      inline: true
-    })
-    msg.author.send(banEmbed)
-
+    let channel = msg.channel;
+    channel.createInvite({unique: true})
+    .then(invite => {
+      message.reply("Hey! I've created you an invite: https://discord.gg/" + invite.code)
+      })
   }
 }
