@@ -85,12 +85,11 @@ module.exports = {
 
     if(!time) {
       targetMember.roles.add(role.id)
-      target.send(targetMuteEmbed)
     } else {
       targetMember.roles.add(role.id)
       setTimeout(() => {
       targetMember.roles.remove(role.id)
-    }, ms(args[1]));
+    }, ms(args[1]))
     }
     target.send(targetMuteEmbed)
         msg.delete().catch();
