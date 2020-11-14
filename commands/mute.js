@@ -25,6 +25,7 @@ module.exports = {
         SPEAK: false,
       });
     });
+
     //check reason
     let reason = args.slice(1).join(' ');
     if(!reason) {reason = 'None'}
@@ -90,9 +91,8 @@ module.exports = {
       setTimeout(() => {
       targetMember.roles.remove(role.id)
     }, ms(args[1]));
-      target.send(targetMuteEmbed)
     }
-
-          msg.delete().catch();
+    target.send(targetMuteEmbed)
+        msg.delete().catch();
     }
   }
