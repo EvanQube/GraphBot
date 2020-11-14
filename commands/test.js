@@ -6,9 +6,7 @@ module.exports = {
     let guild = msg.guild.name;
     if(!reason) {reason = 'None'}
     let channel = msg.channel;
-    channel.createInvite({unique: true})
-    .then(invite => {
-      msg.reply("Hey! I've created you an invite: https://discord.gg/" + invite.code)
-      })
+    let invite = channel.createInvite({unique: true})
+    msg.reply(`https://discord.gg/${invite.code}`)
   }
 }
