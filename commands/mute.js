@@ -8,9 +8,9 @@ module.exports = {
     let targetMember = msg.guild.member(target);
     let guild = msg.guild.name;
 
-    let role = msg.guild.roles.cache.find(role => role.name === 'G-Muted');
+    const role = msg.guild.roles.cache.find(role => role.name === 'G-Muted');
     if(!role) {
-      msg.guild.roles.create({
+      role = msg.guild.roles.create({
         data: {
           name: 'G-Muted',
           color: '#000000',
@@ -18,10 +18,8 @@ module.exports = {
       })
     }
 
-    const mutedRole = msg.guild.roles.cache.find(role => role.name === 'G-Muted');
-
     msg.guild.channels.cache.forEach((channel) => {
-      channel.updateOverwrite(mutedRole, {
+      channel.updateOverwrite(role, {
         SEND_MESSAGES: false,
         SPEAK: false,
       });
@@ -84,11 +82,11 @@ module.exports = {
     if(targetMember.id === author) return msg.channel.send(authEmbed).then (msg.delete().catch());
 
     if(!time) {
-      targetMember.roles.add(mutedRole)
+      targetMember.roles.add(role.id)
     } else {
-      targetMember.roles.add(mutedRole)
+      targetMember.roles.add(role.id)
       setTimeout(() => {
-        targetMember.roles.remove(mutedRole);
+        targetMember.roles.remove(role.id);
       }, ms(args[1]))
     }
 
