@@ -3,6 +3,7 @@ module.exports = {
   description: 'Mute',
   execute(msg, args, ms, Discord) {
     let time = args[1];
+    if(!time) {time = 'Навсегда'}
     let author = msg.author.id;
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
@@ -55,6 +56,10 @@ module.exports = {
       value: `<@${author}>`,
       inline: true
     }, {
+      name: 'Причина:',
+      value: reason,
+      inline: true
+    }, {
       name: 'Время:',
       value: time,
       inline: true
@@ -78,17 +83,21 @@ module.exports = {
     })
     .setTimestamp()
 
+    let unMuteEmbed = new Discord.MessageEmbed()
+    .setDescription(`Вы были размучены на сервере **${guild}**`)
+    .setColor('GREEN')
+
     if (!msg.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR")) return msg.channel.send(kickPermsEmbed);
     if(!args[0]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
     if(!targetMember) return msg.channel.send(targEmbed).then (msg.delete().catch());
     if(targetMember.id === author) return msg.channel.send(authEmbed).then (msg.delete().catch());
 
-    if(!time) {
-      targetMember.roles.add(role.id)
+    if(time === 'Навсегда') {
+      targetMember.roles.add(role.id).then(msg.channel.send(muteEmbed))
     } else {
-      targetMember.roles.add(role.id)
+      targetMember.roles.add(role.id).then(msg.channel.send(muteEmbed))
       setTimeout(() => {
-      targetMember.roles.remove(role.id)
+      targetMember.roles.remove(role.id).then(target.send(unMuteEmbed))
     }, ms(args[1]))
     }
     target.send(targetMuteEmbed)
