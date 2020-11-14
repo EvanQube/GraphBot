@@ -8,7 +8,7 @@ module.exports = {
     let channel = msg.channel;
     channel.createInvite({unique: true})
     .then(invite => {
-      message.reply("Hey! I've created you an invite: https://discord.gg/" + invite.code)
+      msg.reply("Hey! I've created you an invite: https://discord.gg/" + invite.code)
       })
   }
 }
