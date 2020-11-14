@@ -97,8 +97,8 @@ module.exports = {
     } else {
       targetMember.roles.add(role.id).then(msg.channel.send(muteEmbed))
       setTimeout(() => {
-      targetMember.roles.remove(role.id).then(target.send(unMuteEmbed))
-    }, ms(args[1]))
+      targetMember.roles.remove(role.id)
+    }, ms(args[1])).then(target.send(unMuteEmbed))
     }
     target.send(targetMuteEmbed)
         msg.delete().catch();
