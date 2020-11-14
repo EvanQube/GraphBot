@@ -8,9 +8,9 @@ module.exports = {
     let targetMember = msg.guild.member(target);
     let guild = msg.guild.name;
 
-    const role = msg.guild.roles.cache.find(role => role.name === 'G-Muted');
+    let role = msg.guild.roles.cache.find(role => role.name === 'G-Muted');
     if(!role) {
-      role = msg.guild.roles.create({
+        role = msg.guild.roles.create({
         data: {
           name: 'G-Muted',
           color: '#000000',
