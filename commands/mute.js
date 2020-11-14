@@ -14,6 +14,7 @@ module.exports = {
         data: {
           name: 'G-Muted',
           color: '#000000',
+          permissions: []
         }
       })
     }
