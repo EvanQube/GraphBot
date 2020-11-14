@@ -7,6 +7,6 @@ module.exports = {
     if(!reason) {reason = 'None'}
     let channel = msg.channel;
     let invite = channel.createInvite({unique: true})
-    msg.reply(`https://discord.gg/${invite.code}`)
+    msg.reply(`${invite}`)
   }
 }
