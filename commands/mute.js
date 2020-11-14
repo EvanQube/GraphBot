@@ -2,7 +2,7 @@ module.exports = {
   name: 'mute',
   description: 'Mute',
   execute(msg, args, ms, Discord) {
-    let time = args[1];
+    let time = args[2];
     if(!time) {time = 'Навсегда'}
     let author = msg.author.id;
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
