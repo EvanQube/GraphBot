@@ -8,23 +8,24 @@ module.exports = {
     let targetMember = msg.guild.member(target);
     let guild = msg.guild.name;
 
-    let mutedRole = msg.guild.roles.cache.find(role => role.name === 'G-Muted');
-    if(!mutedRole) {
+    let role = msg.guild.roles.cache.find(role => role.name === 'G-Muted');
+    if(!role) {
       msg.guild.roles.create({
         data: {
           name: 'G-Muted',
           color: '#000000',
         }
       })
-      let mutedRole = msg.guild.roles.cache.find(role => role.name === 'G-Muted');
     }
 
-    const channels = msg.guild.channels.cache.filter(ch => ch.type !== 'category');
-    channels.overwritePermissions([
-  {
-     id: author,
-     deny: ['SEND_MESSAGES'],
-  }])
+    const mutedRole = msg.guild.roles.cache.find(role => role.name === 'G-Muted');
+
+    msg.guild.channels.cache.forEach((channel) => {
+      channel.updateOverwrite(mutedRole, {
+        SEND_MESSAGES: false,
+        SPEAK: false,
+      });
+    });
     //check reason
     let reason = args.slice(1).join(' ');
     if(!reason) {reason = 'None'}
