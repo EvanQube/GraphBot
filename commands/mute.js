@@ -91,11 +91,11 @@ module.exports = {
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n Этот пользователь уже замучен')
 
-    if (!msg.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR")) return msg.channel.send(kickPermsEmbed);
+    if (!msg.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR")) return msg.channel.send(kickPermsEmbed).then (msg.delete().catch());
     if(!args[0]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
     if(!targetMember) return msg.channel.send(targEmbed).then (msg.delete().catch());
     if(targetMember.id === author) return msg.channel.send(authEmbed).then (msg.delete().catch());
-    if(targetMember.roles.cache.get(role.id)) return msg.channel.send(mutedEmbed);
+    if(targetMember.roles.cache.get(role.id)) return msg.channel.send(mutedEmbed).then (msg.delete().catch());
 
     if(time === 'Навсегда') {
       targetMember.roles.add(role.id).then(msg.channel.send(muteEmbed))
@@ -104,9 +104,7 @@ module.exports = {
       setTimeout(() => {
       targetMember.roles.remove(role.id);
       target.send(unMuteEmbed)
-    }, ms(args[1]).catch(error => {
-      msg.channel.send('Укажите правильное время')
-    }))
+    }, ms(args[1])).catch(msg.channel.send('bAn'))
     }
     target.send(targetMuteEmbed)
         msg.delete().catch();

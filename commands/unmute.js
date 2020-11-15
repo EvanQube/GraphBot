@@ -48,10 +48,10 @@ module.exports = {
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n Этот пользователь не замучен')
 
-    if (!msg.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR")) return msg.channel.send(kickPermsEmbed);
+    if (!msg.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR")) return msg.channel.send(kickPermsEmbed).then (msg.delete().catch());
     if(!args[0]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
     if(!targetMember) return msg.channel.send(targEmbed).then (msg.delete().catch());
-    if(!targetMember.roles.cache.get(role.id)) return msg.channel.send(unMutedEmbed);
+    if(!targetMember.roles.cache.get(role.id)) return msg.channel.send(unMutedEmbed).then (msg.delete().catch());
 
       targetMember.roles.remove(role.id)
       target.send(unMuteEmbed)
