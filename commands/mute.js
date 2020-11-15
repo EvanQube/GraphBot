@@ -104,9 +104,9 @@ module.exports = {
       setTimeout(() => {
       targetMember.roles.remove(role.id);
       target.send(unMuteEmbed)
-    }, ms(args[1])).catch(error => {
+    }, ms(args[1]).catch(error => {
       msg.channel.send('Укажите правильное время')
-    })
+    }))
     }
     target.send(targetMuteEmbed)
         msg.delete().catch();
