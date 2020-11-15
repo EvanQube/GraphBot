@@ -6,7 +6,7 @@ module.exports = {
     let guild = msg.guild.name;
     if(!reason) {reason = 'None'}
     let channel = msg.channel;
-    let invite = channel.createInvite({unique: true})
+    channel.createInvite({unique: true})
     msg.reply(`${invite}`)
   }
 }

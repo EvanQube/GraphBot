@@ -2,7 +2,7 @@ module.exports = {
   name: 'mute',
   description: 'Mute',
   execute(msg, args, ms, Discord) {
-    let time = args[2];
+    let time = args[1];
     if(!time) {time = 'Навсегда'}
     let author = msg.author.id;
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
@@ -28,7 +28,7 @@ module.exports = {
     });
 
     //check reason
-    let reason = args.slice(1).join(' ');
+    let reason = args.slice(2).join(' ');
     if(!reason) {reason = 'None'}
 
     //embeds
@@ -97,8 +97,9 @@ module.exports = {
     } else {
       targetMember.roles.add(role.id).then(msg.channel.send(muteEmbed))
       setTimeout(() => {
-      targetMember.roles.remove(role.id)
-    }, ms(args[1])).then(target.send(unMuteEmbed))
+      targetMember.roles.remove(role.id);
+      target.send(unMuteEmbed)
+    }, ms(args[1]))
     }
     target.send(targetMuteEmbed)
         msg.delete().catch();
