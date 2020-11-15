@@ -1,6 +1,6 @@
 module.exports = {
-  name: 'mute',
-  description: 'Mute',
+  name: 'unmute',
+  description: 'Unmute',
   execute(msg, args, ms, Discord) {
     let author = msg.author.id;
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
@@ -34,7 +34,7 @@ module.exports = {
       inline: true
     })
 
-    let targetMuteEmbed = new Discord.MessageEmbed()
+    let unMuteEmbed = new Discord.MessageEmbed()
     .setDescription(`Вы были размучены на сервере **${guild}**`)
     .setColor('Green')
     .addFields({
