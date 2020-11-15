@@ -87,10 +87,15 @@ module.exports = {
     .setDescription(`Вы были размучены на сервере **${guild}**`)
     .setColor('GREEN')
 
+    let mutedEmbed = new Discord.MessageEmbed()
+      .setColor('RED')
+      .setDescription('⛔ **Ошибка** \n Этот пользователь уже замучен')
+
     if (!msg.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR")) return msg.channel.send(kickPermsEmbed);
     if(!args[0]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
     if(!targetMember) return msg.channel.send(targEmbed).then (msg.delete().catch());
     if(targetMember.id === author) return msg.channel.send(authEmbed).then (msg.delete().catch());
+    if(targetMember.roles.cache.get(role.id) return msg.channel.send(mutedEmbed));
 
     if(time === 'Навсегда') {
       targetMember.roles.add(role.id).then(msg.channel.send(muteEmbed))
@@ -99,7 +104,9 @@ module.exports = {
       setTimeout(() => {
       targetMember.roles.remove(role.id);
       target.send(unMuteEmbed)
-    }, ms(args[1]))
+    }, ms(args[1])).catch(error => {
+      msg.channel.send('Укажите правильное время')
+    })
     }
     target.send(targetMuteEmbed)
         msg.delete().catch();
