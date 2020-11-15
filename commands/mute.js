@@ -104,11 +104,10 @@ module.exports = {
     if (time === 'Навсегда') {
       targetMember.roles.add(role.id).then(msg.channel.send(muteEmbed))
     } else {
-      targetMember.roles.add(role.id).then(msg.channel.send(muteEmbed))
-      setTimeout(() => {
+      targetMember.roles.add(role.id).then(msg.channel.send(muteEmbed)).then(setTimeout(() => {
         targetMember.roles.remove(role.id).catch(msg.channel.send('bAn'));
         target.send(unMuteEmbed)
-      }, ms(args[1]))
+      }, ms(args[1])))
     }
     target.send(targetMuteEmbed)
     msg.delete().catch();
