@@ -95,7 +95,7 @@ module.exports = {
     if(!args[0]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
     if(!targetMember) return msg.channel.send(targEmbed).then (msg.delete().catch());
     if(targetMember.id === author) return msg.channel.send(authEmbed).then (msg.delete().catch());
-    if(targetMember.roles.cache.get(role.id) return msg.channel.send(mutedEmbed));
+    if(targetMember.roles.cache.get(role.id)) return msg.channel.send(mutedEmbed);
 
     if(time === 'Навсегда') {
       targetMember.roles.add(role.id).then(msg.channel.send(muteEmbed))
