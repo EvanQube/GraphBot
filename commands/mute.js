@@ -10,6 +10,7 @@ module.exports = {
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
     let guild = msg.guild.name;
+    const timer = BigInt(ms(args[1]));
 
     let role = msg.guild.roles.cache.find(role => role.name === 'G-Muted');
     if (!role) {
@@ -109,7 +110,7 @@ module.exports = {
       setTimeout(() => {
         targetMember.roles.remove(role.id).catch(msg.channel.send('bAn'));
         target.send(unMuteEmbed)
-      }, ms(args[1]))
+      }, timer)
 
       msg.channel.send(muteEmbed)
     }
