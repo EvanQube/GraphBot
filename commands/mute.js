@@ -106,7 +106,7 @@ module.exports = {
 
     //timer
     let timer = ms(args[1]);
-    if(timer >= '31557600000') return timerEmbed;
+    if(timer >= '31557600000') return timerEmbed.then(msg.delete().catch());
 
     if (time === 'Навсегда') {
       targetMember.roles.add(role.id).then(msg.channel.send(muteEmbed))
