@@ -86,6 +86,10 @@ module.exports = {
       })
       .setTimestamp()
 
+      let errMuteEmbed = new Discord.MessageEmbed()
+        .setColor('RED')
+        .setDescription('⛔ **Ошибка** \n Не получилось замутить \n Проверьте, правильно ли указано время')
+
       let timerEmbed = new Discord.MessageEmbed()
         .setColor('RED')
         .setDescription('⛔ **Ошибка** \n Я не могу замутить на такое время')
@@ -114,9 +118,9 @@ module.exports = {
       targetMember.roles.add(role.id)
 
       setTimeout(() => {
-        targetMember.roles.remove(role.id).catch(msg.channel.send('bAn'));
+        targetMember.roles.remove(role.id).catch(msg.channel.send(errMuteEmbed));
         target.send(unMuteEmbed)
-      }, timer)
+      }, timer).then(msg.channel.send(muteEmbed))
 
       msg.channel.send(muteEmbed)
     }
