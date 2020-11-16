@@ -10,7 +10,7 @@ module.exports = {
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
     let guild = msg.guild.name;
-    const timer = BigInt(ms(args[1]));
+    const timer = ms(args[1]);
 
     let role = msg.guild.roles.cache.find(role => role.name === 'G-Muted');
     if (!role) {
