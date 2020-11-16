@@ -7,7 +7,6 @@ module.exports = {
       time = 'Навсегда'
     }
     let author = msg.author.id;
-    const timer = ms(args[1]);
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
     let guild = msg.guild.name;
@@ -104,6 +103,9 @@ module.exports = {
     if (!targetMember) return msg.channel.send(targEmbed).then(msg.delete().catch());
     if (targetMember.id === author) return msg.channel.send(authEmbed).then(msg.delete().catch());
     if (targetMember.roles.cache.get(role.id)) return msg.channel.send(mutedEmbed).then(msg.delete().catch());
+
+    //timer
+    let timer = ms(args[1]);
     if(timer >= '31557600000') return {timerEmbed}
 
     if (time === 'Навсегда') {
