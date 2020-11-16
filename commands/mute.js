@@ -119,10 +119,9 @@ module.exports = {
 
       setTimeout(() => {
         targetMember.roles.remove(role.id).catch(
-        msg.channel.send(errMuteEmbed) 
-        break);
+        msg.channel.send(errMuteEmbed));
         target.send(unMuteEmbed)
-      }, timer))
+      }, timer)
 
       msg.channel.send(muteEmbed)
     }
