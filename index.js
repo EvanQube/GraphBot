@@ -26,46 +26,47 @@ client.on('ready', async () => {
   })
 });
 
-client.on('message', msg => {
+client.on('message', async msg => {
   if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
   const args = msg.content.slice(prefix.length).split(/ +/);
   const cmdName = args.shift().toLowerCase();
   const cmd = client.commands.get(cmdName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(cmdName))
 
-  cmd.execute(msg, client);
-  cmd.execute(msg, Discord, prefix, client);
-  cmd.execute(msg, args);
-  cmd.execute(msg, args);
-  cmd.execute(msg, args);
-  cmd.execute(msg, args);
-  cmd.execute(msg, args);
-  cmd.execute(msg, args);
-  cmd.execute(msg, args);
-  cmd.execute(msg, client);
-  cmd.execute(msg);
-  cmd.execute(msg);
-  cmd.execute(msg);
-  cmd.execute(msg, args);
-  cmd.execute(msg, args);
-  cmd.execute(msg, args);
-  cmd.execute(msg, args);
-  cmd.execute(msg, args);
-  cmd.execute(msg, args);
-  cmd.execute(msg, args);
-  cmd.execute(msg, args);
-  cmd.execute(msg, args);
-  cmd.execute(msg, args);
-  cmd.execute(msg, args);
-  cmd.execute(msg, args);
-  cmd.execute(msg, Discord, prefix, client);
-  //Mod
-  cmd.execute(msg, args, Discord);
-  cmd.execute(msg, args, Discord, client);
-  cmd.execute(msg, args, Discord);
-  cmd.execute(msg, args, ms, Discord);
-  cmd.execute(msg, args, ms, Discord);
+  try
+    {cmd.execute(msg, client);
+    cmd.execute(msg, Discord, prefix, client);
+    cmd.execute(msg, args);
+    cmd.execute(msg, args);
+    cmd.execute(msg, args);
+    cmd.execute(msg, args);
+    cmd.execute(msg, args);
+    cmd.execute(msg, args);
+    cmd.execute(msg, args);
+    cmd.execute(msg, client);
+    cmd.execute(msg);
+    cmd.execute(msg);
+    cmd.execute(msg);
+    cmd.execute(msg, args);
+    cmd.execute(msg, args);
+    cmd.execute(msg, args);
+    cmd.execute(msg, args);
+    cmd.execute(msg, args);
+    cmd.execute(msg, args);
+    cmd.execute(msg, args);
+    cmd.execute(msg, args);
+    cmd.execute(msg, args);
+    cmd.execute(msg, args);
+    cmd.execute(msg, args);
+    cmd.execute(msg, args);
+    cmd.execute(msg, Discord, prefix, client);
+    //Mod
+    cmd.execute(msg, args, Discord);
+    cmd.execute(msg, args, Discord, client);
+    cmd.execute(msg, args, Discord);
+    cmd.execute(msg, args, ms, Discord);
+    cmd.execute(msg, args, ms, Discord);
 
 
-  cmd.execute(msg, args, Discord);
+    cmd.execute(msg, args, Discord);}catch(e){console.log(e);}
 });
