@@ -1,16 +1,14 @@
-const Discord = require("discord.js");
-const config = require("./Storage/config.json");
-const client = new Discord.Client();
+const { Client } = require('discord.js');
 
 const { Handler } = require('discord.js-handler');
 
 const handler = new Handler({
   client: new Client(),
-  token: 'TOKEN',
+  token: '/',
   eventsFolder: './events',
   commandsFolder: './commands',
 });
- 
+
 try {
   handler.login();
   handler.run();
