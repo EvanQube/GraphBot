@@ -1,4 +1,5 @@
 const { Client } = require('discord.js');
+const client = require('discord.js');
 
 const { Handler } = require('discord.js-handler');
 
