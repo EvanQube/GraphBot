@@ -12,7 +12,7 @@ client.on('ready', () =>{
 client.on('message', msg =>{
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     run('/', client, msg, args)  //The first agument here will be what you want your prefix to be. The second is your client vairable, and the third is your message variable
-}
+})
 
 client.login(token)
 
