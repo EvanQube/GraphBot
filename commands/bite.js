@@ -1,6 +1,7 @@
 module.exports = {
   name: 'bite',
   description: 'Bite',
+  aliases: ['кусь'],
   execute(msg, args) {
     if (!msg.mentions.users.size) {
       let errorEmbed = {
