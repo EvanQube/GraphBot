@@ -1,3 +1,4 @@
+const Discord = require('discord.js')
 const client = new Discord.Client()
 const token = process.env.token
 const { handle, run } = require('penguin-handler') //Require the package so you can use the handler function
