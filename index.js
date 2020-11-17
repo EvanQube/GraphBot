@@ -16,8 +16,6 @@ try {
   console.error(e);
 }
 
-Client.login(process.env.token);
-
 
 
 
