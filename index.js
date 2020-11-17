@@ -1,4 +1,34 @@
-const fs = require('fs');
+const Discord = require("discord.js");
+const config = require("./Storage/config.json");
+const client = new Discord.Client();
+
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
+client.event = new Discord.Collection();
+
+const loadCommands = require("./functions/commands.js");
+const loadEvents = require("./functions/events.js");
+
+const load = async () => {
+    await loadCommands.run(client);
+    await loadEvents.run(client);
+}
+
+client.color = require("./Storage/color.json");
+client.functions = require("./functions/functions.js");
+
+load();
+client.login(config.token);
+
+
+
+
+
+
+
+
+
+/*const fs = require('fs');
 const ms = require('ms');
 const Discord = require("discord.js");
 const client = new Discord.Client();
@@ -16,7 +46,7 @@ prefix = "/";
 client.login(process.env.token);
 
 client.on('ready', async () => {
-  console.log('Bot is ready !')
+  console.log('client is ready !')
   client.user.setPresence({
     status: 'online',
     activity: {
@@ -26,43 +56,46 @@ client.on('ready', async () => {
   })
 });
 
-client.on('message', async msg => {
-  if (!msg.content.startsWith(prefix) || msg.author.bot) return;
+client.on('message', msg => {
+  if (!msg.content.startsWith(prefix) || msg.author.client) return;
 
   const args = msg.content.slice(prefix.length).split(/ +/);
-  const commandName = args.shift().toLowerCase();
-  const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+  const cmdName = args.shift().toLowerCase();
+  const cmd = client.commands.get(cmdName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(cmdName))
 
-  t
-      command.execute(msg, args);
-      command.execute(msg, args);
-      command.execute(msg, args);
-      command.execute(msg, args);
-      command.execute(msg, args);
-      command.execute(msg, client);
-      command.execute(msg);
-      command.execute(msg);
-      command.execute(msg);
-      command.execute(msg, args);
-      command.execute(msg, args);
-      command.execute(msg, args);
-      command.execute(msg, args);
-      command.execute(msg, args);
-      command.execute(msg, args);
-      command.execute(msg, args);
-      command.execute(msg, args);
-      command.execute(msg, args);
-      command.execute(msg, args);
-      command.execute(msg, args);
-      command.execute(msg, args);
-      command.execute(msg, Discord, prefix, client);
-      //Mod
-      command.execute(msg, args, Discord);
-      command.execute(msg, args, Discord, client);
-      command.execute(msg, args, Discord);
-      command.execute(msg, args, ms, Discord);
-      command.execute(msg, args, ms, Discord);
+  cmd.execute(msg, client);
+  cmd.execute(msg, Discord, prefix, client);
+  cmd.execute(msg, args);
+  cmd.execute(msg, args);
+  cmd.execute(msg, args);
+  cmd.execute(msg, args);
+  cmd.execute(msg, args);
+  cmd.execute(msg, args);
+  cmd.execute(msg, args);
+  cmd.execute(msg, client);
+  cmd.execute(msg);
+  cmd.execute(msg);
+  cmd.execute(msg);
+  cmd.execute(msg, args);
+  cmd.execute(msg, args);
+  cmd.execute(msg, args);
+  cmd.execute(msg, args);
+  cmd.execute(msg, args);
+  cmd.execute(msg, args);
+  cmd.execute(msg, args);
+  cmd.execute(msg, args);
+  cmd.execute(msg, args);
+  cmd.execute(msg, args);
+  cmd.execute(msg, args);
+  cmd.execute(msg, args);
+  cmd.execute(msg, Discord, prefix, client);
+  //Mod
+  cmd.execute(msg, args, Discord);
+  cmd.execute(msg, args, Discord, client);
+  cmd.execute(msg, args, Discord);
+  cmd.execute(msg, args, ms, Discord);
+  cmd.execute(msg, args, ms, Discord);
 
 
-      command.execute(msg, args, Discord);}catch(e){console.log(e);}
-});
+  cmd.execute(msg, args, Discord);
+}); */
