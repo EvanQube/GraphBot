@@ -7,7 +7,7 @@ On the next line I will be calling the handler function with one parameter:
 The parameter is the path to your commands folder, for example if my commands folder is in the same folder as my index.js I would put "./commands".
 */
 client.on('ready', () =>{
-    handle('./commands') //This line of code will load all commands in the path specified, including all commands that are in subfolders.
+    handle('./comms') //This line of code will load all commands in the path specified, including all commands that are in subfolders.
     console.log('I am online!')})
 //Now we have to run the commands when they are called this will be done is a message listener.
 const prefix = '/'
