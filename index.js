@@ -33,10 +33,7 @@ client.on('message', async msg => {
   const commandName = args.shift().toLowerCase();
   const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-  try {command.execute(msg, client);
-      command.execute(msg, Discord, prefix, client);
-      command.execute(msg, args);
-      command.execute(msg, args);
+  t
       command.execute(msg, args);
       command.execute(msg, args);
       command.execute(msg, args);
