@@ -1,4 +1,4 @@
-/* module.exports = {
+module.exports = {
   name: 'ping',
   description: 'ping',
   execute(msg, client) {
@@ -11,14 +11,4 @@
       embed: pingEmbed
     })
 }
-} */
-
-
-module.exports = {
-  name: ping,
-  description: 'Ping',
-  aliases: ['p'], // Optional
-  callback: (message) => {
-    message.reply('pong')
-  }
 }
