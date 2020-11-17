@@ -14,13 +14,9 @@
 } */
 
 
-const Discord = require('discord.js')
-module.exports.help = {
-    name: "ping", //Name of the command
-    aliases: ['p'] // Any Aliases you want for the command (If you don't want any just ignore this.)
-}
-
-module.exports.run = async (client, msg, args) => {
-    //Code for Command (This will be ran once the command is called.)
-    msg.reply('Pong!')
+module.exports = {
+  aliases: ['p'], // Optional
+  callback: (message) => {
+    message.reply('pong')
+  }
 }
