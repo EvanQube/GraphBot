@@ -25,6 +25,7 @@ module.exports = {
       channel.updateOverwrite(role, {
         SEND_MESSAGES: false,
         SPEAK: false,
+        ADD_REACTIONS: false,
       });
     });
 
@@ -110,7 +111,7 @@ module.exports = {
 
     //timer
     let timer = ms(args[1]);
-    if(timer >= '31557600000') return msg.channel.send(timerEmbed).then(msg.delete().catch());
+    if(timer >= '2160000000') return msg.channel.send(timerEmbed).then(msg.delete().catch());
 
     if (time === 'Навсегда') {
       targetMember.roles.add(role.id).then(msg.channel.send(muteEmbed))
