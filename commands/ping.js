@@ -1,4 +1,4 @@
-module.exports = {
+/* module.exports = {
   name: 'ping',
   description: 'ping',
   execute(msg, client) {
@@ -11,4 +11,24 @@ module.exports = {
       embed: pingEmbed
     })
 }
-}
+} */
+
+
+const { CommandListener } = require('discord.js-handler');
+
+module.exports = class PingCommand extends CommandListener {
+  constructor() {
+    const parameters = {
+      aliases: ['ping', 'pong'],
+      listener: async ({ client, message }) => {
+        try {
+          await message.reply(`Pong! :ping_pong: ${Math.round(client.ws.ping)}ms`);
+          await message.delete();
+        } catch (e) {
+          console.error(e);
+        }
+      },
+    };
+    super(parameters);
+  }
+};
