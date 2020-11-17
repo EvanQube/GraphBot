@@ -15,6 +15,8 @@
 
 
 module.exports = {
+  name: ping,
+  description: 'Ping',
   aliases: ['p'], // Optional
   callback: (message) => {
     message.reply('pong')
