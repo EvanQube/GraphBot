@@ -10,6 +10,7 @@ client.on('ready', () =>{
     handle('./commands') //This line of code will load all commands in the path specified, including all commands that are in subfolders.
     console.log('I am online!')})
 //Now we have to run the commands when they are called this will be done is a message listener.
+const prefix = '/'
 client.on('message', msg =>{
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     run('/', client, msg, args)  //The first agument here will be what you want your prefix to be. The second is your client vairable, and the third is your message variable
