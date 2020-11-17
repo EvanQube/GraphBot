@@ -7,8 +7,7 @@ The parameter is the path to your commands folder, for example if my commands fo
 */
 client.on('ready', () =>{
     handle('./commands') //This line of code will load all commands in the path specified, including all commands that are in subfolders.
-    console.log('I am online!')
-)}
+    console.log('I am online!')})
 //Now we have to run the commands when they are called this will be done is a message listener.
 client.on('message', msg =>{
     const args = message.content.slice(prefix.length).trim().split(/ +/);
