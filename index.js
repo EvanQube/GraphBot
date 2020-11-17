@@ -1,10 +1,9 @@
-const { Client } = require('discord.js');
 const client = require('discord.js');
 
 const { Handler } = require('discord.js-handler');
 
 const handler = new Handler({
-  client: new Client(),
+  client: new client(),
   token: '/',
   eventsFolder: './events',
   commandsFolder: './commands',
