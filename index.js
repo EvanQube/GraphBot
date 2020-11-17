@@ -16,6 +16,7 @@ try {
   console.error(e);
 }
 
+client.login(procces.env.token);
 
 
 
