@@ -1,20 +1,21 @@
-const {Client} = require('discord.js');
-
-const { Handler } = require('discord.js-handler');
-
-const handler = new Handler({
-  client: new Client(),
-  token: '/',
-  eventsFolder: './events',
-  commandsFolder: './commands',
-});
-
-try {
-  handler.login();
-  handler.run();
-} catch (e) {
-  console.error(e);
+const client = new Discord.Client()
+const token = process.env.token
+const { handle, run } = require('penguin-handler') //Require the package so you can use the handler function
+/*
+On the next line I will be calling the handler function with one parameter:
+The parameter is the path to your commands folder, for example if my commands folder is in the same folder as my index.js I would put "./commands".
+*/
+client.on('ready', () =>{
+    handle('./commands') //This line of code will load all commands in the path specified, including all commands that are in subfolders.
+    console.log('I am online!')
+)}
+//Now we have to run the commands when they are called this will be done is a message listener.
+client.on('message', msg =>{
+    const args = message.content.slice(prefix.length).trim().split(/ +/);
+    run('/', client, msg, args)  //The first agument here will be what you want your prefix to be. The second is your client vairable, and the third is your message variable
 }
+
+client.login(token)
 
 
 

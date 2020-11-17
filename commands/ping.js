@@ -14,21 +14,13 @@
 } */
 
 
-const { CommandListener } = require('discord.js-handler');
+const Discord = require('discord.js')
+module.exports.help = {
+    name: "ping", //Name of the command
+    aliases: ['p'] // Any Aliases you want for the command (If you don't want any just ignore this.)
+}
 
-module.exports = class PingCommand extends CommandListener {
-  constructor() {
-    const parameters = {
-      aliases: ['ping', 'pong'],
-      listener: async ({ client, message }) => {
-        try {
-          await message.reply(`Pong! :ping_pong: ${Math.round(client.ws.ping)}ms`);
-          await message.delete();
-        } catch (e) {
-          console.error(e);
-        }
-      },
-    };
-    super(parameters);
-  }
-};
+module.exports.run = async (client, msg, args) => {
+    //Code for Command (This will be ran once the command is called.)
+    msg.reply('Pong!')
+}
