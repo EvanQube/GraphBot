@@ -1,9 +1,9 @@
-const client = require('discord.js');
+const {Client} = require('discord.js');
 
 const { Handler } = require('discord.js-handler');
 
 const handler = new Handler({
-  client: new client(),
+  client: new Client(),
   token: '/',
   eventsFolder: './events',
   commandsFolder: './commands',
@@ -16,7 +16,7 @@ try {
   console.error(e);
 }
 
-client.login(process.env.token);
+Client.login(process.env.token);
 
 
 
