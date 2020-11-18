@@ -1,7 +1,7 @@
 module.exports = {
   name: 'unban',
   description: 'Unban',
-  execute(msg, args, Discord, client) {
+  execute(msg, args, ms, client, prefix, Discord) {
     let author = msg.author.id;
     let target = args[0];
     let targetMember = client.users.cache.get(args[0]);

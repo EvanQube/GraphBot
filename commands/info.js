@@ -1,7 +1,7 @@
 module.exports = {
   name: 'info',
   description: "This is an info command!",
-  execute(msg, Discord, prefix, client) {
+  execute(msg, args, ms, client, prefix, Discord) {
     const infoEmbed = new Discord.MessageEmbed()
       .setColor('#ADD8E6')
       .setTitle('**Привет!**')

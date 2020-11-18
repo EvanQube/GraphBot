@@ -1,7 +1,7 @@
 module.exports = {
   name: 'mute',
   description: 'Mute',
-  execute(msg, args, ms, Discord) {
+  execute(msg, args, ms, client, prefix, Discord) {
     let time = args[1];
     if (!time) {
       time = 'Навсегда'

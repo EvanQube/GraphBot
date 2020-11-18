@@ -1,7 +1,7 @@
 module.exports = {
   name: 'sad',
   description: 'Sad',
-  execute(msg) {
+  execute(msg, args, ms, client, prefix, Discord) {
       author = msg.author.id;
       user = msg.mentions.users.first();
       sad = 4;

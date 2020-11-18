@@ -1,7 +1,7 @@
 module.exports = {
   name: 'test',
   description: 'Test',
-  execute(msg, args, Discord) {
+  execute(msg, args, ms, client, prefix, Discord) {
     let reason = args.slice(1).join(' ');
     let guild = msg.guild.name;
     if(!reason) {reason = 'None'}

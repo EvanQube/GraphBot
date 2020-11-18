@@ -1,7 +1,7 @@
 module.exports = {
   name: 'cry',
   description: 'Cry',
-  execute(msg, args) {
+  execute(msg, args, ms, client, prefix, Discord) {
     author = msg.author.id;
     cry = 13;
     cryNumber = Math.floor(Math.random() * (cry - 1)) + 1;

@@ -1,7 +1,7 @@
 module.exports = {
   name: 'pat',
   description: 'Pat',
-  execute(msg, args) {
+  execute(msg, args, ms, client, prefix, Discord) {
     if (!msg.mentions.users.size) {
       let errorEmbed = {
         color: 'RED',

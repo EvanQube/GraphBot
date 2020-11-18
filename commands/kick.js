@@ -1,7 +1,7 @@
 module.exports = {
   name: 'kick',
   description: 'Kick',
-  execute(msg, args, Discord) {
+  execute(msg, args, ms, client, prefix, Discord) {
     let author = msg.author.id;
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);

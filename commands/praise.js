@@ -1,7 +1,7 @@
 module.exports = {
   name: 'praise',
   description: 'Praise',
-  execute(msg, args, Discord) {
+  execute(msg, args, ms, client, prefix, Discord) {
     if (!msg.mentions.users.size) {
       let errorEmbed = {
         color: 'RED',

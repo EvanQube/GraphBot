@@ -1,7 +1,7 @@
 module.exports = {
   name: 'help',
   description: 'Help',
-  execute(msg, Discord, prefix, client) {
+  execute(msg, args, ms, client, prefix, Discord) {
     const helpEmbed = new Discord.MessageEmbed()
       .setColor(`ORANGE`)
       .setTitle('Префикс бота - `/`')
