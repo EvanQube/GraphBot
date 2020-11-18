@@ -110,7 +110,7 @@ module.exports = {
     if (targetMember.roles.cache.get(role.id)) return msg.channel.send(mutedEmbed).then(msg.delete().catch());
 
     //timer
-    if(time){
+    if(!time === 'Навсегда'){
     let timer = ms(args[1])
     if(timer >= '2160000000') return msg.channel.send(timerEmbed).then(msg.delete().catch());}
 
