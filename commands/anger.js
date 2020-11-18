@@ -4,7 +4,7 @@ module.exports = {
   execute(msg, args) {
     author = msg.author.id;
     anger = 6;
-    angerNumber =z Math.floor(Math.random() * (anger - 1)) + 1;
+    angerNumber = Math.floor(Math.random() * (anger - 1)) + 1;
     msg.channel.send('<@' + author + '>' + '\xa0' + 'злится', {
       files: ['./src/angers/' + angerNumber + '.gif']
     })
