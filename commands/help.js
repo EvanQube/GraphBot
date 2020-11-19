@@ -16,7 +16,7 @@ module.exports.run = async (client, msg, args) => {
         inline: true
       }, {
         name: `\u200B`,
-        value: `Пригласить бота к себе можно прописав команду \n **${prefix} invite**, бот вышлет вам ссылку в личные сообщения`,
+        value: `Пригласить бота к себе можно прописав команду \n **/invite**, бот вышлет вам ссылку в личные сообщения`,
         inline: true
       }, )
       .setImage(`https://i.imgur.com/OYN4T0p.jpg`)
