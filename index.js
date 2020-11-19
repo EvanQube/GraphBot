@@ -6,6 +6,13 @@ const token = process.env.token;
 client.on('ready', () =>{
   handle('./commands')
   console.log('Bot is ready !')
+  client.user.setPresence({
+    status: 'online',
+    activity: {
+      name: prefix + `help | Автор - Evan🎃#6456`,
+      type: 'WATCHING'
+    }
+  })
 });
 
 client.on('message', msg => {
