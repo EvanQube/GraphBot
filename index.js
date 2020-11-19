@@ -4,7 +4,7 @@ const { handle, run } = require('penguin-handler')
 
 client.login(process.env.token);
 
-client.on('ready', async () => {
+client.on('ready', () => {
   handle('./commands')
   console.log('Bot is ready !')
   client.user.setPresence({
