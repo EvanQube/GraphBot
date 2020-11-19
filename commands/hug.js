@@ -1,7 +1,10 @@
-module.exports = {
-  name: 'hug',
-  description: 'Hug',
-  execute(msg, args, ms, client, prefix, Discord) {
+const Discord = require('discord.js')
+module.exports.help = {
+    name: "hug",
+    aliases: ['обнять']
+}
+
+module.exports.run = async (client, msg, args) => {
       user = msg.mentions.users.first();
       author = msg.author.id;
       hugs = 14;
@@ -26,4 +29,3 @@ module.exports = {
           msg.delete().catch();
         }
     }
-}

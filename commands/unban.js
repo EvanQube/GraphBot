@@ -1,7 +1,10 @@
-module.exports = {
-  name: 'unban',
-  description: 'Unban',
-  execute(msg, args, ms, client, prefix, Discord) {
+const Discord = require('discord.js')
+module.exports.help = {
+    name: "unban",
+    aliases: ['разбан', 'анбан']
+}
+
+module.exports.run = async (client, msg, args) => {
     let author = msg.author.id;
     let target = args[0];
     let targetMember = client.users.cache.get(args[0]);
@@ -51,4 +54,3 @@ module.exports = {
     targetMember.send(targetUnbanEmbed)
     msg.delete().catch();
     }
-  }

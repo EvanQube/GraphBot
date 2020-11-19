@@ -1,7 +1,10 @@
-module.exports = {
-  name: 'kick',
-  description: 'Kick',
-  execute(msg, args, ms, client, prefix, Discord) {
+const Discord = require('discord.js')
+module.exports.help = {
+    name: "kick",
+    aliases: ['кик']
+}
+
+module.exports.run = async (client, msg, args) => {
     let author = msg.author.id;
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
@@ -70,4 +73,3 @@ module.exports = {
     target.send(targetKickEmbed)
     msg.delete().catch();
     }
-}

@@ -1,8 +1,10 @@
-module.exports = {
-  name: 'bite',
-  description: 'Bite',
-  aliases: ['кусь'],
-  execute(msg, args, ms, client, prefix, Discord) {
+const Discord = require('discord.js')
+module.exports.help = {
+    name: "bite",
+    aliases: ['кусь']
+}
+
+module.exports.run = async (client, msg, args) => {
     if (!msg.mentions.users.size) {
       let errorEmbed = {
         color: 'RED',
@@ -21,5 +23,4 @@ module.exports = {
       })
     }
     msg.delete().catch();
-}
 }

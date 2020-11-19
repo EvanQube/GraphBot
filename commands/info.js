@@ -1,7 +1,10 @@
-module.exports = {
-  name: 'info',
-  description: "This is an info command!",
-  execute(msg, args, ms, client, prefix, Discord) {
+const Discord = require('discord.js')
+module.exports.help = {
+    name: "info",
+    aliases: ['инфо']
+}
+
+module.exports.run = async (client, msg, args) => {
     const infoEmbed = new Discord.MessageEmbed()
       .setColor('#ADD8E6')
       .setTitle('**Привет!**')
@@ -21,4 +24,3 @@ module.exports = {
     msg.channel.send(infoEmbed)
     msg.delete().catch();
   }
-}

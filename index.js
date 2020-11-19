@@ -1,8 +1,6 @@
-const fs = require('fs');
-const ms = require('ms');
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const mongoose = require('mongoose');
+const { handle, run } = require('penguin-handler')
 
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -16,6 +14,7 @@ prefix = "/";
 client.login(process.env.token);
 
 client.on('ready', async () => {
+  handle('./commands')
   console.log('Bot is ready !')
   client.user.setPresence({
     status: 'online',
@@ -28,8 +27,9 @@ client.on('ready', async () => {
 
 client.on('message', msg => {
   if (!msg.content.startsWith(prefix) || msg.author.bot) return;
+  run('/', client, msg)
 
-  const args = msg.content.slice(prefix.length).split(/ +/);
+  /*const args = msg.content.slice(prefix.length).split(/ +/);
   const cmdName = args.shift().toLowerCase();
   const cmd = client.commands.get(cmdName)
 
@@ -67,5 +67,5 @@ client.on('message', msg => {
   else if(cmdName ==='unmute') {cmd.execute(msg, args, ms, client, prefix, Discord)}
 
 
-  else if(cmdName ==='test') {cmd.execute(msg, args, ms, client, prefix, Discord)}
+  else if(cmdName ==='test') {cmd.execute(msg, args, ms, client, prefix, Discord)}*/
   });

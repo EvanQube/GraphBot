@@ -1,7 +1,10 @@
-module.exports = {
-  name: 'ping',
-  description: 'ping',
-  execute(msg, args, ms, client, prefix, Discord) {
+mconst Discord = require('discord.js')
+module.exports.help = {
+    name: "ping",
+    aliases: ['p']
+}
+
+module.exports.run = async (client, msg, args) => {
     let pingEmbed = {
       color: '#7CB9E8',
       description: '🏓 pong! \n' + `Пинг: ${Math.round(client.ws.ping)}ms`,
@@ -10,5 +13,4 @@ module.exports = {
     msg.channel.send({
       embed: pingEmbed
     })
-}
 }

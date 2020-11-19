@@ -1,6 +1,6 @@
 {
   "name": "GraphBot",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Discord bot project",
   "main": "index.js",
   "author": "Evan",
@@ -18,9 +18,9 @@
   },
   "dependencies": {
     "discord.js": "^12.4.1",
-    "mongoose": "^5.10.14",
     "ms": "^2.1.2",
     "path": "^0.12.7",
+    "penguin-handler": "^2.0.9",
     "wokcommands": "^1.0.1"
   }
 }

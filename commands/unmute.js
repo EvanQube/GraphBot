@@ -1,7 +1,10 @@
-module.exports = {
-  name: 'unmute',
-  description: 'Unmute',
-  execute(msg, args, ms, client, prefix, Discord) {
+const Discord = require('discord.js')
+module.exports.help = {
+    name: "unmute",
+    aliases: ['анмут', 'размут']
+}
+
+module.exports.run = async (client, msg, args) => {
     let author = msg.author.id;
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
@@ -58,4 +61,3 @@ module.exports = {
       msg.channel.send(unmuteEmbed)
         msg.delete().catch();
     }
-  }

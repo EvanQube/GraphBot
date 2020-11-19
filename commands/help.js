@@ -1,7 +1,10 @@
-module.exports = {
-  name: 'help',
-  description: 'Help',
-  execute(msg, args, ms, client, prefix, Discord) {
+const Discord = require('discord.js')
+module.exports.help = {
+    name: "help",
+    aliases: ['cmds', 'commands']
+}
+
+module.exports.run = async (client, msg, args) => {
     const helpEmbed = new Discord.MessageEmbed()
       .setColor(`ORANGE`)
       .setTitle('Префикс бота - `/`')
@@ -23,4 +26,3 @@ module.exports = {
     msg.reply('я отправил тебе команды в личные сообщения')
     msg.delete().catch();
   }
-}

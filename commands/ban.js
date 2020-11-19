@@ -1,7 +1,10 @@
-module.exports = {
-  name: 'ban',
-  description: 'Ban',
-  execute(msg, args, ms, client, prefix, Discord) {
+const Discord = require('discord.js')
+module.exports.help = {
+    name: "ban",
+    aliases: ['бан']
+}
+
+module.exports.run = async (client, msg, args) => {
     let author = msg.author.id;
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
     let targetMember = msg.guild.member(target);
@@ -76,5 +79,4 @@ module.exports = {
 
     //dm message
     target.send(targetBanEmbed)
-    }
 }

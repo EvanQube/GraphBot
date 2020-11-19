@@ -1,7 +1,10 @@
-module.exports = {
-  name: 'laugh',
-  description: 'Смех',
-  execute(msg, args, ms, client, prefix, Discord) {
+const Discord = require('discord.js')
+module.exports.help = {
+    name: "laugh",
+    aliases: ['смех']
+}
+
+module.exports.run = async (client, msg, args) => {
     author = msg.author.id;
     laugh = 10;
     laughNumber = Math.floor(Math.random() * (laugh - 1)) + 1;
@@ -10,4 +13,3 @@ module.exports = {
     })
     msg.delete().catch();
   }
-}

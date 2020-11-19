@@ -1,7 +1,9 @@
-module.exports = {
-  name: 'five',
-  description: 'Five',
-  execute(msg, args, ms, client, prefix, Discord) {
+const Discord = require('discord.js')
+module.exports.help = {
+    name: "five",
+    aliases: ['пять']
+}
+module.exports.run = async (client, msg, args) => {
     if (!msg.mentions.users.size) {
       let errorEmbed = {
         color: 'RED',
@@ -20,5 +22,4 @@ module.exports = {
       })
       msg.delete().catch();
     }
-}
 }

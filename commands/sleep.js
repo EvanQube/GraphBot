@@ -1,7 +1,10 @@
-module.exports = {
-  name: 'sleep',
-  description: 'Sleep',
-  execute(msg, args, ms, client, prefix, Discord) {
+const Discord = require('discord.js')
+module.exports.help = {
+    name: "sleep",
+    aliases: ['спать']
+}
+
+module.exports.run = async (client, msg, args) => {
     user = msg.mentions.users.first();
     author = msg.author.id;
     sleep = 9;
@@ -10,5 +13,4 @@ module.exports = {
       files: ['./src/sleeps/' + sleepNumber + '.gif']
     })
     msg.delete().catch();
-}
 }

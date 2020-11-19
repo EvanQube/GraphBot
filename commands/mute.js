@@ -1,7 +1,11 @@
-module.exports = {
-  name: 'mute',
-  description: 'Mute',
-  execute(msg, args, ms, client, prefix, Discord) {
+const Discord = require('discord.js')
+const ms = require('ms');
+module.exports.help = {
+    name: "mute",
+    aliases: ['мут']
+}
+
+module.exports.run = async (client, msg, args) => {
     let time = args[1];
     if (!time) {
       time = 'Навсегда'
@@ -127,4 +131,3 @@ module.exports = {
     target.send(targetMuteEmbed)
     msg.delete().catch();
   }
-}
