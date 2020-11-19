@@ -117,8 +117,7 @@ module.exports = {
       targetMember.roles.add(role.id)
 
       setTimeout(() => {
-        targetMember.roles.remove(role.id).catch(
-        msg.channel.send(errMuteEmbed));
+        targetMember.roles.remove(role.id).catch(e => {console.log(e)});
         target.send(unMuteEmbed)
       }, ms(args[1]))
 
