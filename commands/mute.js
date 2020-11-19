@@ -112,16 +112,15 @@ module.exports = {
     if (time === 'Навсегда') {
       targetMember.roles.add(role.id).then(msg.channel.send(muteEmbed))
     } else {
-      let timer = ms(args[1])
-      if(timer >= '2160000000') return msg.channel.send(timerEmbed).then(msg.delete().catch());
-      
+      if(ms(args[1]) >= '2160000000') return msg.channel.send(timerEmbed).then(msg.delete().catch());
+
       targetMember.roles.add(role.id)
 
       setTimeout(() => {
         targetMember.roles.remove(role.id).catch(
         msg.channel.send(errMuteEmbed));
         target.send(unMuteEmbed)
-      }, timer)
+      }, ms(args[1]))
 
       msg.channel.send(muteEmbed)
     }
