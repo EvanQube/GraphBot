@@ -18,7 +18,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
   if (!msg.content.startsWith(prefix) || msg.author.bot) return;
-  run('/', client, msg)
+  run('/', client, msg)})
 
   /*const args = msg.content.slice(prefix.length).split(/ +/);
   const cmdName = args.shift().toLowerCase();
