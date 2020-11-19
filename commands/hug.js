@@ -5,7 +5,6 @@ module.exports.help = {
 }
 
 module.exports.run = async (client, msg, args) => {
-      const args = msg.content.slice(prefix.length).trim().split(/ +/);
       user = msg.mentions.users.first();
       author = msg.author.id;
       hugs = 14;
