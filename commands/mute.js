@@ -117,6 +117,7 @@ module.exports = {
       targetMember.roles.add(role.id)
 
       setTimeout(() => {
+          if (!targetMember.roles.cache.get(role.id)) return;
         targetMember.roles.remove(role.id).catch(e => {console.log(e)});
         target.send(unMuteEmbed)
       }, ms(args[1]))
