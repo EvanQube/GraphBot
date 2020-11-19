@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 module.exports.help = {
     name: "anger",
-    aliases: ['angr']
+    aliases: ['angr', 'злой']
 }
 
 module.exports.run = async (client, msg, args) => {
