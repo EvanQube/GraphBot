@@ -1,4 +1,4 @@
-mconst Discord = require('discord.js')
+const Discord = require('discord.js')
 module.exports.help = {
     name: "ping",
     aliases: ['p']
