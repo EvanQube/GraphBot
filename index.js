@@ -58,5 +58,5 @@ client.on('message', msg => {
   else if(cmdName ==='unmute') {cmd.execute(msg, args, ms, client, prefix, Discord)}
 
 
-  else if(cmdName ==='test') {cmd.execute(msg, args, ms, client, prefix, Discord)}*/
-  });
+  else if(cmdName ==='test') {cmd.execute(msg, args, ms, client, prefix, Discord)}
+  });*/
