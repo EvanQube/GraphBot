@@ -1,25 +1,17 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const { handle, run } = require('penguin-handler')
+const token = process.env.token;
 
-client.login(process.env.token);
-
-client.on('ready', () => {
+client.on('ready', () =>{
   handle('./commands')
   console.log('Bot is ready !')
-  client.user.setPresence({
-    status: 'online',
-    activity: {
-      name: prefix + `help | Автор - Evan🎃#6456`,
-      type: 'WATCHING'
-    }
-  })
 });
 
 client.on('message', msg => {
-  if (!msg.content.startsWith('/') || msg.author.bot) return;
   run('/', client, msg)})
 
+client.login(token);
   /*const args = msg.content.slice(prefix.length).split(/ +/);
   const cmdName = args.shift().toLowerCase();
   const cmd = client.commands.get(cmdName)
