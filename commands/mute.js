@@ -6,7 +6,7 @@ module.exports.help = {
 }
 
 module.exports.run = async (client, msg, args) => {
-    let time = args[1];
+    let time = args[2];
     if (!time) {
       time = 'Навсегда'
     }
@@ -34,7 +34,7 @@ module.exports.run = async (client, msg, args) => {
     });
 
     //check reason
-    let reason = args.slice(2).join(' ');
+    let reason = args.slice(3).join(' ');
     if (!reason) {
       reason = 'None'
     }
@@ -116,7 +116,7 @@ module.exports.run = async (client, msg, args) => {
     if (time === 'Навсегда') {
       targetMember.roles.add(role.id).then(msg.channel.send(muteEmbed))
     } else {
-      if(ms(args[1]) >= '2160000000') return msg.channel.send(timerEmbed).then(msg.delete().catch());
+      if(ms(args[2]) >= '2160000000') return msg.channel.send(timerEmbed).then(msg.delete().catch());
 
       targetMember.roles.add(role.id)
 
@@ -124,7 +124,7 @@ module.exports.run = async (client, msg, args) => {
           if (!targetMember.roles.cache.get(role.id)) return;
         targetMember.roles.remove(role.id).catch(e => {console.log(e)});
         target.send(unMuteEmbed)
-      }, ms(args[1]))
+      }, ms(args[2]))
 
       msg.channel.send(muteEmbed)
     }

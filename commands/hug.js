@@ -9,7 +9,7 @@ module.exports.run = async (client, msg, args) => {
       author = msg.author.id;
       hugs = 14;
       hugsNumber = Math.floor(Math.random() * (hugs - 1)) + 1;
-      if (args[0] === 'everyone') {
+      if (args[1] === 'everyone') {
         msg.channel.send(`<@${author}> обнимает **ВСЕХ**`, {
           files: ['./src/hugs/' + hugsNumber + '.gif']
         })
