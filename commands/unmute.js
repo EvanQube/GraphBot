@@ -4,7 +4,7 @@ module.exports.help = {
     aliases: ['анмут', 'размут']
 }
 
-module.exports.run = async (client, msg, args) => {
+module.exports.run = async (client, msg) => {
   const prefix = '/'
   const args = msg.content.slice(prefix.length).split(/ +/);
     let author = msg.author.id;

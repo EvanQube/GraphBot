@@ -4,7 +4,7 @@ module.exports.help = {
     aliases: ['обнять']
 }
 
-module.exports.run = async (client, msg, args) => {
+module.exports.run = async (client, msg) => {
   const prefix = '/'
   const args = msg.content.slice(prefix.length).split(/ +/);
       const args = msg.content.slice(prefix.length).trim().split(/ +/);
