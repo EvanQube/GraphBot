@@ -5,10 +5,8 @@ module.exports.help = {
     aliases: ['мут']
 }
 
-module.exports.run = async (client, msg) => {
-    const prefix = '/'
-    const args = msg.content.slice(prefix.length).split(/ +/);
-    let time = args[1];
+module.exports.run = async (client, msg, args) => {
+    let time = args[2];
     if (!time) {
       time = 'Навсегда'
     }
@@ -36,7 +34,7 @@ module.exports.run = async (client, msg) => {
     });
 
     //check reason
-    let reason = args.slice(2).join(' ');
+    let reason = args.slice(3).join(' ');
     if (!reason) {
       reason = 'None'
     }
@@ -110,7 +108,7 @@ module.exports.run = async (client, msg) => {
       .setDescription('⛔ **Ошибка** \n Этот пользователь уже замучен')
 
     if (!msg.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR")) return msg.channel.send(kickPermsEmbed).then(msg.delete().catch());
-    if (!args[0]) return msg.channel.send(argsEmbed).then(msg.delete().catch());
+    if (!args[1]) return msg.channel.send(argsEmbed).then(msg.delete().catch());
     if (!targetMember) return msg.channel.send(targEmbed).then(msg.delete().catch());
     if (targetMember.id === author) return msg.channel.send(authEmbed).then(msg.delete().catch());
     if (targetMember.roles.cache.get(role.id)) return msg.channel.send(mutedEmbed).then(msg.delete().catch());
@@ -118,7 +116,7 @@ module.exports.run = async (client, msg) => {
     if (time === 'Навсегда') {
       targetMember.roles.add(role.id).then(msg.channel.send(muteEmbed))
     } else {
-      if(ms(args[1]) >= '2160000000') return msg.channel.send(timerEmbed).then(msg.delete().catch());
+      if(ms(args[2]) >= '2160000000') return msg.channel.send(timerEmbed).then(msg.delete().catch());
 
       targetMember.roles.add(role.id)
 
@@ -126,7 +124,7 @@ module.exports.run = async (client, msg) => {
           if (!targetMember.roles.cache.get(role.id)) return;
         targetMember.roles.remove(role.id).catch(e => {console.log(e)});
         target.send(unMuteEmbed)
-      }, ms(args[1]))
+      }, ms(args[2]))
 
       msg.channel.send(muteEmbed)
     }

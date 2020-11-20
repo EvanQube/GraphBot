@@ -4,11 +4,9 @@ module.exports.help = {
     aliases: ['анмут', 'размут']
 }
 
-module.exports.run = async (client, msg) => {
-  const prefix = '/'
-  const args = msg.content.slice(prefix.length).split(/ +/);
+module.exports.run = async (client, msg, args) => {
     let author = msg.author.id;
-    let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
+    let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[1]);
     let targetMember = msg.guild.member(target);
     let guild = msg.guild.name;
 
@@ -54,7 +52,7 @@ module.exports.run = async (client, msg) => {
       .setDescription('⛔ **Ошибка** \n Этот пользователь не замучен')
 
     if (!msg.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR")) return msg.channel.send(kickPermsEmbed).then (msg.delete().catch());
-    if(!args[0]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
+    if(!args[1]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
     if(!targetMember) return msg.channel.send(targEmbed).then (msg.delete().catch());
     if(!targetMember.roles.cache.get(role.id)) return msg.channel.send(unMutedEmbed).then (msg.delete().catch());
 

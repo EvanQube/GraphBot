@@ -4,15 +4,13 @@ module.exports.help = {
     aliases: ['обнять']
 }
 
-module.exports.run = async (client, msg) => {
-  const prefix = '/'
-  const args = msg.content.slice(prefix.length).split(/ +/);
+module.exports.run = async (client, msg, args) => {
       const args = msg.content.slice(prefix.length).trim().split(/ +/);
       user = msg.mentions.users.first();
       author = msg.author.id;
       hugs = 14;
       hugsNumber = Math.floor(Math.random() * (hugs - 1)) + 1;
-      if (args[0] === 'everyone') {
+      if (args[1] === 'everyone') {
         msg.channel.send(`<@${author}> обнимает **ВСЕХ**`, {
           files: ['./src/hugs/' + hugsNumber + '.gif']
         })

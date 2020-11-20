@@ -4,12 +4,10 @@ module.exports.help = {
     aliases: ['разбан', 'анбан']
 }
 
-module.exports.run = async (client, msg) => {
-  const prefix = '/'
-  const args = msg.content.slice(prefix.length).split(/ +/);
+module.exports.run = async (client, msg, args) => {
     let author = msg.author.id;
-    let target = args[0];
-    let targetMember = client.users.cache.get(args[0]);
+    let target = args[1];
+    let targetMember = client.users.cache.get(args[1]);
     let guild = msg.guild.name;
     let channel = msg.channel;
 
@@ -46,7 +44,7 @@ module.exports.run = async (client, msg) => {
 
     //check perms
     if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
-    if(!args[0]) return msg.channel.send(argsEmbed)
+    if(!args[1]) return msg.channel.send(argsEmbed)
     if(!target) return msg.channel.send(targEmbed);
     //unban
     msg.guild.members.unban(target)

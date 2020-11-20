@@ -6,12 +6,12 @@ module.exports.help = {
 
 module.exports.run = async (client, msg, args) => {
     let author = msg.author.id;
-    let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
+    let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[1]);
     let targetMember = msg.guild.member(target);
     let guild = msg.guild.name;
 
     //check reason
-    let reason = args.slice(2).join(' ');
+    let reason = args.slice(3).join(' ');
     if(!reason) {reason = 'None'}
 
     //embeds
@@ -60,7 +60,7 @@ module.exports.run = async (client, msg, args) => {
 
     //check perms and kickable
     if (!msg.member.hasPermission("KICK_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(kickPermsEmbed);
-    if(!args[1]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
+    if(!args[2]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
     if(!targetMember) return msg.channel.send(targEmbed).then (msg.delete().catch());
     if(targetMember.id === author) return msg.channel.send(authEmbed).then (msg.delete().catch());
     if(!targetMember.kickable) return msg.channel.send(errEmbed).then (msg.delete().catch());

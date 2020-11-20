@@ -11,7 +11,7 @@ module.exports.run = async (client, msg, args) => {
     let guild = msg.guild.name;
 
     //check reason
-    let reason = args.slice(1).join(' ');
+    let reason = args.slice(2).join(' ');
     if(!reason) {reason = 'None'}
 
     //embeds
@@ -64,7 +64,7 @@ module.exports.run = async (client, msg, args) => {
 
     //check perms and bannable
     if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed).then (msg.delete().catch());
-    if(!args[0]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
+    if(!args[1]) return msg.channel.send(argsEmbed).then (msg.delete().catch());
     if(!targetMember) return msg.channel.send(targEmbed).then(msg.delete().catch());
     if(targetMember.id === author) return msg.channel.send(authEmbed).then (msg.delete().catch());
     if(!targetMember.bannable) return msg.channel.send(errEmbed).then (msg.delete().catch());
