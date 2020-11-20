@@ -5,6 +5,7 @@ module.exports.help = {
 }
 
 module.exports.run = async (client, msg, args) => {
+
       user = msg.mentions.users.first();
       author = msg.author.id;
       hugs = 14;
@@ -14,14 +15,16 @@ module.exports.run = async (client, msg, args) => {
           files: ['./src/hugs/' + hugsNumber + '.gif']
         })
       }
+      
       else if (!msg.mentions.users.size) {
-        let errorEmbed = {
-          color: 'RED',
-          description: '⛔ Ошибка\n' + 'Вы должны упомянуть пользователя, которого хотите обнять.',
-        }
-        msg.channel.send({
-          embed: errorEmbed
-        })
+        let errorEmbed = new Discord.MessageEmbed()
+          .setColor('#90e0ef')
+          .setTitle('Команда /hug \n')
+          .setDescription('Обнять участника в чате')
+          .addFields( {
+            name: 'Использование:', value:'`/hug <тэг пользователя>`'
+          })
+        msg.channel.send(errorEmbed)
       } else {
         msg.channel.send(`<@${author}> обнимает <@${user.id}>`, {
             files: ['./src/hugs/' + hugsNumber + '.gif']
