@@ -5,6 +5,8 @@ module.exports.help = {
 }
 
 module.exports.run = async (client, msg, args) => {
+  const prefix = '/'
+  const args = msg.content.slice(prefix.length).split(/ +/);
     let author = msg.author.id;
     let target = args[0];
     let targetMember = client.users.cache.get(args[0]);
