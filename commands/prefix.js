@@ -1,16 +1,16 @@
 const prefixModel = require("../models/prefix")
-const Discord = require('discord.js')
+const { Message } = require('discord.js')
 module.exports.help = {
     name: "prefix", //Name of the command
     aliases: ['prfx'] // Any Aliases you want for the command (If you don't want any just ignore this.)
 }
 
 module.exports.run = async (client, msg, args, Discord) => {
-  let argsEmbed = new Discord.MessageEmbed()
+  let argsEmbed = new Message()
   .setColor('RED')
   .setDescription('⛔ **Ошибка** \n Укажите префикс, который хотите поставить')
 
-  let permsEmbed = new Discord.MessageEmbed()
+  let permsEmbed = new Message()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды \n Необхожимые права: `Администратор`')
 
