@@ -17,20 +17,20 @@ module.exports.run = async (client, msg, args) => {
     .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды \n Необхожимые права: `Администратор`')
 
   const data = await prefixModel.findOne({
-  GuildID: msg.guild.id
+  GuildID: client.guilds.cache.get(msg.guild.id).id
 });
 if(!member.hasPermission('ADMINISTRATOR')) return msg.channel.send(permsEmbed);
 if(!args[1]) return msg.channel.send(argsEmbed);
 if (data) {
        await prefixModel.findOneAndRemove({
-           GuildID: msg.guild.id
+           GuildID: client.guilds.cache.get(msg.guild.id).id
        })
 
        msg.channel.send(`Новый префикс для этого сервера **\`${args[1]}\`**`);
 
        let newData = new prefixModel({
            Prefix: args[1],
-           GuildID: msg.guild.id
+           GuildID: client.guilds.cache.get(msg.guild.id).id
        })
        newData.save();
    } else if (!data) {
@@ -38,7 +38,7 @@ if (data) {
 
        let newData = new prefixModel({
            Prefix: args[1],
-           GuildID: msg.guild.id
+           GuildID: client.guilds.cache.get(msg.guild.id).id
        })
        newData.save();
 }}
