@@ -26,7 +26,7 @@ client.on('ready', () =>{
 
 client.on('message', async (msg) =>{
   const data = await prefix.findOne({
-       GuildID: client.guilds.cache.get(msg.guild.id).id
+       GuildID: msg.guild.id
    });
 
    if(data) {

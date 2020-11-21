@@ -23,7 +23,7 @@ if(!member.hasPermission('ADMINISTRATOR')) return msg.channel.send(permsEmbed);
 if(!args[1]) return msg.channel.send(argsEmbed);
 if (data) {
        await prefixModel.findOneAndRemove({
-           GuildID: client.guilds.cache.get(msg.guild.id).id
+           GuildID: msg.guild.id
        })
 
        msg.channel.send(`Новый префикс для этого сервера **\`${args[1]}\`**`);

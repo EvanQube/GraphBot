@@ -13,7 +13,6 @@ module.exports.run = async (client, msg, args) => {
     let invite = msg.channel.createInvite({
   maxAge: 86400000, //1 day
   maxUses: 0,
-  unique: true
 });
 
     //embeds
