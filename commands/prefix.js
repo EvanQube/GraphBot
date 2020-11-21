@@ -6,6 +6,8 @@ module.exports.help = {
 }
 
 module.exports.run = async (client, msg, args) => {
+  const member = msg.guild.member(msg.author);
+
   let argsEmbed = new Discord.MessageEmbed()
   .setColor('RED')
   .setDescription('⛔ **Ошибка** \n Укажите префикс, который хотите поставить')
@@ -14,12 +16,11 @@ module.exports.run = async (client, msg, args) => {
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды \n Необхожимые права: `Администратор`')
 
-  const member = msg.guild.member(msg.author);
   const data = await prefixModel.findOne({
   GuildID: msg.guild.id
 });
-if(!member.hasPermission('ADMINISTRATOR')) return permsEmbed;
-if(!args[1]) return argsEmbed;
+if(!member.hasPermission('ADMINISTRATOR')) return msg.channel.send(permsEmbed);
+if(!args[1]) return msg.channel.send(argsEmbed);
 if (data) {
        await prefixModel.findOneAndRemove({
            GuildID: msg.guild.id
