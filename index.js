@@ -4,7 +4,7 @@ const { handle, run } = require('penguin-handler')
 const token = process.env.token;
 const mongoose = require('mongoose')
 
-mongoose.connect(proccess.env.mongodb,{
+mongoose.connect(process.env.mongodb,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
