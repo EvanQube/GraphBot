@@ -28,7 +28,6 @@ client.on('message', async (msg) =>{
   const data = await prefix.findOne({
        GuildID: msg.guild.id
    });
-
    if(data) {
        const prefix = data.Prefix;
 
