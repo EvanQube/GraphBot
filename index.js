@@ -3,20 +3,41 @@ const client = new Discord.Client();
 const { handle, run } = require('penguin-handler')
 const token = process.env.token;
 
+mongoose.connect('mongodb+srv://EvanEnev:ghjdthrfcdzpb98@graph.wcuam.mongodb.net/test',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+});
+const prefix = require('./models/prefix');
+
 client.on('ready', () =>{
-  handle('./commands')
-  console.log('Bot is ready !')
   client.user.setPresence({
     status: 'online',
     activity: {
-      name: prefix + `help | Автор - Evan🎃#6456`,
+      name:  `/help | Автор - Evan🎃#6456`,
       type: 'WATCHING'
     }
   })
+  handle('./commands')
+  console.log('Bot is ready !')
 });
 
-client.on('message', msg => {
-  run('/', client, msg)})
+client.on('message', async (msg) =>{
+  const data = await prefix.findOne({
+       GuildID: msg.guild.id
+   });
+
+   if(data) {
+       const prefix = data.Prefix;
+
+       if (!msg.content.startsWith(prefix)) return;
+      run(prefix, client, msg)
+    } else if (!data) {
+       const prefix = "/";
+
+       if (!msg.content.startsWith(prefix)) return;
+           run(prefix, client, msg)}})
 
 client.login(token);
   /*const args = msg.content.slice(prefix.length).split(/ +/);
