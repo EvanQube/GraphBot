@@ -1,5 +1,5 @@
 const prefixModel = require("../models/prefix")
-const { Message } = require('discord.js')
+const Discord = require('discord.js')
 module.exports.help = {
     name: "prefix", //Name of the command
     aliases: ['prfx'] // Any Aliases you want for the command (If you don't want any just ignore this.)
