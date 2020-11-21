@@ -10,6 +10,11 @@ module.exports.run = async (client, msg, args) => {
     let targetMember = client.users.cache.get(args[1]);
     let guild = msg.guild.name;
     let channel = msg.channel;
+    let invite = msg.channel.createInvite({
+  maxAge: 86400000, //1 day
+  maxUses: 0,
+  unique: true
+});
 
     //embeds
     let permsEmbed = new Discord.MessageEmbed()
@@ -38,6 +43,10 @@ module.exports.run = async (client, msg, args) => {
       .addFields({
         name:'Модератор:',
         value:`<@${author}>`,
+        inline: true
+      }, {
+        name:'Ссылка (действительна 24 часа):',
+        value:`discord.gg/${invite.code}`,
         inline: true
       })
       .setTimestamp()
