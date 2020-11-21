@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const { handle, run } = require('penguin-handler')
 const token = process.env.token;
+const mongoose = require('mongoose')
 
 mongoose.connect('mongodb+srv://EvanEnev:ghjdthrfcdzpb98@graph.wcuam.mongodb.net/test',{
     useNewUrlParser: true,
