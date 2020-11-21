@@ -1,11 +1,11 @@
 const prefixModel = require("../models/prefix")
-const { Discord } = require('discord.js')
+const Discord = require('discord.js')
 module.exports.help = {
     name: "prefix", //Name of the command
     aliases: ['prfx'] // Any Aliases you want for the command (If you don't want any just ignore this.)
 }
 
-module.exports.run = async (client, msg, args, Discord) => {
+module.exports.run = async (client, msg, args) => {
   let argsEmbed = new Discord.MessageEmbed()
   .setColor('RED')
   .setDescription('⛔ **Ошибка** \n Укажите префикс, который хотите поставить')
