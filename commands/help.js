@@ -3,19 +3,20 @@ const { Menu } = require('discord.js-menu')
 const client = new Client()
 
 const prefix = require('./models/prefix');
-const data = await prefix.findOne({
-     GuildID: msg.guild.id
- });
-if(data) {
-    const prefix = data.Prefix;
- } else if (!data) {
-    const prefix = '/';
 
 module.exports.help = {
     name: "help",
       aliases: ['cmds', 'commands', 'hlp', 'хелп', 'помощь']
 }
 module.exports.run = async (client, msg, args) => {
+
+  const data = await prefix.findOne({
+       GuildID: msg.guild.id
+   });
+  if(data) {
+      const prefix = data.Prefix;
+   } else if (!data) {
+      const prefix = '/';}
 
   const infoPage = new MessageEmbed()
   .setColor(`#90e0ef`)
