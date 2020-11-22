@@ -20,7 +20,7 @@ module.exports.run = async (client, msg, args) => {
 
   const infoPage = new MessageEmbed()
   .setColor(`#90e0ef`)
-  .setTitle(`Префикс бота - \`${prefix}\``)
+  .setTitle(`Префикс бота: *{prefix}*`)
   .setAuthor(`GraphBot`, `https://i.imgur.com/SY6e3l3.jpg`, `https://discord.gg/683xBMK`)
   .setDescription('**Help**')
   .addFields(
@@ -35,7 +35,7 @@ module.exports.run = async (client, msg, args) => {
 
   const secondPage = new MessageEmbed()
   .setColor(`#90e0ef`)
-  .setTitle(`Префикс бота - \`${prefix}\``)
+  .setTitle(`Префикс бота: *${prefix}*)
   .setAuthor(`GraphBot`, `https://i.imgur.com/SY6e3l3.jpg`, `https://discord.gg/683xBMK`)
   .setDescription('**2 страница**')
   .addFields(
@@ -53,7 +53,7 @@ module.exports.run = async (client, msg, args) => {
 
   const firstPage = new MessageEmbed()
   .setColor(`#90e0ef`)
-  .setTitle(`Префикс бота - \`${prefix}\``)
+  .setTitle(`Префикс бота: *${prefix}*)
   .setAuthor(`GraphBot`, `https://i.imgur.com/SY6e3l3.jpg`)
   .setDescription('**1 страница**')
   .addFields(
@@ -81,7 +81,7 @@ module.exports.run = async (client, msg, args) => {
 
   const modPage = new MessageEmbed()
   .setColor(`#90e0ef`)
-  .setTitle(`Префикс бота - \`${prefix}\``)
+  .setTitle(`Префикс бота: *${prefix}*)`
   .setAuthor(`GraphBot`, `https://i.imgur.com/SY6e3l3.jpg`)
   .setDescription('**Модерация**')
   .addFields(
