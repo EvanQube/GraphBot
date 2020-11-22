@@ -6,7 +6,7 @@ module.exports.help = {
 
 module.exports.run = async (client, msg, args) => {
     let author = msg.author.id;
-    let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[0]);
+    let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[1]);
     let targetMember = msg.guild.member(target);
     let guild = msg.guild.name;
 
