@@ -2,7 +2,7 @@ const { Client, MessageEmbed } = require('discord.js')
 const { Menu } = require('discord.js-menu')
 const client = new Client()
 
-const prefix = require('./models/prefix');
+const prefix = require('/models/prefix');
 
 module.exports.help = {
     name: "help",
