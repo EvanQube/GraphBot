@@ -10,7 +10,7 @@ module.exports.help = {name:help.name, aliases: help.aliases}
 
 module.exports.run = async (client, msg, args, Discord) => {
 
-  let errorEmbed = new MessageEmbed()
+  let errorEmbed = new Discord.MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Данная команда отключена на сервере')
   const data = await cmdsModel.findOne({
