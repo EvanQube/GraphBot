@@ -7,16 +7,11 @@ let help = {
 module.exports.help = {name:help.name, aliases: help.aliases}
 
 module.exports.run = async (client, msg, args, Discord) => {
-
-  let errorEmbed = new Discord.MessageEmbed()
-    .setColor('RED')
-    .setDescription('⛔ **Ошибка** \n Данная команда отключена на сервере')
   const data = await cmdsModel.findOne({
     GuildID: msg.guild.id
   });
   if (data) {
   const cmds = data.Command;
-  if(cmds.includes(help.name) || cmds.includes(help.aliases)) return (msg.channel.send(errorEmbed))}
     let author = msg.author.id;
     let target = msg.mentions.users.first() || msg.guild.members.cache.get(args[1]);
     let targetMember = msg.guild.member(target);
@@ -27,6 +22,12 @@ module.exports.run = async (client, msg, args, Discord) => {
     if(!reason) {reason = 'None'}
 
     //embeds
+    let errorEmbed = new Discord.MessageEmbed()
+      .setColor('RED')
+      .setDescription('⛔ **Ошибка** \n Данная команда отключена на сервере')
+
+    if(cmds.includes(help.name) || cmds.includes(help.aliases)) return (msg.channel.send(errorEmbed))}
+
     let permsEmbed = new Discord.MessageEmbed()
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды')

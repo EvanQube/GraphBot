@@ -2,7 +2,7 @@ const { Client, MessageEmbed } = require('discord.js')
 const { Menu } = require('discord.js-menu')
 const client = new Client()
 
-const prefix = require('../models/prefix');
+const p = require('../models/prefix');
 let help = {
   name: "help",
   aliases: ['cmds', 'commands', 'hlp', 'хелп', 'помощь']
@@ -11,7 +11,7 @@ module.exports.help = {name:help.name, aliases: help.aliases}
 
 module.exports.run = async (client, msg, args, Discord) => {
 
-  const data = await prefix.findOne({
+  const data = await p.findOne({
        GuildID: msg.guild.id
    });
    if(data) {
