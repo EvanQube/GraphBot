@@ -43,11 +43,10 @@ if(!author.roles.cache.get(role.id)) return (msg.channel.send(permsEmbed))
     .setDescription('⛔ **Ошибка** \n Эта команда не запрещена')
 
     if(data){const cmds = data.Command}
-    else if(!data) {const cmds = '\u200B'}
 
   if (args[1] === 'rem') {
     if (!data) {
-
+      const cmds = '\u200B'
       let newData = new cmdsModel({
         GuildID: msg.guild.id,
         Command: '\u200B'
@@ -66,7 +65,7 @@ if(!author.roles.cache.get(role.id)) return (msg.channel.send(permsEmbed))
     msg.channel.send(remEmbed);
   } else if (args[1] === 'add') {
     if (!data) {
-
+      const cmds = '\u200B'
       let newData = new cmdsModel({
         GuildID: msg.guild.id,
         Command: '\u200B'
