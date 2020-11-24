@@ -22,7 +22,7 @@ module.exports.run = async (client, msg, args, Discord) => {
     })
   }
 let author = msg.guild.members.cache.get(msg.author.id);
-if(!author.roles.cache.get(role.id) || author.hasPermission('ADMINISTRATOR')) return (msg.channel.send(permsEmbed))
+if(!author.roles.cache.get(role.id) || !author.hasPermission('ADMINISTRATOR')) return (msg.channel.send(permsEmbed))
 
   const data = await cmdsModel.findOne({
     GuildID: msg.guild.id
