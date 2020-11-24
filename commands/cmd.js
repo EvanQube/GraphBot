@@ -42,9 +42,6 @@ if(!author.roles.cache.get(role.id)) return (msg.channel.send(permsEmbed))
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Эта команда не запрещена')
 
-if(!data) {const cmds = '\u200B'};
-if(data) {const cmds = data.Command};
-
   if (args[1] === 'rem') {
     if (!data) {
       let newData = new cmdsModel({
@@ -53,7 +50,7 @@ if(data) {const cmds = data.Command};
       })
       newData.save();
     }
-
+    const cmds = data.Command;
     let newData = new cmdsModel({
       GuildID: msg.guild.id,
       Command: `${cmds} ${cmd} `
@@ -65,14 +62,14 @@ if(data) {const cmds = data.Command};
     msg.channel.send(remEmbed);
   } else if (args[1] === 'add') {
     if (!data) {
-      const cmds = '\u200B'
       let newData = new cmdsModel({
         GuildID: msg.guild.id,
         Command: '\u200B'
       })
       newData.save();
     }
-    if (cmds === 'None') return {cmdEmbed}
+    const cmds = data.Command;
+    if (!cmds.includes(cmd) return {cmdEmbed}
     const cmdAdd = cmds.replace(`${cmd}`, '')
     let newData = new cmdsModel({
       GuildID: msg.guild.id,
