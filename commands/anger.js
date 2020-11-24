@@ -36,4 +36,4 @@ module.exports.run = async (client, msg, args, Discord) => {
         files: ['./src/angers/' + angerNumber + '.gif']
       })}
     msg.delete().catch();
-}
+}}
