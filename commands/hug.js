@@ -30,7 +30,7 @@ module.exports.run = async (client, msg, args, Discord) => {
       }
 
       else if (!msg.mentions.users.size) {
-        let errorEmbed = new Discord.MessageEmbed()
+        let errorEmbed = new MessageEmbed()
           .setColor('#90e0ef')
           .setTitle('Команда /hug \n')
           .setDescription('Обнять участника в чате')

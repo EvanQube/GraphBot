@@ -69,7 +69,7 @@ if(!author.roles.cache.get(role.id)) return (msg.channel.send(permsEmbed))
       newData.save();
     }
     const cmds = data.Command;
-    if (!cmds.includes(cmd) return (msg.channel.send(cmdEmbed));
+    if (!cmds.includes(cmd)) return (msg.channel.send(cmdEmbed));
     const cmdAdd = cmds.replace(`${cmd}`, '')
     let newData = new cmdsModel({
       GuildID: msg.guild.id,
