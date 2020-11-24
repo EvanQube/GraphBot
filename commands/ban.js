@@ -26,7 +26,7 @@ module.exports.run = async (client, msg, args, Discord) => {
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n Данная команда отключена на сервере')
 
-    if(cmds.includes(help.name) || cmds.includes(help.aliases)) return (msg.channel.send(errorEmbed))}
+    if(cmds.includes(help.name) || cmds.includes(help.aliases)) return (msg.channel.send(errorEmbed))
 
     let permsEmbed = new Discord.MessageEmbed()
       .setColor('RED')
