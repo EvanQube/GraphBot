@@ -42,10 +42,7 @@ if(!author.roles.cache.get(role.id) || !msg.member.hasPermission('ADMINISTRATOR'
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Эта команда не запрещена')
 
-    const cmds = data.Command;
-    if (!cmds) {
-      const cmds = 'None'
-    };
+    if(data){const cmds = data.Command}
 
   if (args[1] === 'rem') {
     if (!data) {
