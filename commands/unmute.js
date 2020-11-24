@@ -16,6 +16,12 @@ module.exports.run = async (client, msg, args, Discord) => {
   const data = await cmdsModel.findOne({
     GuildID: msg.guild.id
   });
+  if (!data) {
+
+    let newData = new cmdsModel({
+      GuildID: msg.guild.id,
+      Command: '\u200B'
+    })
   const cmds = data.Command;
   if(cmds.includes(help.name) || cmds.includes(help.aliases)) return (msg.channel.send(errorEmbed));
     let author = msg.author.id;

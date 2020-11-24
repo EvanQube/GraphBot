@@ -1,5 +1,4 @@
 const Discord = require('discord.js')
-const {MessageEmbed} = require('discord.js')
 module.exports.help = {
     name: "ping",
     aliases: ['p']
