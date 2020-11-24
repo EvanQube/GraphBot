@@ -9,7 +9,7 @@ module.exports.run = async (client, msg, args, Discord) => {
 
   let permsEmbed = new MessageEmbed()
     .setColor('RED')
-    .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды \n У вас должна быть модерирующая роль (G-Mod) или права администратора')
+    .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды \n У вас должна быть модерирующая роль (G-Mod)')
 
   let role = msg.guild.roles.cache.find(role => role.name === 'G-Mod');
   if (!role) {
@@ -22,7 +22,7 @@ module.exports.run = async (client, msg, args, Discord) => {
     })
   }
 let author = msg.guild.members.cache.get(msg.author.id);
-if(!author.roles.cache.get(role.id) || !msg.member.hasPermission('ADMINISTRATOR')) return (msg.channel.send(permsEmbed))
+if(!author.roles.cache.get(role.id)) return (msg.channel.send(permsEmbed))
 
   const data = await cmdsModel.findOne({
     GuildID: msg.guild.id
