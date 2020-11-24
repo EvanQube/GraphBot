@@ -20,7 +20,7 @@ module.exports.run = async (client, msg, args, Discord) => {
     let newData = new cmdsModel({
       GuildID: msg.guild.id,
       Command: '\u200B'
-    })
+    })}
   const cmds = data.Command;
   if(cmds.includes(help.name) || cmds.includes(help.aliases)) return (msg.channel.send(errorEmbed));
     author = msg.author.id;
@@ -36,4 +36,4 @@ module.exports.run = async (client, msg, args, Discord) => {
         files: ['./src/angers/' + angerNumber + '.gif']
       })}
     msg.delete().catch();
-}}
+}
