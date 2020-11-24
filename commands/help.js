@@ -15,11 +15,11 @@ module.exports.run = async (client, msg, args, Discord) => {
        GuildID: msg.guild.id
    });
    if(data) {
-       const prefix = data.Prefix;
+       const p = data.Prefix;
     } else if (!data) {
-       const prefix = '/';}
+       const p = '/';}
   let helpEmbed = new MessageEmbed()
-  .setTitle(`✅ Префикс бота - ${prefix}`)
+  .setTitle(`✅ Префикс бота - ${p}`)
   .setDescription(`Все команды вы можете посмотреть на сайте https://evanenev.gitbook.io/graphbot/`)
       msg.channel.send(helpEmbed)
   msg.delete().catch();
