@@ -47,7 +47,6 @@ if(data) {const cmds = data.Command};
 
   if (args[1] === 'rem') {
     if (!data) {
-      const cmds = '\u200B'
       let newData = new cmdsModel({
         GuildID: msg.guild.id,
         Command: '\u200B'
