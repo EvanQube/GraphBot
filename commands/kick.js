@@ -1,4 +1,4 @@
-const Discord = require('discord.js')
+const {MessageEmbed} = require('discord.js')
 const cmdsModel = require("../models/cmds")
 let help = {
   name: "kick",
@@ -8,7 +8,7 @@ module.exports.help = {name:help.name, aliases: help.aliases}
 
 module.exports.run = async (client, msg, args, Discord) => {
 
-  let errorEmbed = new Discord.MessageEmbed()
+  let errorEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Данная команда отключена на сервере')
   const data = await cmdsModel.findOne({
@@ -27,27 +27,27 @@ module.exports.run = async (client, msg, args, Discord) => {
     if(!reason) {reason = 'None'}
 
     //embeds
-    let kickPermsEmbed = new Discord.MessageEmbed()
+    let kickPermsEmbed = new MessageEmbed()
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды')
 
-    let errEmbed = new Discord.MessageEmbed()
+    let errEmbed = new MessageEmbed()
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n Я не могу кикнуть этого пользователя')
 
-    let authEmbed = new Discord.MessageEmbed()
+    let authEmbed = new MessageEmbed()
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n Вы не можете кикнуть сами себя')
 
-    let argsEmbed = new Discord.MessageEmbed()
+    let argsEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Укажите пользователя, которого хотите кикнуть')
 
-    let targEmbed = new Discord.MessageEmbed()
+    let targEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Я не могу найти этого пользователя')
 
-    let kickEmbed = new Discord.MessageEmbed()
+    let kickEmbed = new MessageEmbed()
     .setDescription(`✅ ${target} кикнут с сервера `)
     .setColor('GREEN')
     .addFields({
@@ -56,7 +56,7 @@ module.exports.run = async (client, msg, args, Discord) => {
       inline: true
     })
 
-    let targetKickEmbed = new Discord.MessageEmbed()
+    let targetKickEmbed = new MessageEmbed()
     .setDescription(`Вы были кикнуты с сервера **${guild}**`)
     .setColor('RED')
     .addFields({

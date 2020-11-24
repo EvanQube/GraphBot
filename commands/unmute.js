@@ -1,4 +1,4 @@
-const Discord = require('discord.js')
+
 
 const {MessageEmbed} = require('discord.js')
 const cmdsModel = require("../models/cmds")
@@ -10,7 +10,7 @@ module.exports.help = {name:help.name, aliases: help.aliases}
 
 module.exports.run = async (client, msg, args, Discord) => {
 
-  let errorEmbed = new Discord.MessageEmbed()
+  let errorEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Данная команда отключена на сервере')
   const data = await cmdsModel.findOne({
@@ -29,20 +29,20 @@ module.exports.run = async (client, msg, args, Discord) => {
     //check reason
 
     //embeds
-    let kickPermsEmbed = new Discord.MessageEmbed()
+    let kickPermsEmbed = new MessageEmbed()
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды')
 
 
-    let argsEmbed = new Discord.MessageEmbed()
+    let argsEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Укажите пользователя, которого хотите размутить')
 
-    let targEmbed = new Discord.MessageEmbed()
+    let targEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Я не могу найти этого пользователя')
 
-    let unmuteEmbed = new Discord.MessageEmbed()
+    let unmuteEmbed = new MessageEmbed()
     .setDescription(`✅ ${target} размучен`)
     .setColor('GREEN')
     .addFields({
@@ -51,7 +51,7 @@ module.exports.run = async (client, msg, args, Discord) => {
       inline: true
     })
 
-    let unMuteEmbed = new Discord.MessageEmbed()
+    let unMuteEmbed = new MessageEmbed()
     .setDescription(`Вы были размучены на сервере **${guild}**`)
     .setColor('GREEN')
     .addFields({
@@ -61,7 +61,7 @@ module.exports.run = async (client, msg, args, Discord) => {
     })
     .setTimestamp()
 
-    let unMutedEmbed = new Discord.MessageEmbed()
+    let unMutedEmbed = new MessageEmbed()
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n Этот пользователь не замучен')
 

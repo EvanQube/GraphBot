@@ -1,4 +1,4 @@
-const Discord = require('discord.js')
+const {MessageEmbed} = require('discord.js')
 const cmdsModel = require("../models/cmds")
 let help = {
   name: "ban",
@@ -8,10 +8,10 @@ module.exports.help = {name:help.name, aliases: help.aliases}
 
 module.exports.run = async (client, msg, args, Discord) => {
 
-  let errorEmbed = new Discord.MessageEmbed()
+  let errorEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Данная команда отключена на сервере')
-    
+
   const data = await cmdsModel.findOne({
     GuildID: msg.guild.id
   });

@@ -1,4 +1,3 @@
-const Discord = require('discord.js')
 
 const {MessageEmbed} = require('discord.js')
 const cmdsModel = require("../models/cmds")
@@ -10,7 +9,7 @@ module.exports.help = {name:help.name, aliases: help.aliases}
 
 module.exports.run = async (client, msg, args, Discord) => {
 
-  let errorEmbed = new Discord.MessageEmbed()
+  let errorEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Данная команда отключена на сервере')
   const data = await cmdsModel.findOne({
@@ -26,19 +25,19 @@ module.exports.run = async (client, msg, args, Discord) => {
     let channel = msg.channel;
 
     //embeds
-    let permsEmbed = new Discord.MessageEmbed()
+    let permsEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды')
 
-    let argsEmbed = new Discord.MessageEmbed()
+    let argsEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Укажите пользователя, которого хотите разбанить')
 
-    let targEmbed = new Discord.MessageEmbed()
+    let targEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Я не могу найти этого пользователя \n Возможно он не забанен')
 
-    let unbanEmbed = new Discord.MessageEmbed()
+    let unbanEmbed = new MessageEmbed()
       .setDescription(`✅ <@${target}> разбанен`)
       .setColor('GREEN')
       .addFields({
@@ -46,7 +45,7 @@ module.exports.run = async (client, msg, args, Discord) => {
         value: `<@${author}>`,
       })
 
-      let targetUnbanEmbed = new Discord.MessageEmbed()
+      let targetUnbanEmbed = new MessageEmbed()
       .setDescription(`Вы были разбанены на сервере **${guild}**`)
       .setColor('GREEN')
       .addFields({

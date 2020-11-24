@@ -1,4 +1,4 @@
-const Discord = require('discord.js')
+
 const {MessageEmbed} = require('discord.js')
 const cmdsModel = require("../models/cmds")
 let help = {
@@ -9,7 +9,7 @@ module.exports.help = {name:help.name, aliases: help.aliases}
 
 module.exports.run = async (client, msg, args, Discord) => {
 
-  let errorEmbed = new Discord.MessageEmbed()
+  let errorEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Данная команда отключена на сервере')
   const data = await cmdsModel.findOne({
@@ -18,7 +18,7 @@ module.exports.run = async (client, msg, args, Discord) => {
   if (data) {
   const cmds = data.Command;
   if(cmds.includes(help.name) || cmds.includes(help.aliases)) return (msg.channel.send(errorEmbed))}
-    const infoEmbed = new Discord.MessageEmbed()
+    const infoEmbed = new MessageEmbed()
       .setColor('#ADD8E6')
       .setTitle('**Привет!**')
       .setAuthor('GraphBot', 'https://i.imgur.com/SY6e3l3.jpg')

@@ -1,4 +1,4 @@
-const Discord = require('discord.js')
+
 const ms = require('ms');
 const {MessageEmbed} = require('discord.js')
 const cmdsModel = require("../models/cmds")
@@ -10,7 +10,7 @@ module.exports.help = {name:help.name, aliases: help.aliases}
 
 module.exports.run = async (client, msg, args, Discord) => {
 
-  let errorEmbed = new Discord.MessageEmbed()
+  let errorEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Данная команда отключена на сервере')
   const data = await cmdsModel.findOne({
@@ -54,23 +54,23 @@ module.exports.run = async (client, msg, args, Discord) => {
     }
 
     //embeds
-    let kickPermsEmbed = new Discord.MessageEmbed()
+    let kickPermsEmbed = new MessageEmbed()
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды')
 
-    let authEmbed = new Discord.MessageEmbed()
+    let authEmbed = new MessageEmbed()
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n Вы не можете замутить сами себя')
 
-    let argsEmbed = new Discord.MessageEmbed()
+    let argsEmbed = new MessageEmbed()
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n Укажите пользователя, которого хотите замутить')
 
-    let targEmbed = new Discord.MessageEmbed()
+    let targEmbed = new MessageEmbed()
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n Я не могу найти этого пользователя')
 
-    let muteEmbed = new Discord.MessageEmbed()
+    let muteEmbed = new MessageEmbed()
       .setDescription(`✅ ${target} замучен на сервере`)
       .setColor('GREEN')
       .addFields({
@@ -87,7 +87,7 @@ module.exports.run = async (client, msg, args, Discord) => {
         inline: true
       })
 
-    let targetMuteEmbed = new Discord.MessageEmbed()
+    let targetMuteEmbed = new MessageEmbed()
       .setDescription(`Вы были замучены на сервере **${guild}**`)
       .setColor('RED')
       .addFields({
@@ -105,19 +105,19 @@ module.exports.run = async (client, msg, args, Discord) => {
       })
       .setTimestamp()
 
-      let errMuteEmbed = new Discord.MessageEmbed()
+      let errMuteEmbed = new MessageEmbed()
         .setColor('RED')
         .setDescription('⛔ **Ошибка** \n Не получилось замутить \n Проверьте, правильно ли указано время')
 
-      let timerEmbed = new Discord.MessageEmbed()
+      let timerEmbed = new MessageEmbed()
         .setColor('RED')
         .setDescription('⛔ **Ошибка** \n Я не могу замутить на такое время')
 
-    let unMuteEmbed = new Discord.MessageEmbed()
+    let unMuteEmbed = new MessageEmbed()
       .setDescription(`Вы были размучены на сервере **${guild}**`)
       .setColor('GREEN')
 
-    let mutedEmbed = new Discord.MessageEmbed()
+    let mutedEmbed = new MessageEmbed()
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n Этот пользователь уже замучен')
 
