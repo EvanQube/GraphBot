@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-
+const {MessageEmbed} = require('discord.js')
 const cmdsModel = require("../models/cmds")
 let help = {
   name: "sorry",

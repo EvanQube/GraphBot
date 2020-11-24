@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
 const cmdsModel = require("../models/cmds")
+const {MessageEmbed} = require('discord.js')
 let help = {
   name: "hug",
   aliases: ['обнять']

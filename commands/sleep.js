@@ -1,8 +1,5 @@
 const Discord = require('discord.js')
-module.exports.help = {
-    name: "sleep",
-    aliases: ['спать']
-}
+const {MessageEmbed} = require('discord.js')
 
 const cmdsModel = require("../models/cmds")
 let help = {
