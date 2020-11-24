@@ -17,13 +17,13 @@ module.exports.run = async (client, msg, args, Discord) => {
    if(data) {
        const p = data.Prefix;
        let helpEmbed = new MessageEmbed()
-       .setTitle(`✅ Префикс бота:  \`${p}\``)
+       .setTitle(`✅ Префикс бота - \`${p}\``)
        .setDescription(`Все команды вы можете посмотреть на сайте https://evanenev.gitbook.io/graphbot/`)
            msg.channel.send(helpEmbed)
     } else if (!data) {
        const p = '/';
        let helpEmbed = new MessageEmbed()
-       .setTitle(`✅ Префикс бота: ${p}`)
+       .setTitle(`✅ Префикс бота - \`${p}\``)
        .setDescription(`Все команды вы можете посмотреть на сайте https://evanenev.gitbook.io/graphbot/`)
            msg.channel.send(helpEmbed)}
   msg.delete().catch();
