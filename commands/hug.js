@@ -1,10 +1,21 @@
 const Discord = require('discord.js')
-module.exports.help = {
-    name: "hug",
-    aliases: ['обнять']
+const cmdsModel = require("../models/cmds")
+let help = {
+  name: "hug",
+  aliases: ['обнять']
 }
+module.exports.help = {name:help.name, aliases: help.aliases}
 
-module.exports.run = async (client, msg, args) => {
+module.exports.run = async (client, msg, args, Discord) => {
+
+  let errorEmbed = new MessageEmbed()
+    .setColor('RED')
+    .setDescription('⛔ **Ошибка** \n Данная команда отключена на сервере')
+  const data = await cmdsModel.findOne({
+    GuildID: msg.guild.id
+  });
+  const cmds = data.Command;
+  if(cmds.includes(help.name) || cmds.includes(help.aliases)) return (msg.channel.send(errorEmbed));
 
       user = msg.mentions.users.first();
       author = msg.author.id;
@@ -15,7 +26,7 @@ module.exports.run = async (client, msg, args) => {
           files: ['./src/hugs/' + hugsNumber + '.gif']
         })
       }
-      
+
       else if (!msg.mentions.users.size) {
         let errorEmbed = new Discord.MessageEmbed()
           .setColor('#90e0ef')
