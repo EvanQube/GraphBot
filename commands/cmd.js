@@ -18,7 +18,6 @@ module.exports.run = async (client, msg, args, Discord) => {
       Role: '123'
     })
   newData.save()}
-const role = modsData.Role;
   const cmd = args[2];
   //embeds
   let remEmbed = new MessageEmbed()
