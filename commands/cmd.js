@@ -57,9 +57,8 @@ const role = modsData.Role;
       let roleEmbed = new MessageEmbed()
         .setColor('RED')
         .setDescription('⛔ **Ошибка** \n Эта роль уже добавлена')
-      const user = msg.mentions.roles.first();
         const roles = modsData.Role;
-          const newRole = user.id || args[2];
+          const newRole = msg.mentions.roles.first().id || args[2];
           if (roles === newRole) return (msg.channel.send(roleEmbed));
 
           let newData = new modsModel({
