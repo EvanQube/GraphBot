@@ -57,7 +57,7 @@ const role = modsData.Role;
           const newRole = args[2];
           if (roles === newRole) return (msg.channel.send(roleEmbed));
           if(msg.mentions.roles.first()) {
-            const newRole = args[2].id;
+            const newRole = msg.mentions.roles.first().id;
             let newData = new modsModel({
               GuildID: msg.guild.id,
               Role: `${newRole}`
