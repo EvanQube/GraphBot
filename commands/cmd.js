@@ -60,7 +60,7 @@ const role = modsData.Role;
             const newRole = args[2].id;
             let newData = new modsModel({
               GuildID: msg.guild.id,
-              Role: `${newRole.id}`
+              Role: `${newRole}`
             })
 
             await modsModel.findOneAndRemove({
@@ -73,7 +73,7 @@ const role = modsData.Role;
           const newRole = args[2];
           let newData = new modsModel({
             GuildID: msg.guild.id,
-            Role: `${newRole.id}`
+            Role: `${newRole}`
           })
 
           await modsModel.findOneAndRemove({
