@@ -24,7 +24,7 @@ module.exports.run = async (client, msg, args, Discord) => {
       .setAuthor('GraphBot', 'https://i.imgur.com/SY6e3l3.jpg')
       .setDescription('Меня зовут **Граф**, я предназначен для отыгрывания рп прямо в дискорде!')
       .addFields({
-        name: '1',
+        name: '\u200B',
         value:
           'Я поддерживаю довольно много команд, которые часто обновляются и добавляются. \n\n' +
           `Чтобы узнать какие, пропиши **/help**. \n\n` +
