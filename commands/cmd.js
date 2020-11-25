@@ -38,10 +38,6 @@ const role = modsData.Role;
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Эта команда не запрещена')
 
-    const cmds = data.Command;
-    if (!cmds) {
-      const cmds = 'None'
-    };
 
 
   if(args[1] === 'mod') {
@@ -82,6 +78,10 @@ const role = modsData.Role;
       })
       newData.save();
     }
+    const cmds = data.Command;
+    if (!data.Command) {
+      const cmds = 'None'
+    };
 
     let newData = new cmdsModel({
       GuildID: msg.guild.id,
@@ -102,6 +102,10 @@ const role = modsData.Role;
       })
       newData.save();
     }
+    const cmds = data.Command;
+    if (!data.Command) {
+      const cmds = 'None'
+    };
     if (cmds === 'None') return {cmdEmbed}
     const cmdAdd = cmds.replace(`${cmd}`, '')
     let newData = new cmdsModel({
