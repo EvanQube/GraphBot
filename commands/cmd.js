@@ -85,35 +85,35 @@ module.exports.run = async (client, msg, args, Discord) => {
     if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed));
     if (!data) {
 
-      let newData = new cmdsModel({
+      let cmdsData = new cmdsModel({
         GuildID: msg.guild.id,
         Command: '\u200B'
       })
-      newData.save();
+      cmdsData.save();
     }
     const cmds = data.Command;
     if (!data.Command) {
       const cmds = 'None'
     };
 
-    let newData = new cmdsModel({
+    let cmdsData = new cmdsModel({
       GuildID: msg.guild.id,
       Command: `${cmds} ${cmd} `
     })
     await cmdsModel.findOneAndRemove({
       GuildID: msg.guild.id
     });
-    newData.save();
+    cmdsData.save();
     msg.channel.send(remEmbed);
   } else if (args[1] === 'add') {
       if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed))
     if (!data) {
 
-      let newData = new cmdsModel({
+      let cmdsData = new cmdsModel({
         GuildID: msg.guild.id,
         Command: '\u200B'
       })
-      newData.save();
+      cmdsData.save();
     }
     const cmds = data.Command;
     if (!data.Command) {
@@ -121,14 +121,14 @@ module.exports.run = async (client, msg, args, Discord) => {
     };
     if (cmds === 'None') return {cmdEmbed}
     const cmdAdd = cmds.replace(`${cmd}`, '')
-    let newData = new cmdsModel({
+    let cmdsData = new cmdsModel({
       GuildID: msg.guild.id,
       Command: `${cmdAdd}`
     })
     await cmdsModel.findOneAndRemove({
       GuildID: msg.guild.id
     });
-    newData.save();
+    cmdsData.save();
     msg.channel.send(addEmbed);
 }
 }}
