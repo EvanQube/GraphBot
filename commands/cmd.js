@@ -83,7 +83,7 @@ const role = modsData.Role;
           msg.channel.send(addEmbed);}
 
   if (args[1] === 'rem') {
-      if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed))
+    if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed));
     if (!data) {
 
       let newData = new cmdsModel({
