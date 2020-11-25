@@ -15,7 +15,7 @@ module.exports.run = async (client, msg, args, Discord) => {
   if (!modsData) {
     let newData = new modsModel({
       GuildID: msg.guild.id,
-      Role: '\u200B'
+      Role: '123'
     })
   newData.save()}
   const role = modsData.Role;
