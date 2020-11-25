@@ -18,8 +18,7 @@ module.exports.run = async (client, msg, args, Discord) => {
       Role: '123'
     })
   newData.save()}
-  const role = modsData.Role;
-
+const role = modsData.Role;
   const cmd = args[2];
   //embeds
   let remEmbed = new MessageEmbed()
@@ -44,7 +43,6 @@ module.exports.run = async (client, msg, args, Discord) => {
       const cmds = 'None'
     };
 
-  if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed))
 
   if(args[1] === 'mod') {
       let permsEmbed = new MessageEmbed()
@@ -76,6 +74,7 @@ module.exports.run = async (client, msg, args, Discord) => {
           msg.channel.send(addEmbed);}
 
   if (args[1] === 'rem') {
+      if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed))
     if (!data) {
 
       let newData = new cmdsModel({
@@ -95,6 +94,7 @@ module.exports.run = async (client, msg, args, Discord) => {
     newData.save();
     msg.channel.send(remEmbed);
   } else if (args[1] === 'add') {
+      if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed))
     if (!data) {
 
       let newData = new cmdsModel({
