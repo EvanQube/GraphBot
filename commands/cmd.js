@@ -6,7 +6,7 @@ module.exports.help = {
   aliases: ['command']}
 
 module.exports.run = async (client, msg, args, Discord) => {
-  const data = await cmdsModel.findOne({
+  const commdata = await cmdsModel.findOne({
     GuildID: msg.guild.id
   });
   const modsData = await modsModel.findOne({
@@ -82,8 +82,8 @@ module.exports.run = async (client, msg, args, Discord) => {
           msg.channel.send(addEmbed);}
 
   if (args[1] === 'rem') {
-    if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed));
-    if (!data) {
+    // if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed));
+    if (!commdata) {
 
       let cmdsData = new cmdsModel({
         GuildID: msg.guild.id,
@@ -91,8 +91,8 @@ module.exports.run = async (client, msg, args, Discord) => {
       })
       cmdsData.save();
     }
-    const cmds = data.Command;
-    if (!data.Command) {
+    const cmds = commdata.Command;
+    if (!commdata.Command) {
       const cmds = 'None'
     };
 
@@ -107,7 +107,7 @@ module.exports.run = async (client, msg, args, Discord) => {
     msg.channel.send(remEmbed);
   } else if (args[1] === 'add') {
       if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed))
-    if (!data) {
+    if (!commdata) {
 
       let cmdsData = new cmdsModel({
         GuildID: msg.guild.id,
@@ -115,8 +115,8 @@ module.exports.run = async (client, msg, args, Discord) => {
       })
       cmdsData.save();
     }
-    const cmds = data.Command;
-    if (!data.Command) {
+    const cmds = commdata.Command;
+    if (!commdata.Command) {
       const cmds = 'None'
     };
     if (cmds === 'None') return {cmdEmbed}
