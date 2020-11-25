@@ -56,10 +56,24 @@ const role = modsData.Role;
         const roles = modsData.Role;
           const newRole = args[2];
           if (roles === newRole) return (msg.channel.send(roleEmbed));
+          if(msg.mentions.roles.first()) {
+            const newRole = args[2].id;
+            let newData = new modsModel({
+              GuildID: msg.guild.id,
+              Role: `${newRole.id}`
+            })
 
+            await modsModel.findOneAndRemove({
+              GuildID: msg.guild.id
+            });
+            newData.save();
+            msg.channel.send(addEmbed);
+          }
+        else if(!msg.mentions.roles.first()) {
+          const newRole = args[2];
           let newData = new modsModel({
             GuildID: msg.guild.id,
-            Role: `${newRole}`
+            Role: `${newRole.id}`
           })
 
           await modsModel.findOneAndRemove({
