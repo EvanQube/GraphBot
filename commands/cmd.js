@@ -12,6 +12,12 @@ module.exports.run = async (client, msg, args, Discord) => {
   const modsData = await modsModel.findOne({
     GuildID: msg.guild.id
   });
+  if (!modsData) {
+    let newData = new modsModel({
+      GuildID: msg.guild.id,
+      Role: '\u200B'
+    })
+  newData.save()}
   const role = modsData.Role;
 
   const cmd = args[2];
@@ -53,12 +59,6 @@ module.exports.run = async (client, msg, args, Discord) => {
       let roleEmbed = new MessageEmbed()
         .setColor('RED')
         .setDescription('⛔ **Ошибка** \n Эта роль уже добавлена')
-      if (!modsData) {
-        let newData = new modsModel({
-          GuildID: msg.guild.id,
-          Role: '\u200B'
-        })
-      newData.save()}
       const user = msg.mentions.roles.first();
         const roles = modsData.Role;
           const newRole = user.id || args[2];
