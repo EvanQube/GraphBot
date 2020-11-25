@@ -132,4 +132,4 @@ const role = modsData.Role;
     newData.save();
     msg.channel.send(addEmbed);
 }
-}
+}}
