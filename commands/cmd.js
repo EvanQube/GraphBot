@@ -81,7 +81,7 @@ module.exports.run = async (client, msg, args, Discord) => {
           newData.save();
           msg.channel.send(addEmbed);}
 
-  if (args[1] === 'rem') {
+  else if (args[1] === 'rem') {
     // if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed));
     if (!commdata) {
 
