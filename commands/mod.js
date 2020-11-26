@@ -22,7 +22,7 @@ module.exports.run = async (client, msg, args, Discord) => {
   let permsEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды \n У вас должны быть права **администратора**')
-  if (!msg.member.hasPermission('ADMINISTRATOR')) return (msg.channel.send(permsEmbed))
+  if (!msg.member.hasPermission('ADMINISTRATOR')) return (msg.channel.send(permsEmbed)).then(msg.delete().catch());
 
 
   let roleErrEmbed = new MessageEmbed()
@@ -42,7 +42,7 @@ module.exports.run = async (client, msg, args, Discord) => {
   if (roles === newRole) return (msg.channel.send(roleEmbed));
   if (msg.mentions.roles.first()) {
     const newRole = msg.mentions.roles.first().id;
-    if (!msg.guild.roles.cache.find(role => role.id === newRole)) return (msg.channel.send(roleErrEmbed));
+    if (!msg.guild.roles.cache.find(role => role.id === newRole)) return (msg.channel.send(roleErrEmbed)).then(msg.delete().catch());
     let newData = new modsModel({
       GuildID: msg.guild.id,
       Role: `${newRole}`
@@ -55,7 +55,7 @@ module.exports.run = async (client, msg, args, Discord) => {
     msg.channel.send(addEmbed);
   } else if (!msg.mentions.roles.first()) {
     const newRole = args[1];
-    if (!msg.guild.roles.cache.find(role => role.id === newRole)) return (msg.channel.send(roleErrEmbed));
+    if (!msg.guild.roles.cache.find(role => role.id === newRole)) return (msg.channel.send(roleErrEmbed)).then(msg.delete().catch());
     let newData = new modsModel({
       GuildID: msg.guild.id,
       Role: `${newRole}`
@@ -67,4 +67,5 @@ module.exports.run = async (client, msg, args, Discord) => {
     newData.save();
     msg.channel.send(addEmbed);
   }
+  msg.delete().catch()
 }

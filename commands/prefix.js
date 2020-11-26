@@ -19,8 +19,8 @@ module.exports.run = async (client, msg, args) => {
   const data = await prefixModel.findOne({
   GuildID: client.guilds.cache.get(msg.guild.id).id
 });
-if(!member.hasPermission('ADMINISTRATOR')) return msg.channel.send(permsEmbed);
-if(!args[1]) return msg.channel.send(argsEmbed);
+if(!member.hasPermission('ADMINISTRATOR')) return msg.channel.send(permsEmbed).then(msg.delete().catch());
+if(!args[1]) return msg.channel.send(argsEmbed).then(msg.delete().catch());
 if (data) {
        await prefixModel.findOneAndRemove({
            GuildID: msg.guild.id

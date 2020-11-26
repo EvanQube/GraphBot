@@ -17,7 +17,7 @@ module.exports.run = async (client, msg, args, Discord) => {
   });
   if (data) {
   const cmds = data.Command;
-  if(cmds.includes(help.name) || cmds.includes(help.aliases)) return (msg.channel.send(errorEmbed))}
+  if(cmds.includes(help.name) || cmds.includes(help.aliases)) return (msg.channel.send(errorEmbed)).then(msg.delete().catch())}
     author = msg.author.id;
     cry = 13;
     cryNumber = Math.floor(Math.random() * (cry - 1)) + 1;

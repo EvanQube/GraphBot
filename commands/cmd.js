@@ -20,7 +20,7 @@ module.exports.run = async (client, msg, args, Discord) => {
   newData.save()}
   const cmd = args[2];
   const role = modsData.Role;
-   if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed));
+   if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed)).then(msg.delete().catch());
   //embeds
   let remEmbed = new MessageEmbed()
     .setDescription(`✅ Команда **${cmd}** запрещена на сервере`)
@@ -45,7 +45,7 @@ module.exports.run = async (client, msg, args, Discord) => {
 
 
 
-if(!args[1]) return (msg.channel.send(argsErrEmbed));
+if(!args[1]) return (msg.channel.send(argsErrEmbed)).then(msg.delete().catch());
   else if (args[1] === 'rem') {
     if (!commdata) {
 
@@ -82,7 +82,7 @@ if(!args[1]) return (msg.channel.send(argsErrEmbed));
     if (!commdata.Command) {
       const cmds = 'None'
     };
-    if (cmds === 'None') return {cmdEmbed}
+    if (cmds === 'None') return {msg.channel.send(cmdEmbed).then(msg.delete().catch())}
     const cmdAdd = cmds.replace(`${cmd}`, '')
     let cmdsData = new cmdsModel({
       GuildID: msg.guild.id,
@@ -94,4 +94,5 @@ if(!args[1]) return (msg.channel.send(argsErrEmbed));
     cmdsData.save();
     msg.channel.send(addEmbed);
 }
+msg.delete().catch()
 }

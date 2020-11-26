@@ -17,7 +17,7 @@ module.exports.run = async (client, msg, args, Discord) => {
   });
   if (data) {
   const cmds = data.Command;
-  if(cmds.includes(help.name) || cmds.includes(help.aliases)) return (msg.channel.send(errorEmbed));}
+  if(cmds.includes(help.name) || cmds.includes(help.aliases)) return (msg.channel.send(errorEmbed)).then(msg.delete().catch())}
     let author = msg.author.id;
     let target = args[1];
     let targetMember = client.users.cache.get(args[1]);
@@ -56,9 +56,9 @@ module.exports.run = async (client, msg, args, Discord) => {
       .setTimestamp()
 
     //check perms
-    if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed);
-    if(!args[1]) return msg.channel.send(argsEmbed)
-    if(!target) return msg.channel.send(targEmbed);
+    if (!msg.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR")) return msg.channel.send(permsEmbed).then(msg.delete().catch());
+    if(!args[1]) return (msg.channel.send(argsEmbed)).then(msg.delete().catch());
+    if(!target) return (msg.channel.send(targEmbed)).then(msg.delete().catch());
     //unban
     msg.guild.members.unban(target)
     .then(msg.channel.send(unbanEmbed))
