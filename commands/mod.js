@@ -16,7 +16,8 @@ module.exports.run = async (client, msg, args, Discord) => {
       GuildID: msg.guild.id,
       Role: '123'
     })
-  newData.save()}
+    newData.save()
+  }
 
   let permsEmbed = new MessageEmbed()
     .setColor('RED')
@@ -36,33 +37,34 @@ module.exports.run = async (client, msg, args, Discord) => {
   let roleEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Эта роль уже добавлена')
-    const roles = modsData.Role;
-      const newRole = args[1];
-      if (roles === newRole) return (msg.channel.send(roleEmbed));
-      if(msg.mentions.roles.first()) {
-        const newRole = msg.mentions.roles.first().id;
-          if(!msg.guild.roles.cache.find(role => role.id === newRole)) return (msg.channel.send(roleErrEmbed));
-        let newData = new modsModel({
-          GuildID: msg.guild.id,
-          Role: `${newRole}`
-        })
+  const roles = modsData.Role;
+  const newRole = args[1];
+  if (roles === newRole) return (msg.channel.send(roleEmbed));
+  if (msg.mentions.roles.first()) {
+    const newRole = msg.mentions.roles.first().id;
+    if (!msg.guild.roles.cache.find(role => role.id === newRole)) return (msg.channel.send(roleErrEmbed));
+    let newData = new modsModel({
+      GuildID: msg.guild.id,
+      Role: `${newRole}`
+    })
 
-        await modsModel.findOneAndRemove({
-          GuildID: msg.guild.id
-        });
-        newData.save();
-        msg.channel.send(addEmbed);
-      }
-    else if(!msg.mentions.roles.first()) {
-      const newRole = args[1];
-        if(!msg.guild.roles.cache.find(role => role.id === newRole)) return (msg.channel.send(roleErrEmbed));
-      let newData = new modsModel({
-        GuildID: msg.guild.id,
-        Role: `${newRole}`
-      })
+    await modsModel.findOneAndRemove({
+      GuildID: msg.guild.id
+    });
+    newData.save();
+    msg.channel.send(addEmbed);
+  } else if (!msg.mentions.roles.first()) {
+    const newRole = args[1];
+    if (!msg.guild.roles.cache.find(role => role.id === newRole)) return (msg.channel.send(roleErrEmbed));
+    let newData = new modsModel({
+      GuildID: msg.guild.id,
+      Role: `${newRole}`
+    })
 
-      await modsModel.findOneAndRemove({
-        GuildID: msg.guild.id
-      });
-      newData.save();
-      msg.channel.send(addEmbed);}}
+    await modsModel.findOneAndRemove({
+      GuildID: msg.guild.id
+    });
+    newData.save();
+    msg.channel.send(addEmbed);
+  }
+}
