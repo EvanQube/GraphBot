@@ -39,50 +39,9 @@ module.exports.run = async (client, msg, args, Discord) => {
 
 
 
-  /*if(args[1] === 'mod') {
-      let permsEmbed = new MessageEmbed()
-        .setColor('RED')
-        .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды \n У вас должны быть права **администратора**')
-      if (!msg.member.hasPermission('ADMINISTRATOR')) return (msg.channel.send(permsEmbed))
 
-      let addEmbed = new MessageEmbed()
-        .setDescription(`✅ Модерирующая роль добавлена`)
-        .setColor('GREEN')
-
-      let roleEmbed = new MessageEmbed()
-        .setColor('RED')
-        .setDescription('⛔ **Ошибка** \n Эта роль уже добавлена')
-        const roles = modsData.Role;
-          const newRole = args[2];
-          if (roles === newRole) return (msg.channel.send(roleEmbed));
-          if(msg.mentions.roles.first()) {
-            const newRole = msg.mentions.roles.first().id;
-            let newData = new modsModel({
-              GuildID: msg.guild.id,
-              Role: `${newRole}`
-            })
-
-            await modsModel.findOneAndRemove({
-              GuildID: msg.guild.id
-            });
-            newData.save();
-            msg.channel.send(addEmbed);
-          }
-        else if(!msg.mentions.roles.first()) {
-          const newRole = args[2];
-          let newData = new modsModel({
-            GuildID: msg.guild.id,
-            Role: `${newRole}`
-          })
-
-          await modsModel.findOneAndRemove({
-            GuildID: msg.guild.id
-          });
-          newData.save();
-          msg.channel.send(addEmbed);}
-*/
   if (args[1] === 'rem') {
-    // if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed));
+     if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed));
     if (!commdata) {
 
       let cmdsData = new cmdsModel({
@@ -106,7 +65,7 @@ module.exports.run = async (client, msg, args, Discord) => {
     cmdsData.save();
     msg.channel.send(remEmbed);
   } else if (args[1] === 'add') {
-      // if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed))
+      if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed))
     if (!commdata) {
 
       let cmdsData = new cmdsModel({
