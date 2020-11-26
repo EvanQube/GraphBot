@@ -106,7 +106,7 @@ module.exports.run = async (client, msg, args, Discord) => {
     cmdsData.save();
     msg.channel.send(remEmbed);
   } else if (args[1] === 'add') {
-      if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed))
+      // if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed))
     if (!commdata) {
 
       let cmdsData = new cmdsModel({
@@ -131,4 +131,4 @@ module.exports.run = async (client, msg, args, Discord) => {
     cmdsData.save();
     msg.channel.send(addEmbed);
 }
-}}
+}
