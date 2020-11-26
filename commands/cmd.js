@@ -19,6 +19,8 @@ module.exports.run = async (client, msg, args, Discord) => {
     })
   newData.save()}
   const cmd = args[2];
+  const role = modsData.Role;
+   if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed));
   //embeds
   let remEmbed = new MessageEmbed()
     .setDescription(`✅ Команда **${cmd}** запрещена на сервере`)
@@ -27,6 +29,10 @@ module.exports.run = async (client, msg, args, Discord) => {
     let permsErrEmbed = new MessageEmbed()
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды \n У вас должна быть модерирующая роль')
+
+      let argsErrEmbed = new MessageEmbed()
+        .setColor('RED')
+        .setDescription('⛔ **Ошибка** \n Укажите роль, которую хотите разрешить/запретить')
 
 
   let addEmbed = new MessageEmbed()
@@ -39,9 +45,8 @@ module.exports.run = async (client, msg, args, Discord) => {
 
 
 
-
-  if (args[1] === 'rem') {
-     if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed));
+if(!args[1]) return (msg.channel.send(argsErrEmbed));
+  else if (args[1] === 'rem') {
     if (!commdata) {
 
       let cmdsData = new cmdsModel({
@@ -65,7 +70,6 @@ module.exports.run = async (client, msg, args, Discord) => {
     cmdsData.save();
     msg.channel.send(remEmbed);
   } else if (args[1] === 'add') {
-      if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed))
     if (!commdata) {
 
       let cmdsData = new cmdsModel({
