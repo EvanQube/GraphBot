@@ -91,7 +91,7 @@ module.exports.run = async (client, msg, args, Discord) => {
       })
       cmdsData.save();
     }
-    const cmds = commdata.Command;
+    const cmds = cmdsModel.Command;
     if (!commdata.Command) {
       const cmds = 'None'
     };
