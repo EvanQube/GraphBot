@@ -39,7 +39,7 @@ module.exports.run = async (client, msg, args, Discord) => {
 
 
 
-  if(args[1] === 'mod') {
+  /*if(args[1] === 'mod') {
       let permsEmbed = new MessageEmbed()
         .setColor('RED')
         .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды \n У вас должны быть права **администратора**')
@@ -80,8 +80,8 @@ module.exports.run = async (client, msg, args, Discord) => {
           });
           newData.save();
           msg.channel.send(addEmbed);}
-
-  else if (args[1] === 'rem') {
+*/
+  if (args[1] === 'rem') {
     // if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed));
     if (!commdata) {
 
