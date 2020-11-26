@@ -82,7 +82,7 @@ if(!args[1]) return (msg.channel.send(argsErrEmbed)).then(msg.delete().catch());
     if (!commdata.Command) {
       const cmds = 'None'
     };
-    if (cmds === 'None') return {msg.channel.send(cmdEmbed).then(msg.delete().catch())}
+    if (cmds === 'None') return (msg.channel.send(cmdEmbed).then(msg.delete().catch()))
     const cmdAdd = cmds.replace(`${cmd}`, '')
     let cmdsData = new cmdsModel({
       GuildID: msg.guild.id,
