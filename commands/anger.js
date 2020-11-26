@@ -16,7 +16,7 @@ module.exports.run = async (client, msg, args, Discord) => {
   });
   if (data) {
   const cmds = data.Command;
-  if(cmds.includes(help.name) || cmds.includes(help.aliases)) return (msg.channel.send(errorEmbed).then(msg.delete().catch())}
+  if(cmds.includes(help.name) || cmds.includes(help.aliases)) return msg.channel.send(errorEmbed).then(msg.delete().catch())}
     author = msg.author.id;
     anger = 6;
     user = msg.mentions.users.first();
@@ -30,4 +30,4 @@ module.exports.run = async (client, msg, args, Discord) => {
         files: ['./src/angers/' + angerNumber + '.gif']
       })}
     msg.delete().catch();
-}
+  }
