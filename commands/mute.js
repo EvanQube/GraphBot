@@ -19,7 +19,7 @@ module.exports.run = async (client, msg, args, Discord) => {
   if (data) {
 
   const cmds = data.Command;
-  if(cmds.includes(help.name) || cmds.includes(help.aliases)) return (msg.channel.send(errorEmbed)).then(msg.delete().catch())}
+  if(cmds.includes(help.name) || cmds.includes(help.aliases)) return msg.channel.send(errorEmbed).then(msg.delete().catch())}
     let time = args[2];
     if (!time) {
       time = 'Навсегда'

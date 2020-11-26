@@ -22,7 +22,7 @@ module.exports.run = async (client, msg, args, Discord) => {
   let permsEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды \n У вас должны быть права **администратора**')
-  if (!msg.member.hasPermission('ADMINISTRATOR')) return (msg.channel.send(permsEmbed)).then(msg.delete().catch());
+  if (!msg.member.hasPermission('ADMINISTRATOR')) return msg.channel.send(permsEmbed).then(msg.delete().catch());
 
 
   let roleErrEmbed = new MessageEmbed()
