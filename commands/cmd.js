@@ -20,15 +20,15 @@ module.exports.run = async (client, msg, args, Discord) => {
   newData.save()}
   const cmd = args[2];
   const role = modsData.Role;
+  let permsErrEmbed = new MessageEmbed()
+    .setColor('RED')
+    .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды \n У вас должна быть модерирующая роль')
+
    if(!msg.member.roles.cache.get(role)) return (msg.channel.send(permsErrEmbed)).then(msg.delete().catch());
   //embeds
   let remEmbed = new MessageEmbed()
     .setDescription(`✅ Команда **${cmd}** запрещена на сервере`)
     .setColor('GREEN')
-
-    let permsErrEmbed = new MessageEmbed()
-      .setColor('RED')
-      .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды \n У вас должна быть модерирующая роль')
 
       let argsErrEmbed = new MessageEmbed()
         .setColor('RED')
@@ -51,7 +51,7 @@ if(!args[1]) return (msg.channel.send(argsErrEmbed)).then(msg.delete().catch());
 
       let cmdsData = new cmdsModel({
         GuildID: msg.guild.id,
-        Command: '\u200B'
+        Command: '1'
       })
       cmdsData.save();
     }
