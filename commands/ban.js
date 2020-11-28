@@ -28,27 +28,27 @@ module.exports.run = async (client, msg, args, Discord) => {
     if(!reason) {reason = 'None'}
 
     //embeds
-    let permsEmbed = new Discord.MessageEmbed()
+    let permsEmbed = new MessageEmbed()
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n У вас недостаточно прав для использования этой команды')
 
-    let errEmbed = new Discord.MessageEmbed()
+    let errEmbed = new MessageEmbed()
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n Я не могу забанить этого пользователя')
 
-    let authEmbed = new Discord.MessageEmbed()
+    let authEmbed = new MessageEmbed()
       .setColor('RED')
       .setDescription('⛔ **Ошибка** \n Вы не можете забанить сами себя')
 
-    let argsEmbed = new Discord.MessageEmbed()
+    let argsEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Укажите пользователя, которого хотите забанить')
 
-    let targEmbed = new Discord.MessageEmbed()
+    let targEmbed = new MessageEmbed()
     .setColor('RED')
     .setDescription('⛔ **Ошибка** \n Я не могу найти этого пользователя')
 
-    let banEmbed = new Discord.MessageEmbed()
+    let banEmbed = new MessageEmbed()
     .setDescription(`✅ ${target} забанен на сервере`)
     .setColor('GREEN')
     .addFields({
@@ -61,7 +61,7 @@ module.exports.run = async (client, msg, args, Discord) => {
       inline: true
     })
 
-    let targetBanEmbed = new Discord.MessageEmbed()
+    let targetBanEmbed = new MessageEmbed()
     .setDescription(`Вы были забанены на сервере **${guild}**`)
     .setColor('RED')
     .addFields({
