@@ -26,7 +26,7 @@ client.on('ready', () =>{
 
 client.on('message', async (msg) =>{
   const data = await prefix.findOne({
-       GuildID: msg.guild.id
+       GuildID: client.guilds.get(msg.guild.id).id
    });
    if(data) {
        const prefix = data.Prefix;
